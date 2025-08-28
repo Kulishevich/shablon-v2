@@ -1,0 +1,47 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  z-index: 1000;
+  position: fixed;
+  right: vw-1440(63);
+  bottom: vw-1440(63);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: vw-1440(100);
+  height: vw-1440(100);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+
+  &:hover {
+    .phone > svg > g > g:first-child > g > path {
+      fill: var(--color-button-hover);
+    }
+  }
+
+  @media (max-width: 768px) {
+    right: 16px;
+    bottom: 16px;
+    width: 63px;
+    height: 63px;
+  }
+}
+
+.phone {
+  flex-shrink: 0;
+  width: vw-1440(356);
+  height: vw-1440(178);
+  pointer-events: none;
+
+  & > svg > g > g:first-child > g > path {
+    fill: var(--color-button);
+    transition: fill 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    width: 356px;
+    height: 178px;
+  }
+}

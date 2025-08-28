@@ -1,0 +1,39 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(36);
+  width: vw-1440(1296);
+  @media (max-width: 768px) {
+    width: 336px;
+    gap: 20px;
+  }
+}
+
+.title {
+  display: flex;
+  gap: vw-1440(20);
+  align-items: flex-end;
+
+  & > button {
+    margin-bottom: vw-1440(11);
+  }
+  @media (max-width: 768px) {
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    & > button {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  gap: vw-1440(48);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}

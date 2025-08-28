@@ -1,0 +1,107 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  max-width: vw-1440(1296);
+  margin: 0 auto;
+
+  &.tight {
+    max-width: vw-1440(966);
+  }
+
+  &.left {
+    h2,
+    h5 {
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 336px;
+
+    &.tight {
+      max-width: 336px;
+    }
+
+    &.left {
+      h2,
+      h5 {
+      }
+    }
+  }
+
+  h2 {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: vw-1440(42);
+    line-height: 120%;
+    color: var(--color-text);
+    margin-bottom: vw-1440(32);
+
+    @media (max-width: 768px) {
+      font-size: 26px;
+      margin-bottom: 24px;
+    }
+  }
+
+  p {
+    font-family: var(--font-onest);
+    font-weight: 400;
+    font-size: vw-1440(24);
+    line-height: 140%;
+    color: var(--color-text);
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  h3 {
+    margin-top: vw-1440(20);
+    margin-bottom: vw-1440(12);
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: vw-1440(24);
+    line-height: 140%;
+    color: var(--color-text);
+
+    @media (max-width: 768px) {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+  }
+
+  h4 {
+    font-family: var(--font-onest);
+    font-weight: 400;
+    font-size: vw-1440(20);
+    line-height: 140%;
+    color: var(--color-text);
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  ul,
+  ol {
+    margin-left: vw-1440(26);
+    margin-bottom: vw-1440(20);
+
+    @media (max-width: 768px) {
+      margin-left: 26px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      font-family: var(--font-onest);
+      font-weight: 400;
+      font-size: vw-1440(20);
+      line-height: 140%;
+      color: var(--color-text);
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use "../../config/styles/_functions.scss" as *;
+
+.primary {
+  position: relative;
+  width: vw-1440(220);
+  height: vw-1440(86);
+  flex-shrink: 0;
+  overflow: hidden;
+  & > img {
+    border-radius: vw-1440(6);
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    width: 106px;
+    height: 41px;
+    border-radius: 6px;
+
+    & > img {
+      border-radius: 6px;
+    }
+  }
+}
+
+.secondary {
+  position: relative;
+  width: vw-1440(196);
+  height: vw-1440(87);
+  flex-shrink: 0;
+  border-radius: vw-1440(6);
+  overflow: hidden;
+  & > img {
+    object-fit: contain;
+    border-radius: vw-1440(6);
+  }
+
+  @media (max-width: 768px) {
+    width: 106px;
+    height: 41px;
+    border-radius: 6px;
+
+    & > img {
+      border-radius: 6px;
+    }
+  }
+}

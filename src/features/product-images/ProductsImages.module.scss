@@ -1,0 +1,75 @@
+@use '../../shared/config/styles/functions' as *;
+
+.images {
+  display: flex;
+  gap: vw-1440(24);
+
+  margin-right: vw-1440(48);
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    gap: 16px;
+    margin-right: 0;
+  }
+}
+
+.miniImages {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(16);
+
+  .smallImage {
+    position: relative;
+    width: vw-1440(86);
+    height: vw-1440(86);
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--color-bg-card);
+    border: 1px solid transparent;
+    flex-shrink: 0;
+
+    & > img {
+      object-fit: cover;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
+
+    &.active {
+      border: 1px solid var(--color-button);
+    }
+
+    @media (max-width: 768px) {
+      width: 86px;
+      height: 86px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    width: 336px;
+    overflow-x: auto;
+    gap: 16px;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  background-color: var(--color-bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  height: fit-content;
+  height: vw-1440(392);
+  width: vw-1440(392);
+
+  & > img {
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 335px;
+  }
+}

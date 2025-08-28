@@ -1,0 +1,44 @@
+@use "../../shared/config/styles/functions" as *;
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(16);
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.contactElem {
+  display: flex;
+  gap: vw-1440(6);
+
+  & > svg {
+    color: var(--color-accent-1);
+    flex-shrink: 0;
+    width: vw-1440(24);
+    height: vw-1440(24);
+    @media (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+}
+
+.phones {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  .phones {
+    & > a {
+      color: var(--color-bg);
+    }
+  }
+}

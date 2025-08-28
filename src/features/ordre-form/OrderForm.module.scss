@@ -1,0 +1,111 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(36);
+
+  width: vw-1440(636);
+
+  @media (max-width: 768px) {
+    width: 336px;
+    gap: 36px;
+  }
+}
+.elem {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: vw-1440(10);
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-button);
+    color: var(--color-bg);
+    width: vw-1440(36);
+    height: vw-1440(36);
+    border-radius: 50%;
+
+    @media (max-width: 768px) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: vw-1440(10);
+    margin-right: auto;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    & > a {
+      display: none;
+    }
+    gap: 8px;
+  }
+}
+
+.contacts {
+  display: grid;
+  grid-template-columns: repeat(2, vw-1440(306));
+  gap: vw-1440(16) vw-1440(24);
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.delivery {
+  display: flex;
+  gap: vw-1440(24);
+
+  flex-wrap: wrap;
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(16);
+
+  .textarea {
+    height: vw-1440(124);
+    @media (max-width: 768px) {
+      height: 124px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.paymentMethod {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+}

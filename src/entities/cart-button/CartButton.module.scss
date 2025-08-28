@@ -1,0 +1,56 @@
+@use '../../shared/config/styles/functions' as *;
+
+.buttonCart {
+  display: flex;
+  align-items: center;
+  gap: vw-1440(8);
+
+  flex-shrink: 0;
+  width: vw-1440(192);
+  margin-left: vw-1440(52);
+
+  background-color: transparent;
+  border: none;
+
+  text-decoration: none;
+
+  .button {
+    padding: vw-1440(11);
+    & > svg {
+      width: vw-1440(32);
+      height: vw-1440(32);
+    }
+  }
+
+  &.notEmpty {
+    .button {
+      background-color: var(--color-button);
+      color: var(--color-bg);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    & > .button {
+      background-color: var(--color-button-hover);
+      color: var(--color-bg);
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+
+  & > span {
+    opacity: 0.4;
+  }
+
+  &.notEmpty {
+    & > span {
+      opacity: 1;
+    }
+  }
+}

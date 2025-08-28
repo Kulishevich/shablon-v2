@@ -1,0 +1,38 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: vw-1440(856);
+
+  @media (max-width: 768px) {
+    width: 336px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 15px;
+  }
+}
+
+.tableHeader {
+  display: flex;
+  background-color: var(--color-bg-card);
+  height: vw-1440(63);
+  align-items: center;
+  border-radius: vw-1440(12);
+
+  padding: 0 vw-1440(36) 0 vw-1440(48);
+
+  & > h6:nth-child(1) {
+    margin-right: vw-1440(93);
+  }
+  & > h6:nth-child(2) {
+    margin-right: vw-1440(82);
+  }
+  & > h6:nth-child(3) {
+    margin-right: vw-1440(79);
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

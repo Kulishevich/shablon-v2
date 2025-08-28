@@ -1,0 +1,123 @@
+@use "../../shared/config/styles/functions" as *;
+
+.wrapper {
+  position: relative;
+
+  .iconLeft {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(vw-1440(-754), -50%);
+    z-index: 100;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .iconRight {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(vw-1440(754), -50%);
+
+    z-index: 100;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.container {
+  width: 100vw;
+  height: vw-1440(601);
+
+  @media (max-width: 768px) {
+    height: 577px;
+  }
+}
+
+.slide {
+  height: 100%;
+  & > .content {
+    width: vw-1440(1296);
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: vw-1440(32);
+    & > div {
+      display: flex;
+      flex-direction: column;
+      width: vw-1440(746);
+      gap: vw-1440(16);
+      & > p,
+      h1,
+      h2 {
+        color: var(--color-bg);
+        top: 0;
+        left: 0;
+      }
+      @media (max-width: 768px) {
+        width: 100%;
+        gap: 12px;
+      }
+    }
+
+    & > a {
+      width: vw-1440(220);
+    }
+
+    @media (max-width: 768px) {
+      width: 336px;
+      gap: 20px;
+      justify-content: flex-start;
+      margin-top: 72px;
+      & > button {
+        width: 220px;
+      }
+
+      & > a {
+        width: 220px;
+      }
+    }
+  }
+  & > img {
+    z-index: -1;
+    object-fit: cover;
+    object-position: bottom;
+  }
+}
+
+.pagination {
+  position: absolute;
+  bottom: vw-1440(48) !important;
+  left: 50% !important;
+  transform: translateX(vw-1440(-625));
+  z-index: 100;
+
+  @media (max-width: 768px) {
+    transform: translateX(-170px);
+    bottom: 36px !important;
+  }
+}
+
+.bullet {
+  width: vw-1440(68);
+  height: 3px;
+  margin: 0 5px;
+  background-color: var(--color-bg);
+  border-radius: 0;
+  display: inline-block;
+  transition: background-color 0.3s;
+
+  &.swiper-pagination-bullet-active {
+    background-color: black;
+  }
+
+  @media (max-width: 768px) {
+    width: 50px;
+  }
+}

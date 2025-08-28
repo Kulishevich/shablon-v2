@@ -1,0 +1,93 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: vw-1440(6);
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vw-1440(12);
+  border: 1px solid rgba(17, 20, 52, 0.1);
+  border-radius: vw-1440(5);
+  padding: vw-1440(24);
+  background-color: var(--color-bg);
+  transition: border 0.3s ease;
+
+  &:hover {
+    border: 1px solid var(--color-accent-1);
+  }
+
+  svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;
+    border-radius: 5px;
+    gap: 12px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.placeholder {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    color: var(--color-text);
+    opacity: 0.6;
+  }
+
+  &.hasFile {
+    span {
+      opacity: 1;
+      color: var(--color-text);
+    }
+  }
+}
+
+.error {
+  border-color: var(--color-accent-red);
+}
+
+.disabled {
+  cursor: default;
+  opacity: 0.2;
+
+  .placeholder {
+    &:hover {
+      border: 1px solid #1114341a;
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  display: flex;
+  gap: vw-1440(8);
+  align-items: center;
+  justify-content: flex-start;
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.root {
+  cursor: pointer;
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: vw-1440(32);
+  height: vw-1440(32);
+
+  background-color: var(--color-bg);
+  border: 1px solid #1114341a;
+  border-radius: 2px;
+
+  & > button {
+    all: unset;
+  }
+
+  transition: border 0.3s ease;
+
+  &:hover {
+    border: 1px solid var(--color-button);
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: transparent;
+    border: 1px solid #1114341a;
+  }
+
+  &[data-state="checked"] {
+    width: vw-1440(32);
+    height: vw-1440(32);
+
+    background-color: var(--color-button);
+    border-radius: 2px;
+
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &[data-state="unchecked"] {
+    background-color: transparent;
+
+    &:disabled {
+      background-color: inherit;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg);
+}
+
+.icon {
+  width: vw-1440(18);
+  height: vw-1440(18);
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.error {
+  outline: 1px solid var(--color-accent-red);
+}
+
+.label {
+  opacity: 0.5;
+  &.disabled {
+    color: var(--color-accent-red);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.disabledIcon {
+  color: var(--color-accent-red);
+}

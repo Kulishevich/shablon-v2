@@ -1,0 +1,33 @@
+@use "../../shared/config/styles/functions" as *;
+
+.searchContainer {
+  display: flex;
+  gap: vw-1440(24);
+  width: vw-1440(635);
+  height: vw-1440(46);
+  flex-shrink: 0;
+  & > button {
+    width: vw-1440(150);
+    flex-shrink: 0;
+  }
+
+  .input {
+    height: vw-1440(46);
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    width: 336px;
+    flex-shrink: 0;
+    height: 46px;
+
+    .input {
+      height: 46px;
+    }
+    & > button {
+      width: 100px;
+      height: 46px;
+      flex-shrink: 0;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: vw-1440(12);
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  width: vw-1440(30);
+  height: vw-1440(30);
+
+  &:hover {
+    color: var(--color-button);
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+.pagination {
+  display: flex;
+  gap: vw-1440(4);
+  @media (max-width: 768px) {
+    gap: 4px;
+  }
+}
+.paginationElem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  width: vw-1440(42);
+  height: vw-1440(42);
+  padding: 0;
+
+  color: var(--color-text);
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+
+  &:hover {
+    color: var(--color-button);
+  }
+
+  &.active {
+    background-color: var(--color-button-additional);
+    & > span {
+      color: var(--color-text);
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 32px;
+    height: 32px;
+  }
+}

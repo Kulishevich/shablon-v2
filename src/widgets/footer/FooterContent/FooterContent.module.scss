@@ -1,0 +1,151 @@
+@use "../../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  padding: vw-1440(47) 0 vw-1440(42);
+
+  border-bottom: 1px solid #ffffff13;
+
+  .elem {
+    &:nth-child(1) {
+      width: vw-1440(196);
+      @media (max-width: 768px) {
+        width: 196px;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    &:nth-child(3) {
+      width: vw-1440(224);
+      @media (max-width: 768px) {
+        width: 196px;
+        align-items: center;
+      }
+    }
+
+    &:nth-child(4) {
+      white-space: pre-line;
+      width: vw-1440(224);
+      @media (max-width: 768px) {
+        text-align: center;
+        width: 204px;
+      }
+    }
+
+    & > div {
+      color: var(--color-bg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 48px;
+    padding: 47px 0 42px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.elem {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(16);
+
+  & > p,
+  h5,
+  & > div {
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+
+.iconsContainer {
+  display: flex;
+  gap: vw-1440(8);
+
+  & > svg {
+    width: vw-1440(32);
+    height: vw-1440(32);
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.catalogContainer {
+  display: flex;
+  gap: vw-1440(48);
+
+  .elem {
+    &:nth-child(1) {
+      width: vw-1440(334);
+      @media (max-width: 768px) {
+        text-align: start;
+        align-items: flex-start;
+        width: 160px;
+      }
+    }
+    &:nth-child(2) {
+      width: vw-1440(155);
+      @media (max-width: 768px) {
+        align-items: flex-start;
+        width: 160px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+}
+.catalog {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  gap: vw-1440(16) vw-1440(20);
+  list-style: none;
+
+  & > li > a {
+    color: var(--color-bg);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-button);
+    }
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+  list-style: none;
+
+  & > li > a {
+    color: var(--color-bg);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-button);
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+}

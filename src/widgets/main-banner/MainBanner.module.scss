@@ -1,0 +1,82 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  width: 100%;
+  position: relative;
+  height: vw-1440(340);
+
+  @media (max-width: 768px) {
+    height: 340px;
+  }
+
+  .content {
+    max-width: vw-1440(1296);
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    p {
+      mix-blend-mode: difference;
+    }
+
+    span > p {
+      mix-blend-mode: initial;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      max-width: 335px;
+      padding: 32px 0;
+    }
+
+    .heading {
+      max-width: vw-1440(245);
+
+      .type {
+        opacity: 0.5;
+        margin-bottom: vw-1440(8);
+      }
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+
+        .type {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .caption {
+      max-width: vw-1440(220);
+
+      .button {
+        margin-top: vw-1440(16);
+      }
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+
+        .button {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

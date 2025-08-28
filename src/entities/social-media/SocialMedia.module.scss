@@ -1,0 +1,19 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  gap: vw-1440(6);
+
+  & > a > svg {
+    width: vw-1440(32);
+    height: vw-1440(32);
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}

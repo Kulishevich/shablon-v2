@@ -1,0 +1,39 @@
+@use "../../shared/config/styles/functions" as *;
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
+
+  width: 100%;
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(16);
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    flex: 1 1 auto;
+
+    & > img {
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      height: 195px;
+    }
+  }
+  @media (max-width: 768px) {
+    text-align: center;
+    gap: 16px;
+  }
+}

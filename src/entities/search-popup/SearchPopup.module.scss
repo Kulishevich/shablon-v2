@@ -1,0 +1,66 @@
+@use "../../shared/config/styles/functions" as *;
+
+.wrapper {
+  position: absolute;
+  top: vw-1440(68);
+  left: 0;
+  z-index: 1000;
+  overflow: hidden;
+
+  width: 100%;
+  height: fit-content;
+  max-height: vw-1440(520);
+  border-radius: 6px;
+}
+
+.content {
+  width: 100%;
+  height: fit-content;
+  max-height: vw-1440(520);
+  padding: vw-1440(24);
+
+  border: 1px solid #25338c1a;
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(20);
+
+  background-color: var(--color-bg);
+  border-radius: 6px;
+  overflow-y: auto;
+
+  animation: fadeIn 0.1s ease-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(20);
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(8);
+}
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+}
+
+.loading,
+.noResults {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vw-1440(20);
+  color: var(--color-text-secondary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

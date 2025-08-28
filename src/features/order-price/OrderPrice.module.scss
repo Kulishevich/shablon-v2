@@ -1,0 +1,77 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(16);
+
+  height: fit-content;
+  padding: vw-1440(24) vw-1440(20);
+
+  border-radius: 6px;
+  background-color: var(--color-bg-card);
+
+  .button {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+}
+
+.promocode {
+  display: flex;
+  gap: vw-1440(12);
+  height: vw-1440(44);
+
+  & > button {
+    width: vw-1440(170);
+    flex-shrink: 0;
+  }
+  .input {
+    width: vw-1440(304);
+    height: vw-1440(44);
+    padding: vw-1440(10) vw-1440(20);
+    @media (max-width: 768px) {
+      width: 143px;
+      height: 44px;
+      padding: 10px 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+    height: 44px;
+
+    & > button {
+      width: 140px;
+    }
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+  padding-bottom: vw-1440(24);
+  border-bottom: 1px solid #11143413;
+
+  @media (max-width: 768px) {
+    gap: 12px;
+    padding-bottom: 24px;
+  }
+}
+
+.elem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:nth-child(2) {
+    & > p {
+      color: var(--color-accent-red) !important;
+    }
+  }
+}

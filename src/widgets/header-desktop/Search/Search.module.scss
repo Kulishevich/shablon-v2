@@ -1,0 +1,9 @@
+@use '../../../shared/config/styles/functions' as *;
+
+.container {
+  width: vw-1440(1296);
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}

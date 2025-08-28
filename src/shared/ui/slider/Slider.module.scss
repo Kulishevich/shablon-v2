@@ -1,0 +1,83 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  position: relative;
+  width: vw-1440(1296);
+
+  @media (max-width: 768px) {
+    width: 336px;
+    margin-bottom: 70px;
+  }
+}
+
+.itemsContainer {
+  width: calc(100% + vw-1440(40));
+  margin-bottom: vw-1440(-48);
+  margin-left: vw-1440(-20);
+  display: flex;
+  gap: vw-1440(24);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 0 vw-1440(20);
+  padding-bottom: vw-1440(48);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    gap: 15px;
+
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-bottom: -70px;
+    padding: 0 20px;
+    padding-bottom: 70px;
+  }
+}
+
+.iconLeft {
+  position: absolute;
+  left: vw-1440(-106);
+  bottom: 50%;
+  transform: translateY(50%);
+
+  & > svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+    @media (max-width: 768px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: -72px;
+    left: 112px;
+    transform: translate(0, 0);
+  }
+}
+
+.iconRight {
+  position: absolute;
+  right: vw-1440(-106);
+
+  bottom: 50%;
+  transform: translateY(50%);
+
+  & > svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+    @media (max-width: 768px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: -72px;
+    right: 112px;
+    transform: translate(0, 0);
+  }
+}

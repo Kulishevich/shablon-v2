@@ -1,0 +1,82 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: vw-1440(24) 0;
+  border-bottom: 1px solid #1114341a;
+
+  & > button {
+    margin-right: vw-1440(16);
+  }
+
+  & > .count {
+    display: flex;
+    gap: vw-1440(12);
+
+    width: fit-content;
+    margin-right: vw-1440(72);
+    .input {
+      width: vw-1440(47);
+      height: vw-1440(44);
+      padding: 0;
+
+      text-align: center;
+    }
+
+    .countButton {
+      width: vw-1440(47);
+      height: vw-1440(44);
+      padding: 0;
+
+      flex-shrink: 0;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  gap: vw-1440(12);
+  align-items: center;
+
+  margin-right: vw-1440(38);
+
+  & > .imageContainer {
+    position: relative;
+    width: vw-1440(92);
+    height: vw-1440(92);
+
+    & > img {
+      background-color: var(--color-bg-card);
+      border-radius: 4px;
+      object-fit: cover;
+    }
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(6);
+    width: vw-1440(115);
+    & > span {
+      opacity: 0.5;
+    }
+  }
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(3);
+
+  margin-right: vw-1440(117);
+
+  & > span {
+    opacity: 0.3;
+  }
+}
+
+.discount {
+  color: var(--color-accent-red);
+}

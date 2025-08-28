@@ -1,0 +1,92 @@
+@use "../../config/styles/functions" as *;
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-card);
+  padding: vw-1440(16);
+  border-radius: 6px;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+  text-align: left;
+
+  & > svg {
+    transition: transform 0.3s ease;
+  }
+
+  & > p {
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+    & > p {
+      color: var(--color-button);
+    }
+  }
+
+  &[data-state="open"] {
+    & > svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(12);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+  }
+
+  & > :first-child {
+    margin-top: vw-1440(12);
+
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

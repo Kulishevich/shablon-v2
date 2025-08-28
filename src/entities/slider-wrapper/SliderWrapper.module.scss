@@ -1,0 +1,16 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: vw-1440(32);
+
+  & > h2 {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
+}

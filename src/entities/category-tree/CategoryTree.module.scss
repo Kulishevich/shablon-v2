@@ -1,0 +1,177 @@
+@use "../../shared/config/styles/functions" as *;
+
+.categoryTree {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-card);
+  border-radius: vw-1440(6);
+  overflow: hidden;
+  margin-bottom: vw-1440(12);
+
+  @media (max-width: 768px) {
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(1);
+
+  @media (max-width: 768px) {
+    gap: 1px;
+  }
+}
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+
+  // Стили для категорий первого уровня (темные)
+  &[data-level="0"] {
+    .triggerContainer {
+      background-color: var(--color-text);
+
+      .categoryLink {
+        color: var(--color-bg);
+        font-weight: 500;
+
+        &.active {
+          color: var(--color-button-hover);
+        }
+      }
+
+      .trigger {
+        color: var(--color-bg);
+      }
+    }
+  }
+
+  // Стили для подкатегорий (светлые)
+  &:not([data-level="0"]) {
+    .triggerContainer {
+      background-color: var(--color-bg);
+      transition: all 0.3s ease;
+
+      &:has(.categoryLink:hover) {
+        background-color: var(--color-button-hover);
+      }
+
+      .categoryLink {
+        color: var(--color-text);
+
+        &.active {
+          color: var(--color-button);
+        }
+      }
+
+      .trigger {
+        color: var(--color-text);
+      }
+    }
+  }
+
+  // Добавляем CSS переменную для уровня вложенности
+  &[data-level="1"] {
+    --level: 1;
+  }
+
+  &.hasActiveChild {
+    .categoryLink:not(.active) {
+      opacity: 0.7;
+    }
+  }
+}
+
+.triggerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw-1440(12);
+  padding: vw-1440(16);
+
+  @media (max-width: 768px) {
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+.categoryLink {
+  flex: 1;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+  width: fit-content;
+  flex: 0 0 auto;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  flex: 1 0 auto;
+
+  & > svg {
+    transition: transform 0.3s ease;
+    width: vw-1440(24);
+    height: vw-1440(24);
+
+    path {
+      fill: var(--color-bg);
+    }
+
+    @media (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &[data-state="open"] {
+    & > svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(1);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      gap: 1px;
+    }
+  }
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

@@ -1,0 +1,70 @@
+@use '../../shared/config/styles/functions' as *;
+
+.cotnainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: vw-1440(12);
+  width: vw-1440(306);
+
+  &:hover {
+    content div {
+      color: var(--color-text);
+    }
+    .imageContainer {
+      box-shadow: 1px 4px 8px 0px #0b0c1908;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    width: vw-1440(306);
+    height: vw-1440(220);
+    border-radius: 6px;
+    overflow: hidden;
+
+    & > img {
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      width: 160px;
+      height: 110px;
+      border-radius: 4px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    width: 160px;
+  }
+}
+
+.date {
+  background-color: var(--color-button);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-bg);
+}
+
+.button {
+  & > svg {
+    width: vw-1440(20);
+    height: vw-1440(20);
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: vw-1440(12);
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}

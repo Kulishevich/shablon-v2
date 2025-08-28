@@ -1,0 +1,41 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+
+  box-sizing: border-box;
+  border: 1px solid #1114341a;
+  border-radius: 6px;
+  background-color: transparent;
+
+  width: vw-1440(196);
+  height: vw-1440(174);
+  padding: vw-1440(16);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-button);
+    opacity: 0.8;
+    p {
+      color: var(--color-bg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 160px;
+    height: 150px;
+    padding: 16px;
+  }
+}
+
+.active {
+  background-color: var(--color-button);
+  border: none;
+
+  p {
+    color: var(--color-bg);
+  }
+}

@@ -1,0 +1,182 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  gap: vw-1440(6);
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .ratingButton {
+    width: vw-1440(24);
+    height: vw-1440(24);
+    cursor: pointer;
+    color: var(--color-accent-orange);
+    filter: grayscale(100%);
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    &.active {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    svg {
+      width: vw-1440(24);
+      height: vw-1440(24);
+    }
+
+    @media (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.iconSearch {
+  position: absolute;
+  top: 50%;
+  left: vw-1440(12);
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+
+  width: vw-1440(26);
+  height: vw-1440(26);
+
+  color: var(--color-text);
+
+  @media (max-width: 768px) {
+    left: 12px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+.clearIcon {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.input {
+  all: unset;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid #1114341a;
+  border-radius: 4px;
+  background-color: var(--color-bg);
+  transition: border 0.3s ease;
+
+  &::placeholder {
+    color: var(--color-text);
+    opacity: 0.4;
+  }
+
+  &.text {
+    padding: vw-1440(20);
+
+    &:focus {
+      border: 1px solid var(--color-accent-1);
+    }
+
+    &:hover {
+      border: 1px solid var(--color-accent-1);
+    }
+
+    &:disabled {
+      opacity: 0.2;
+    }
+
+    @media (max-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  &.search {
+    padding: vw-1440(15);
+    padding-left: vw-1440(50);
+
+    &:focus {
+      border: 1px solid var(--color-accent-1);
+    }
+
+    &:hover {
+      border: 1px solid var(--color-accent-1);
+    }
+
+    &:disabled {
+      opacity: 0.2;
+    }
+
+    @media (max-width: 768px) {
+      padding: 15px;
+      padding-left: 50px;
+      padding-right: 43px;
+    }
+  }
+}
+
+.passwordControl {
+  cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  right: vw-1440(12);
+  transform: translateY(-50%);
+
+  display: none;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  &:hover {
+    background: none;
+  }
+
+  @media (max-width: 768px) {
+    right: 12px;
+  }
+}
+
+.showIcon {
+  display: flex;
+}
+
+.error {
+  color: var(--color-accent-red);
+  border-color: var(--color-accent-red);
+}
+
+.disabled {
+  cursor: default;
+}

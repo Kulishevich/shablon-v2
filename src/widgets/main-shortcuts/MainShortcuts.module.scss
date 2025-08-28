@@ -1,0 +1,43 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: vw-1440(1296);
+  margin-top: vw-1440(-56);
+
+  @media (max-width: 768px) {
+    gap: 24px;
+    max-width: 335px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .swiper {
+    width: 100%;
+
+    .slide {
+      width: auto;
+    }
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% + vw-1440(216));
+
+    @media (max-width: 768px) {
+      width: 100%;
+
+      position: static;
+      transform: none;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 24px;
+    }
+  }
+}

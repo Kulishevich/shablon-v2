@@ -1,0 +1,74 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: vw-1440(12);
+
+  &:hover {
+    box-shadow: 1px 4px 8px 0px #0b0c1908;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: vw-1440(12);
+  flex: 1;
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: vw-1440(92);
+  height: vw-1440(92);
+  background-color: var(--color-bg-card);
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 72px;
+    height: 72px;
+    border-radius: 4px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(6);
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+}
+
+.price {
+  display: flex;
+  gap: vw-1440(8);
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.button {
+  flex-shrink: 0;
+  & > svg {
+    width: vw-1440(32);
+    height: vw-1440(32);
+    @media (max-width: 768px) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

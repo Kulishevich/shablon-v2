@@ -1,0 +1,75 @@
+@use "../../config/styles/functions" as *;
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(20);
+  border-bottom: 1px solid #1114341a;
+  padding: vw-1440(32) vw-1440(16);
+  width: 100%;
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 32px 16px;
+  }
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: none;
+  background-color: var(--color-bg);
+
+  & > span {
+    transition: transform 0.3s ease;
+  }
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    & > p {
+      color: var(--color-button);
+    }
+    & > span {
+      background-color: var(--color-button);
+      color: var(--color-bg);
+    }
+  }
+  &[data-state="open"] {
+    & > span {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.content {
+  overflow: hidden;
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

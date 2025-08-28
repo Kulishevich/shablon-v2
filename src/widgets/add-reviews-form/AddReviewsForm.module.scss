@@ -1,0 +1,73 @@
+@use "../../shared/config/styles/functions" as *;
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100svh;
+  max-height: 100svh;
+  z-index: 1200;
+  top: 0;
+  left: 0;
+  background-color: #252b3399;
+  animation: fadeIn 0.1s ease-out;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.content {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  gap: vw-1440(24);
+  padding: vw-1440(36);
+  width: vw-1440(700);
+  background-color: var(--color-bg);
+  box-shadow: 0px 48px 48px 0px #252b330d;
+  border-radius: 6px;
+  animation: fadeIn 0.1s ease-out;
+
+  overflow-y: auto;
+
+  .closeButton {
+    display: flex;
+    position: absolute;
+    top: vw-1440(16);
+    right: vw-1440(16);
+    border-radius: 50%;
+    padding: vw-1440(10);
+
+    & > svg {
+      width: vw-1440(19);
+      height: vw-1440(19);
+      @media (max-width: 768px) {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      top: 8px;
+      right: 8px;
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    padding: 24px;
+
+    flex-direction: column;
+    & > img {
+      display: none;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

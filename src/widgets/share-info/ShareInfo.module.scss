@@ -1,0 +1,75 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: vw-1440(450);
+  z-index: 1;
+
+  & > img {
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    height: 180px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  margin-top: vw-1440(171);
+  margin: vw-1440(171) auto 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
+
+  width: vw-1440(952);
+  padding: vw-1440(48);
+
+  background-color: var(--color-bg);
+  border-radius: 6px;
+  box-shadow:
+    1px 4px 8px 0 rgba(11, 12, 25, 0.03),
+    4px 14px 15px 0 rgba(11, 12, 25, 0.02),
+    8px 32px 20px 0 rgba(11, 12, 25, 0.01),
+    14px 57px 24px 0 rgba(11, 12, 25, 0.01),
+    22px 89px 26px 0 rgba(11, 12, 25, 0);
+
+  & > span {
+    color: var(--color-button);
+  }
+
+  .breadcrumbs {
+    margin: 0;
+
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(12);
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    padding: 32px;
+    gap: 16px;
+    margin-top: 96px;
+  }
+}

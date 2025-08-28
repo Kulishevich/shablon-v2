@@ -1,0 +1,24 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+  gap: 39px;
+  z-index: 1001;
+  background-color: var(--color-bg);
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 10px;
+
+  & > button {
+    color: var(--color-text);
+  }
+}

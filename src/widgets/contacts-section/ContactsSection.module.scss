@@ -1,0 +1,121 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(36);
+  width: 100%;
+  overflow: hidden;
+
+  h2 {
+    text-align: center;
+    margin: 0 auto;
+    width: vw-1440(1296);
+  }
+
+  h1 {
+    width: vw-1440(1296);
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 336px;
+    gap: 20px;
+    align-items: center;
+  }
+}
+
+.content {
+  display: flex;
+  gap: vw-1440(24);
+  position: relative;
+  padding: vw-1440(36) 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+  }
+}
+
+.inner {
+  max-width: vw-1440(1296);
+  width: 100%;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
+  width: 100%;
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-bg);
+  border-radius: vw-1440(6);
+  padding: vw-1440(32);
+  max-width: vw-1440(636);
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    gap: 16px;
+    border-radius: 6px;
+    padding: 0;
+  }
+}
+
+.elem {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}
+
+.phones {
+  display: flex;
+  flex-direction: column;
+}
+
+.map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  &.map_mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    width: 335px;
+    height: 200px;
+    &.main {
+      width: 335px;
+      height: 200px;
+    }
+
+    &.map_desktop {
+      display: none;
+    }
+
+    &.map_mobile {
+      display: block;
+    }
+  }
+}

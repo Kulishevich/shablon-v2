@@ -1,0 +1,46 @@
+@use "../../config/styles/functions" as *;
+
+.container {
+  width: vw-1440(1296);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: vw-1440(6);
+  margin: vw-1440(36) auto vw-1440(20);
+  list-style: none;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+    gap: 6px;
+    max-width: 336px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 24px auto 16px;
+  }
+}
+
+.elem {
+  display: flex;
+  align-items: center;
+  gap: vw-1440(6);
+
+  @media (max-width: 768px) {
+    gap: 6px;
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-accent-1);
+  width: vw-1440(16);
+  height: vw-1440(16);
+
+  @media (max-width: 768px) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.lastItem {
+  pointer-events: none;
+}

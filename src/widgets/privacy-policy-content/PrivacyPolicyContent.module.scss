@@ -1,0 +1,30 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(36);
+
+  width: vw-1440(1296);
+
+  h1 {
+    hyphens: auto;
+    text-align: center;
+  }
+  @media (max-width: 768px) {
+    width: 335px;
+    gap: 20px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+
+  white-space: pre-line;
+
+  @media (max-width: 768px) {
+    gap: 32px;
+  }
+}

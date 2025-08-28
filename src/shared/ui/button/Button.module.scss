@@ -1,0 +1,338 @@
+@use '../../config/styles/functions' as *;
+
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 4px;
+  outline: none;
+
+  color: inherit;
+  text-align: center;
+
+  transition:
+    color 0.5s ease,
+    background-color 0.5s ease;
+
+  & > a {
+    color: inherit;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.primary {
+  color: var(--color-bg);
+  background-color: var(--color-button);
+  padding: vw-1440(15) vw-1440(12);
+
+  &:hover {
+    background-color: var(--color-button-hover);
+    color: var(--color-bg);
+  }
+
+  &:active {
+    background-color: var(--color-button-additional);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-button-additional);
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+    background-color: var(--color-bg-card);
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px 12px;
+  }
+}
+
+.secondary {
+  color: var(--color-bg);
+  background-color: var(--color-button-hover);
+  padding: vw-1440(14) vw-1440(12);
+
+  &:hover {
+    background-color: var(--color-button);
+    color: var(--color-bg);
+  }
+
+  &:active {
+    background-color: var(--color-button-additional);
+    box-shadow: 0px 0px 5px 0px #25338c80;
+    color: var(--color-bg);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-button-additional);
+    box-shadow: 0px 0px 5px 0px #25338c80;
+    color: var(--color-bg);
+  }
+
+  &:disabled {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 14px 12px;
+  }
+}
+
+//! нету таких кнопок
+.category {
+  color: var(--color-accent-1);
+  background-color: var(--color-bg);
+  padding: vw-1440(14) vw-1440(12);
+
+  &:hover {
+    background-color: var(--color-accent-2);
+    color: var(--color-accent-1);
+  }
+
+  &:active {
+    background-color: var(--color-accent-1);
+    color: var(--color-bg);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-accent-1);
+    color: var(--color-bg);
+  }
+
+  &:disabled {
+    color: var(--color-accent-1);
+    background-color: var(--color-bg-card);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 14px 12px;
+  }
+}
+
+.burger {
+  color: var(--color-text);
+  background-color: var(--color-button-additional);
+  padding: vw-1440(15) vw-1440(24);
+  gap: vw-1440(10);
+
+  &:hover {
+    color: var(--color-bg);
+    background-color: var(--color-button-hover);
+  }
+
+  &:active {
+    color: var(--color-bg);
+    background-color: var(--color-button);
+  }
+
+  &:focus-visible {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+    background-color: var(--color-bg-card);
+  }
+
+  @media (max-width: 768px) {
+    padding: 15px 24px;
+    gap: 10px;
+  }
+}
+
+.icon_primary {
+  width: fit-content;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding: vw-1440(17);
+  border-radius: 50%;
+
+  & > svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+  }
+
+  &:hover {
+    background-color: var(--color-button);
+    color: var(--color-bg);
+  }
+
+  &:active {
+    background-color: var(--color-button);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-button);
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+    background-color: var(--color-bg-card);
+  }
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    padding: 17px;
+  }
+}
+
+.icon_secondary {
+  width: fit-content;
+  color: var(--color-text);
+  background-color: var(--color-button-additional);
+  padding: vw-1440(17);
+  border-radius: 50%;
+
+  box-shadow: 1px 4px 8px 0px #0b0c1908;
+
+  & > svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+    @media (max-width: 768px) {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &:hover {
+    color: var(--color-bg);
+    background-color: var(--color-button-hover);
+  }
+
+  &:active {
+    color: var(--color-bg);
+    background-color: var(--color-button);
+    box-shadow: 0px 0px 5px 0px #25338c80;
+  }
+
+  &:focus-visible {
+    color: var(--color-bg);
+    background-color: var(--color-button);
+    box-shadow: 0px 0px 5px 0px #25338c80;
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+    background-color: var(--color-bg-card);
+  }
+
+  @media (max-width: 768px) {
+    padding: 9px;
+  }
+}
+
+.link {
+  color: var(--color-link);
+  background-color: transparent;
+  gap: 4px;
+  width: fit-content;
+  text-decoration: none;
+
+  & > svg {
+    width: vw-1440(20);
+    height: vw-1440(20);
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:hover {
+    color: var(--color-button);
+    & > svg {
+      color: var(--color-accent-1);
+    }
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+  }
+}
+
+.icon {
+  color: var(--color-button);
+  background-color: transparent;
+  padding: vw-1440(8);
+  outline: 1px solid #1114341a;
+  border: none;
+  & > svg {
+    width: vw-1440(16);
+    height: vw-1440(16);
+    @media (max-width: 768px) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &:hover {
+    color: var(--color-text);
+    outline: 1px solid var(--color-button-hover);
+  }
+
+  &:active {
+    color: var(--color-button-additional);
+    outline: 1px solid var(--color-button-additional);
+  }
+
+  &:focus-visible {
+    color: var(--color-button-additional);
+    outline: 1px solid var(--color-button-additional);
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+  }
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+}
+
+.icon_outlined {
+  color: var(--color-bg);
+  background-color: var(--color-button);
+  padding: vw-1440(11);
+
+  &:hover {
+    color: var(--color-bg);
+    background-color: var(--color-button-hover);
+  }
+
+  &:active {
+    color: var(--color-bg);
+    background-color: var(--color-button-additional);
+    box-shadow: 0px 0px 5px 0px #11143480;
+  }
+
+  &:focus-visible {
+    color: var(--color-bg);
+    background-color: var(--color-button-additional);
+    box-shadow: 0px 0px 5px 0px #11143480;
+  }
+
+  &:disabled {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

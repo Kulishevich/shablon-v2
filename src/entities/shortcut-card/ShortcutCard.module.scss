@@ -1,0 +1,31 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .title {
+    margin-top: vw-1440(14);
+    text-align: center;
+
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  & > img {
+    object-fit: cover;
+    width: vw-1440(120);
+    height: vw-1440(120);
+    border-radius: 50%;
+    border: 1px solid var(--color-button);
+    background-color: var(--color-bg-card);
+
+    @media (max-width: 768px) {
+      width: 64px;
+      height: 64px;
+    }
+  }
+}

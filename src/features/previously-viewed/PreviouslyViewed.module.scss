@@ -1,0 +1,19 @@
+@use '../../shared/config/styles/functions' as *;
+
+.productLink {
+  position: relative;
+  width: vw-1440(196);
+  height: vw-1440(196);
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  & > img {
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 101px;
+    height: 101px;
+  }
+}

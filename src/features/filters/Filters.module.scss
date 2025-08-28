@@ -1,0 +1,43 @@
+@use "../../shared/config/styles/functions" as *;
+
+.filters {
+  width: vw-1440(282);
+
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    gap: 12px;
+  }
+}
+
+.categoryFilter {
+  margin-bottom: vw-1440(4);
+
+  @media (max-width: 768px) {
+    margin-bottom: 4px;
+  }
+
+  // Убираем стандартные стили для мобильной версии в диалоге
+  .mobile-only & {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: vw-1440(12);
+
+    @media (max-width: 768px) {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.inputsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 86px);
+  gap: 12px;
+
+  .input {
+    height: 44px;
+  }
+}

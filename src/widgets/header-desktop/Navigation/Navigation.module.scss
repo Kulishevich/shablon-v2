@@ -1,0 +1,98 @@
+@use '../../../shared/config/styles/functions' as *;
+
+.container {
+  width: 100%;
+  height: vw-1440(68);
+
+  background-color: var(--color-bg-card);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: vw-1440(1296);
+  display: flex;
+  gap: vw-1440(47);
+}
+
+.navigation {
+  height: 100%;
+
+  & > ul {
+    display: flex;
+    gap: vw-1440(28);
+    align-items: center;
+    list-style: none;
+    height: 100%;
+
+    li:nth-child(2) {
+      a {
+        color: var(--color-accent-red);
+
+        &:hover {
+          color: var(--color-accent-1);
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: vw-1440(4);
+      text-decoration: none;
+
+      & > svg {
+        width: vw-1440(22);
+        height: vw-1440(22);
+      }
+
+      &:hover {
+        color: var(--color-accent-1);
+      }
+    }
+  }
+}
+
+.info {
+  height: 100%;
+
+  display: flex;
+  gap: vw-1440(26);
+  align-items: center;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: vw-1440(6);
+    flex: 1;
+
+    & > svg {
+      color: var(--color-accent-1);
+      flex-shrink: 0;
+      width: vw-1440(24);
+      height: vw-1440(24);
+    }
+
+    &:nth-child(1) {
+      width: vw-1440(186);
+    }
+
+    &:nth-child(2) {
+      width: vw-1440(153);
+      flex: 1;
+    }
+
+    &:nth-child(3) {
+      width: vw-1440(224);
+    }
+  }
+}
+
+.phones {
+  display: flex;
+  flex-direction: column;
+
+  & > a {
+    font-family: var(--font-open-sans);
+  }
+}

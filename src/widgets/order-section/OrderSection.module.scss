@@ -1,0 +1,22 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+  width: vw-1440(1296);
+  @media (max-width: 768px) {
+    gap: 22px;
+    width: 336px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}

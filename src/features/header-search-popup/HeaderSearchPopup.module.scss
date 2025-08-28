@@ -1,0 +1,58 @@
+.container {
+  position: absolute;
+  top: 73px;
+  left: 50%;
+  transform: translateX(calc(-50% - 1px));
+  z-index: 1001;
+
+  width: 336px;
+  height: fit-content;
+  max-height: 541px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background-color: var(--color-bg);
+  border-radius: 6px;
+  overflow: auto;
+
+  animation: fadeIn 0.1s ease-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.loading,
+.noResults {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: var(--color-text-secondary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

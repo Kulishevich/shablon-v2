@@ -1,0 +1,103 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(120);
+
+  @media (max-width: 768px) {
+    gap: 72px;
+  }
+}
+
+.header {
+  width: vw-1440(1296);
+  display: flex;
+  align-items: center;
+  gap: vw-1440(24);
+  justify-content: space-between;
+  margin-bottom: vw-1440(-100);
+
+  img {
+    width: auto;
+    height: vw-1440(55);
+    object-fit: contain;
+  }
+
+  .sku {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    width: 336px;
+    margin-bottom: -52px;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+
+    h1 {
+      text-align: center;
+    }
+
+    img {
+      width: auto;
+      height: 32px;
+    }
+
+    .sku {
+      display: block;
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: vw-1440(1296);
+  & > p {
+    margin-bottom: vw-1440(16);
+    @media (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  & > h1 {
+    margin-bottom: vw-1440(24);
+
+    @media (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  .sku {
+    margin-bottom: vw-1440(16);
+    margin-top: vw-1440(4);
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .sku_mobile {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 336px;
+
+    .sku {
+      display: none;
+
+      &.sku_mobile {
+        margin-top: 0;
+        display: block;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+  align-items: center;
+  width: 100%;
+  max-width: vw-1440(1296);
+
+  h1 {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    gap: 24px;
+    max-width: 335px;
+
+    h1 {
+      text-align: center;
+    }
+  }
+}
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vw-1440(24);
+  width: 100%;
+
+  &.gridThree {
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &.gridFour {
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}

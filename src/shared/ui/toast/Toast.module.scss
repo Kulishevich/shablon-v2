@@ -1,0 +1,48 @@
+@use "../../../shared/config/styles/functions" as *;
+
+.rootClass {
+  position: relative;
+  padding: vw-1440(16) vw-1440(24);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+
+  width: vw-1440(334);
+  margin: 0 auto;
+
+  &.success {
+    background-color: #13b926;
+  }
+
+  &.error {
+    background-color: var(--color-accent-red);
+  }
+
+  &.info {
+    background-color: var(--color-accent-1);
+  }
+
+  &.warning {
+    background-color: var(--color-accent-orange);
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .title,
+  .message {
+    color: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    width: 267px;
+    padding: 12px 20px;
+  }
+}

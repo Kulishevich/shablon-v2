@@ -1,0 +1,53 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  width: vw-1440(1296);
+
+  @media (max-width: 768px) {
+    width: 336px;
+  }
+
+  .content {
+    display: flex;
+    gap: vw-1440(24);
+    margin-bottom: vw-1440(32);
+
+    h2 {
+      width: vw-1440(306);
+      flex-shrink: 0;
+    }
+
+    p {
+      max-width: vw-1440(526);
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+
+      h2 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 12px;
+      }
+
+      p {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .image {
+    border-radius: vw-1440(6);
+    width: 100%;
+    height: vw-1440(360);
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+      height: 208px;
+      border-radius: 4px;
+    }
+  }
+}

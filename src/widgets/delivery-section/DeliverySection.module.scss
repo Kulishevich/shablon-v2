@@ -1,0 +1,37 @@
+@use '../../shared/config/styles/functions' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: vw-1440(1296);
+
+  @media (max-width: 768px) {
+    width: 336px;
+    align-items: center;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(20);
+
+  white-space: pre-line;
+}
+
+.deliveryArea {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+}
+
+.map {
+  height: vw-1440(320);
+  width: vw-1440(526);
+
+  @media (max-width: 768px) {
+    width: 303px;
+    height: 180px;
+  }
+}
