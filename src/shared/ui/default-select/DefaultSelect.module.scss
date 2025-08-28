@@ -1,0 +1,52 @@
+@use '../../config/styles/functions' as *;
+
+.trigger {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: vw-1440(4);
+
+  & > svg {
+    color: var(--color-accent-1);
+    width: vw-1440(10);
+    height: vw-1440(8);
+  }
+}
+
+.content {
+  z-index: 1000;
+  background: var(--color-bg);
+  border-radius: vw-1440(12);
+  padding: vw-1440(16) vw-1440(20);
+  max-height: vw-1440(300);
+  overflow-y: auto;
+  min-width: vw-1440(150);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: vw-1440(4);
+  font-family: var(--font-open-sans);
+
+  &:hover {
+    color: var(--color-button);
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 4px;
+  }
+}

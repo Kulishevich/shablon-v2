@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   position: relative;
@@ -10,12 +10,7 @@
   align-content: flex-start;
   border-radius: vw-1440(6);
   overflow: hidden;
-  box-shadow:
-    1px 4px 8px 0 rgba(11, 12, 25, 0.03),
-    4px 14px 15px 0 rgba(11, 12, 25, 0.02),
-    8px 32px 20px 0 rgba(11, 12, 25, 0.01),
-    14px 57px 24px 0 rgba(11, 12, 25, 0.01),
-    22px 89px 26px 0 rgba(11, 12, 25, 0);
+  box-shadow: 1px 4px 8px 0 rgba(11, 12, 25, 0.03);
   background: var(--color-bg-card);
   border: 1px solid transparent;
   transition: border 0.3s ease-in-out;

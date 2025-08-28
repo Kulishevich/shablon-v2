@@ -15,7 +15,6 @@ export type ButtonProps<T extends ElementType = 'button'> = {
     | 'link'
     | 'burger'
     | 'primary'
-    | 'category'
     | 'secondary';
 } & ComponentPropsWithoutRef<T>;
 

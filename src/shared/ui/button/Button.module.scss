@@ -90,38 +90,6 @@
   }
 }
 
-//! нету таких кнопок
-.category {
-  color: var(--color-accent-1);
-  background-color: var(--color-bg);
-  padding: vw-1440(14) vw-1440(12);
-
-  &:hover {
-    background-color: var(--color-accent-2);
-    color: var(--color-accent-1);
-  }
-
-  &:active {
-    background-color: var(--color-accent-1);
-    color: var(--color-bg);
-  }
-
-  &:focus-visible {
-    background-color: var(--color-accent-1);
-    color: var(--color-bg);
-  }
-
-  &:disabled {
-    color: var(--color-accent-1);
-    background-color: var(--color-bg-card);
-    opacity: 0.5;
-  }
-
-  @media (max-width: 768px) {
-    padding: 14px 12px;
-  }
-}
-
 .burger {
   color: var(--color-text);
   background-color: var(--color-button-additional);

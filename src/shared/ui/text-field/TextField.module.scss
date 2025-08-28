@@ -20,7 +20,7 @@
 .iconSearch {
   position: absolute;
   top: 50%;
-  left: vw-1440(12);
+  right: vw-1440(16);
   transform: translateY(-50%);
 
   display: flex;
@@ -87,8 +87,7 @@
   }
 
   &.search {
-    padding: vw-1440(15);
-    padding-left: vw-1440(50);
+    padding: vw-1440(13) vw-1440(42) vw-1440(13) vw-1440(16);
 
     &:focus {
       border: 1px solid var(--color-button);

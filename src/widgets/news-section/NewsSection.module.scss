@@ -5,19 +5,52 @@
   flex-direction: column;
   gap: vw-1440(48);
 
-  & > .content {
-    display: flex;
-    flex-direction: column;
-    gap: vw-1440(36);
+  @media (max-width: 768px) {
+    gap: 32px;
+    width: 336px;
+  }
+}
 
-    @media (max-width: 768px) {
-      gap: 20px;
-      align-items: center;
-    }
+.content {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
+}
+
+.tagNavigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: vw-1440(18);
+
+  margin: vw-1440(16) 0 vw-1440(32);
+  width: 100%;
+  @media (max-width: 768px) {
+    gap: 14px;
+    margin: 16px 0 24px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+}
+
+.tagBtn {
+  cursor: pointer;
+
+  border-radius: vw-1440(4);
+  background-color: var(--color-bg-card);
+  padding: vw-1440(12) vw-1440(20);
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--color-button-additional);
   }
 
   @media (max-width: 768px) {
-    gap: 32px;
+    padding: 7px 20px;
+    border-radius: 4px;
   }
 }
 

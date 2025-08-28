@@ -40,3 +40,11 @@ export { default as BurgerMobileIcon } from './BurgerMobileIcon';
 export { default as FilterIcon } from './FilterIcon';
 export { default as StarIcon } from './StarIcon';
 export { default as Loader } from './Loader';
+
+//дальше будут из второй версии шаблона - нужно проверить будет нужны ли все те что выше
+export { default as PercentIcon } from './PercentIcon';
+export { default as LocationArrowIcon } from './LocationArrowIcon';
+export { default as ProfileIcon } from './ProfileIcon';
+export { default as MiniArrowDownIcon } from './MiniArrowDownIcon';
+export { default as HeartIcon } from './HeartIcon';
+export { default as DotIcon } from './DotIcon';

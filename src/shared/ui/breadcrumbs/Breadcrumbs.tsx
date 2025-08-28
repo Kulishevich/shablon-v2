@@ -3,7 +3,7 @@ import cn, { clsx } from 'clsx';
 import s from './Breadcrumbs.module.scss';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRightIcon } from '@/shared/assets';
+import { DotIcon } from '@/shared/assets';
 import { navigation } from '@/shared/config/constants/navigation';
 
 interface Props {
@@ -45,7 +45,7 @@ export const Breadcrumbs = ({ className, dynamicPath }: Props) => {
               itemScope
               itemType="https://schema.org/ListItem"
             >
-              <a className={cn(s.elem, 'body_6_bold')} itemProp="item">
+              <a className={cn(s.elem, 'body_5')} itemProp="item">
                 <span itemProp="name">{path?.title}</span>
               </a>
               <meta itemProp="position" content={(idx + 1).toString()} />
@@ -55,9 +55,9 @@ export const Breadcrumbs = ({ className, dynamicPath }: Props) => {
 
         return (
           <li itemProp="itemListElement" key={idx} itemScope itemType="https://schema.org/ListItem">
-            <Link href={href || '/'} className={cn(s.elem, 'body_6')} itemProp="item">
+            <Link href={href || '/'} className={cn(s.elem, 'body_5')} itemProp="item">
               <span itemProp="name">{path?.title}</span>
-              <ArrowRightIcon className={s.icon} />
+              <DotIcon className={s.icon} />
               <meta itemProp="position" content={(idx + 1).toString()} />
             </Link>
           </li>

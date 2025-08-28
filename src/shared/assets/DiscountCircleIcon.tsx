@@ -1,9 +1,6 @@
-import { Ref, SVGProps, forwardRef, memo } from "react";
+import { Ref, SVGProps, forwardRef, memo } from 'react';
 
-const DiscountCircleIcon = (
-  props: SVGProps<SVGSVGElement>,
-  ref: Ref<SVGSVGElement>
-) => (
+const DiscountCircleIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
     width="22"
     height="22"

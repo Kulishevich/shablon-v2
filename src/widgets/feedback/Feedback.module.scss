@@ -1,8 +1,8 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   display: flex;
-  gap: vw-1440(48);
+  gap: vw-1440(24);
   width: vw-1440(1296);
   margin: 0 auto;
   background-color: var(--color-bg);
@@ -10,6 +10,6 @@
   @media (max-width: 768px) {
     width: 336px;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
   }
 }

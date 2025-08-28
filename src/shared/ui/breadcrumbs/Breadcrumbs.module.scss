@@ -1,12 +1,12 @@
-@use "../../config/styles/functions" as *;
+@use '../../config/styles/functions' as *;
 
 .container {
   width: vw-1440(1296);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: vw-1440(6);
-  margin: vw-1440(36) auto vw-1440(20);
+  gap: vw-1440(8);
+  margin: vw-1440(36) auto vw-1440(12);
   list-style: none;
 
   @media (max-width: 768px) {
@@ -22,7 +22,8 @@
 .elem {
   display: flex;
   align-items: center;
-  gap: vw-1440(6);
+  gap: vw-1440(8);
+  opacity: 0.5;
 
   @media (max-width: 768px) {
     gap: 6px;
@@ -31,13 +32,12 @@
 
 .icon {
   flex-shrink: 0;
-  color: var(--color-accent-1);
-  width: vw-1440(16);
-  height: vw-1440(16);
+  width: vw-1440(4);
+  height: vw-1440(3);
 
   @media (max-width: 768px) {
-    width: 16px;
-    height: 16px;
+    width: 4px;
+    height: 3px;
   }
 }
 

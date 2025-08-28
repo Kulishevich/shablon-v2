@@ -1,7 +1,15 @@
 import { Ref, SVGProps, forwardRef, memo } from 'react';
 
 const DownloadIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
-  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    ref={ref}
+    {...props}
+  >
     <path
       d="M15.6919 3.1174C15.5143 2.92315 15.2633 2.8125 15 2.8125C14.7368 2.8125 14.4858 2.92315 14.3081 3.1174L9.30811 8.58615C8.95873 8.96827 8.98528 9.56128 9.36741 9.91065C9.74954 10.26 10.3425 10.2335 10.6919 9.85135L14.0625 6.16475V20C14.0625 20.5177 14.4823 20.9375 15 20.9375C15.5178 20.9375 15.9375 20.5177 15.9375 20V6.16475L19.3081 9.85135C19.6575 10.2335 20.2505 10.26 20.6326 9.91065C21.0148 9.56128 21.0413 8.96827 20.6919 8.58615L15.6919 3.1174Z"
       fill="#111434"

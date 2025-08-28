@@ -10,6 +10,7 @@ import { ControlledCheckbox } from '@/shared/ui/controlled-checkbox';
 import { FeedbackFormScheme } from '@/shared/validation/feedback-scheme-creator';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ControlledPhoneField } from '@/shared/ui/controlled-phone-field';
+import clsx from 'clsx';
 
 export const FeedbackForm = ({ variant }: { variant?: string }) => {
   const {
@@ -51,6 +52,7 @@ export const FeedbackForm = ({ variant }: { variant?: string }) => {
 
   return (
     <form onSubmit={formHandler} className={s.formContainer}>
+      <p className={clsx(s.title, 'h2')}>Связаться с нами</p>
       <div className={s.form}>
         <ControlledTextField
           control={control}

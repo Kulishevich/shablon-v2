@@ -9,8 +9,8 @@ export const Feedback = async ({ variant }: { variant?: string }) => {
 
   return (
     <div className={s.container}>
-      <FeedbackImage image={setting?.feedback_image || ''} variant={variant} />
       <FeedbackForm variant={variant} />
+      <FeedbackImage image={setting?.feedback_image || ''} variant={variant} />
     </div>
   );
 };

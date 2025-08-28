@@ -6,9 +6,21 @@
   align-items: flex-start;
   justify-content: space-between;
   width: 100%;
+  background-color: var(--color-bg-card);
+  padding: vw-1440(36);
+  border-radius: vw-1440(6);
 
   @media (max-width: 768px) {
     align-items: center;
+    padding: 32px 24px;
+    border-radius: 4px;
+  }
+}
+
+.title {
+  margin-bottom: vw-1440(32);
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
   }
 }
 

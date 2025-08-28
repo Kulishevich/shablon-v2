@@ -4,7 +4,6 @@ import { Search } from './Search/Search';
 import s from './HeaderDesktop.module.scss';
 import { CategoryT } from '@/shared/api/category/types';
 import { ContactsT } from '@/shared/api/design/types';
-import { ProductT } from '@/shared/api/product/types';
 import { HeaderFixed } from './HeaderFixed';
 
 export const HeaderDesktop = ({
@@ -17,7 +16,7 @@ export const HeaderDesktop = ({
   return (
     <>
       <header className={s.container} data-header-desktop>
-        <Navigation contacts={contacts} />
+        <Navigation phones={contacts?.phones || []} />
         <Search categories={categories} />
       </header>
       <HeaderFixed categories={categories} contacts={contacts} />
