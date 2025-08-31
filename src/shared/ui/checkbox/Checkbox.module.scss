@@ -1,4 +1,4 @@
-@use "../../config/styles/functions" as *;
+@use '../../config/styles/functions' as *;
 
 .container {
   display: flex;
@@ -23,7 +23,7 @@
   height: vw-1440(32);
 
   background-color: var(--color-bg);
-  border: 1px solid #1114341a;
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   border-radius: 2px;
 
   & > button {
@@ -39,10 +39,10 @@
   &:disabled {
     cursor: default;
     background-color: transparent;
-    border: 1px solid #1114341a;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   }
 
-  &[data-state="checked"] {
+  &[data-state='checked'] {
     width: vw-1440(32);
     height: vw-1440(32);
 
@@ -59,7 +59,7 @@
     }
   }
 
-  &[data-state="unchecked"] {
+  &[data-state='unchecked'] {
     background-color: transparent;
 
     &:disabled {

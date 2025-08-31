@@ -5,19 +5,24 @@ import s from './HeaderDesktop.module.scss';
 import { CategoryT } from '@/shared/api/category/types';
 import { ContactsT } from '@/shared/api/design/types';
 import { HeaderFixed } from './HeaderFixed';
+import clsx from 'clsx';
+
+interface HeaderDesktopProps {
+  categories: CategoryT[];
+  contacts: ContactsT | null;
+  variant?: 'home' | 'default';
+}
 
 export const HeaderDesktop = ({
   categories,
   contacts,
-}: {
-  categories: CategoryT[];
-  contacts: ContactsT | null;
-}) => {
+  variant = 'default',
+}: HeaderDesktopProps) => {
   return (
     <>
-      <header className={s.container} data-header-desktop>
-        <Navigation phones={contacts?.phones || []} />
-        <Search categories={categories} />
+      <header className={clsx(s.container, s[variant])} data-header-desktop>
+        <Navigation phones={contacts?.phones || []} variant={variant} />
+        <Search categories={categories} variant={variant} />
       </header>
       <HeaderFixed categories={categories} contacts={contacts} />
     </>

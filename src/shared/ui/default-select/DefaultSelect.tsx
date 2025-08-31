@@ -18,7 +18,7 @@ type Props = {
   options: Option[];
 };
 
-export const DefaultSelect = ({ onSelect, selected, className, options }: Props) => {
+export const DefaultSelect = ({ onSelect, className, options }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (

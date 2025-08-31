@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .wrapper {
   position: relative;
@@ -29,10 +29,10 @@
 
 .container {
   width: 100vw;
-  height: vw-1440(601);
+  height: vw-1440(940);
 
   @media (max-width: 768px) {
-    height: 577px;
+    height: 650px;
   }
 }
 

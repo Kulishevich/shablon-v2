@@ -11,17 +11,22 @@ import Link from 'next/link';
 import { paths } from '@/shared/config/constants/paths';
 import clsx from 'clsx';
 
-export const Search = ({ categories }: { categories: CategoryT[] | null }) => {
+interface SearchProps {
+  variant: 'home' | 'default';
+  categories: CategoryT[] | null;
+}
+
+export const Search = ({ categories, variant }: SearchProps) => {
   return (
     <>
-      <div className={s.wrapper}>
+      <div className={clsx(s.wrapper, s[variant])}>
         <div className={s.container}>
           <Logo variant="primary" />
           <BurgerButton categories={categories} />
-          <SearchInput categories={categories} />
+          <SearchInput categories={categories} headerVariant={variant} />
           <ReduxProvider>
-            <FavoritesButton />
-            <CartButton />
+            <FavoritesButton variant={variant} />
+            <CartButton variant={variant} />
           </ReduxProvider>
         </div>
       </div>
@@ -29,7 +34,7 @@ export const Search = ({ categories }: { categories: CategoryT[] | null }) => {
         {categories?.map((cat) => (
           <Link
             href={`${paths.catalog}/${cat.slug}`}
-            className={clsx(s.navLink, 'body_3')}
+            className={clsx(s.navLink, 'body_3', s[variant])}
             key={cat.id}
           >
             {cat.name}

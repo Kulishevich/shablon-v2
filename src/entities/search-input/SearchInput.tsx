@@ -10,7 +10,12 @@ import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
 import { searchProducts } from '@/shared/api/product/searchProducts';
 import Cookies from 'js-cookie';
 
-export const SearchInput = ({ categories }: { categories: CategoryT[] | null }) => {
+interface SearchInputProps {
+  headerVariant: 'home' | 'default';
+  categories: CategoryT[] | null;
+}
+
+export const SearchInput = ({ categories, headerVariant }: SearchInputProps) => {
   const [variant, setVariant] = useState<string | undefined>(undefined);
   const [searchValue, setSearchValue] = useState('');
   const [products, setProducts] = useState<ProductT[]>([]);
@@ -133,7 +138,7 @@ export const SearchInput = ({ categories }: { categories: CategoryT[] | null }) 
     <div className={s.searchContainer} ref={searchRef}>
       <TextField
         placeholder="Поиск по сайту"
-        variant="search"
+        variant={headerVariant === 'default' ? 'search' : 'search_2'}
         value={searchValue}
         onChange={(e) => handleChangeValue(e.target.value)}
         onKeyDown={handleKeyDown}

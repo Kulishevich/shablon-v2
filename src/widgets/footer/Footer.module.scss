@@ -4,17 +4,9 @@
   width: 100%;
 
   margin-top: vw-1440(120);
-  background-color: var(--color-text);
+  background-color: var(--color-white);
+
   @media (max-width: 768px) {
     margin-top: 72px;
-  }
-}
-
-.wrapper {
-  width: vw-1440(1296);
-  margin: 0 auto;
-
-  @media (max-width: 768px) {
-    width: 336px;
   }
 }

@@ -9,14 +9,14 @@
   margin-left: vw-1440(24);
   padding: 0 vw-1440(9);
 
-  .cartButton__iconWrapper {
+  &__iconWrapper {
     position: relative;
   }
-  .cartButton__icon {
+  &__icon {
     width: vw-1440(36);
     height: vw-1440(36);
   }
-  .cartButton__count {
+  &__count {
     position: absolute;
     top: -4px;
     right: -4px;
@@ -31,5 +31,20 @@
     color: var(--color-white);
     background-color: var(--color-accent-1);
     border-radius: 50%;
+  }
+
+  &.home {
+    color: var(--color-white);
+
+    .cartButton__icon {
+      color: var(--color-white);
+    }
+
+    &:hover {
+      color: var(--color-accent-1);
+      .cartButton__icon {
+        color: var(--color-accent-1);
+      }
+    }
   }
 }

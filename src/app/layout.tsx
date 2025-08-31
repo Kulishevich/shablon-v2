@@ -7,8 +7,6 @@ import { Toaster } from 'sonner';
 
 import { getSeoTag } from '@/shared/api/seo/getSeoTag';
 import { getCategories } from '@/shared/api/category/getCategories';
-import { HeaderDesktop } from '@/widgets/header-desktop';
-import { HeaderMobile } from '@/widgets/header-mobile';
 import { getSetting } from '@/shared/api/design/getSetting';
 import { getContacts } from '@/shared/api/design/getContacts';
 import Script from 'next/script';
@@ -152,9 +150,6 @@ export default async function RootLayout({
             strategy="afterInteractive"
           />
         )}
-
-        <HeaderDesktop categories={categories || []} contacts={contacts} />
-        <HeaderMobile categories={categories} contacts={contacts} />
         {children}
         <Footer categories={categories} contacts={contacts} />
         <Toaster />

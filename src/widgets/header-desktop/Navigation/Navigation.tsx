@@ -10,9 +10,10 @@ import { DefaultSelect } from '@/shared/ui/default-select';
 
 interface NavigationProps {
   phones?: string[];
+  variant: 'home' | 'default';
 }
 
-export const Navigation = ({ phones }: NavigationProps) => {
+export const Navigation = ({ phones, variant }: NavigationProps) => {
   const [selectedCountry, setSelectedCountry] = useState({
     id: 0,
     value: phones?.[0] || '',
@@ -25,15 +26,15 @@ export const Navigation = ({ phones }: NavigationProps) => {
     })) || [];
 
   return (
-    <div className={s.container}>
+    <div className={clsx(s.container, s[variant])}>
       <div className={s.content}>
-        <div className={s.location}>
+        <div className={clsx(s.location, s[variant])}>
           <LocationArrowIcon />
           <p>Минск и Минская область</p>
         </div>
 
         <nav className={s.navigation}>
-          <ul className={s.navList}>
+          <ul className={clsx(s.navList, s[variant])}>
             {navigation.slice(0, 6).map((nav, index) => (
               <li key={index}>
                 <Link className="body_4" href={nav.path}>
@@ -45,7 +46,7 @@ export const Navigation = ({ phones }: NavigationProps) => {
           </ul>
         </nav>
 
-        <div className={s.phone}>
+        <div className={clsx(s.phone, s[variant])}>
           <Link
             href={`tel:${selectedCountry.value
               .replace(/\s/g, '')
@@ -61,10 +62,11 @@ export const Navigation = ({ phones }: NavigationProps) => {
             selected={selectedCountry}
             onSelect={setSelectedCountry}
             options={options}
+            className={clsx(s.select, s[variant])}
           />
         </div>
 
-        <Link href={paths.profile} className={clsx(s.profileLink, 'body_7')}>
+        <Link href={paths.profile} className={clsx(s.profileLink, 'body_7', s[variant])}>
           <ProfileIcon />
           Личный кабинет
         </Link>

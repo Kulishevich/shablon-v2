@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .contacts {
   display: flex;
@@ -33,12 +33,4 @@
 .phones {
   display: flex;
   flex-direction: column;
-}
-
-footer {
-  .phones {
-    & > a {
-      color: var(--color-bg);
-    }
-  }
 }

@@ -12,7 +12,7 @@ const MiniArrowDownIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElemen
   >
     <path
       d="M4.152 6.6432C4.54367 7.26987 5.45633 7.26987 5.848 6.6432L9.04375 1.53C9.46003 0.86395 8.98119 0 8.19575 0H1.80425C1.01881 0 0.539969 0.863951 0.956249 1.53L4.152 6.6432Z"
-      fill="#25338C"
+      fill="currentColor"
     />
   </svg>
 );

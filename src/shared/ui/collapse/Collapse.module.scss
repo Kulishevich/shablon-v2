@@ -1,10 +1,10 @@
-@use "../../config/styles/functions" as *;
+@use '../../config/styles/functions' as *;
 
 .rootState {
   display: flex;
   flex-direction: column;
   gap: vw-1440(20);
-  border-bottom: 1px solid #1114341a;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   padding: vw-1440(32) vw-1440(16);
   width: 100%;
   @media (max-width: 768px) {
@@ -39,7 +39,7 @@
       color: var(--color-bg);
     }
   }
-  &[data-state="open"] {
+  &[data-state='open'] {
     & > span {
       transform: rotate(90deg);
     }
@@ -48,10 +48,10 @@
 
 .content {
   overflow: hidden;
-  &[data-state="open"] {
+  &[data-state='open'] {
     animation: slideDown 300ms ease-out;
   }
-  &[data-state="closed"] {
+  &[data-state='closed'] {
     animation: slideUp 300ms ease-out;
   }
 }

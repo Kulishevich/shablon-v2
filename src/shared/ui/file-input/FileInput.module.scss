@@ -1,4 +1,4 @@
-@use "../../config/styles/functions" as *;
+@use '../../config/styles/functions' as *;
 
 .container {
   display: flex;
@@ -87,7 +87,7 @@
 
   .placeholder {
     &:hover {
-      border: 1px solid #1114341a;
+      border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
     }
   }
 }

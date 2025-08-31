@@ -2,8 +2,12 @@
 
 .wrapper {
   width: 100%;
-  border-bottom: 1px solid var(--color-bg-card);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 5%, transparent);
   padding: vw-1440(20) 0;
+
+  &.home {
+    border-color: color-mix(in srgb, var(--color-white) 5%, transparent);
+  }
 }
 
 .container {
@@ -36,5 +40,9 @@
   &:hover {
     color: var(--color-white);
     background-color: var(--color-accent-1);
+  }
+
+  &.home {
+    color: var(--color-white);
   }
 }

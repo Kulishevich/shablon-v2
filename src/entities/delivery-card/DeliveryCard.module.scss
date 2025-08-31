@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   display: flex;
@@ -7,7 +7,7 @@
   text-align: start;
 
   box-sizing: border-box;
-  border: 1px solid #1114341a;
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   border-radius: 6px;
   background-color: transparent;
 

@@ -18,7 +18,7 @@ export type TextFieldProps = {
   errorMessage?: ReactNode | string;
   isRequired?: boolean;
   label?: string;
-  variant?: 'password' | 'search' | 'text';
+  variant?: 'password' | 'search' | 'text' | 'search_2';
 } & ComponentPropsWithoutRef<'input'>;
 
 type TextFieldRef = ElementRef<'input'>;
@@ -41,7 +41,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>((props, ref) =
 
   const id = useId();
 
-  const isSearch = variant === 'search';
+  const isSearch = variant === 'search' || variant === 'search_2';
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e);
@@ -69,7 +69,9 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>((props, ref) =
         </label>
       )}
       <div className={clsx(s.inputContainer, 'placeholder')}>
-        {isSearch && <SearchIcon className={clsx(s.iconSearch, disabled && s.disabled)} />}
+        {isSearch && (
+          <SearchIcon className={clsx(s.iconSearch, disabled && s.disabled, s[variant])} />
+        )}
         <input
           className={clsx(
             s.input,

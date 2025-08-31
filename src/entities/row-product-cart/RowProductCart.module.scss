@@ -5,7 +5,7 @@
   align-items: center;
   width: 100%;
   padding: vw-1440(24) 0;
-  border-bottom: 1px solid #1114341a;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
 
   & > button {
     margin-right: vw-1440(16);

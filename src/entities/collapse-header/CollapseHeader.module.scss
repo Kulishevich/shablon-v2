@@ -12,7 +12,7 @@
     .trigger {
       padding: 8px 24px;
       background-color: color-mix(in srgb, var(--color-button-additional) 30%, transparent);
-      border-bottom: 1px solid #1114340d;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 5%, transparent);
 
       & > svg {
         width: 20px;

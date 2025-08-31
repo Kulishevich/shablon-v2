@@ -8,11 +8,15 @@ import { useSelector } from 'react-redux';
 import { selectCartCountProducts } from '@/shared/lib/redux/selectors/CartSelectors';
 import clsx from 'clsx';
 
-export const CartButton = () => {
+interface CartButtonProps {
+  variant: 'default' | 'home';
+}
+
+export const CartButton = ({ variant }: CartButtonProps) => {
   const productsQuantity = useSelector(selectCartCountProducts);
 
   return (
-    <Link className={clsx(s.cartButton)} href={paths.cart}>
+    <Link className={clsx(s.cartButton, s[variant])} href={paths.cart}>
       <div className={s.cartButton__iconWrapper}>
         <ShoppingCartIcon className={s.cartButton__icon} />
         <p className={clsx('body_7', s.cartButton__count)}>{productsQuantity}</p>
