@@ -92,6 +92,10 @@ export default async function Home() {
       {/* Эндпоинта на ПРодукты недели еще нет поэтому пока популярные беру */}
       <ProductsOfTheWeek products={popularProducts} variant={variant} />
 
+      <Suspense>
+        <ReviewsSection reviews={reviews} variant={variant} />
+      </Suspense>
+
       {!!brands?.length && (
         <Suspense>
           <BrandsSection brands={brands} variant={variant} />
@@ -99,9 +103,7 @@ export default async function Home() {
       )}
 
       <MainBanner banner={setting?.main_banner || null} variant={variant} />
-      <Suspense>
-        <ReviewsSection reviews={reviews} variant={variant} />
-      </Suspense>
+
       {!!newsList?.data?.length && (
         <Suspense>
           <NewsSliderSection newsList={newsList?.data} />
