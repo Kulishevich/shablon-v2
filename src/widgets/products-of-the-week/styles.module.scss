@@ -1,0 +1,97 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  width: vw-1440(1296);
+
+  display: flex;
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    width: 336px;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+.firstBlock {
+  width: vw-1440(966);
+
+  background: #fbfbfb;
+  border-radius: 6px;
+  padding: vw-1440(36);
+
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 32px 24px;
+    gap: 20px;
+  }
+}
+
+.cardsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 11px;
+  }
+}
+
+.secondBlock {
+  position: relative;
+  width: vw-1440(306);
+  border-radius: vw-1440(6);
+  overflow: hidden;
+
+  & > img {
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    border-radius: 4px;
+    height: 400px;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+  padding: vw-1440(24);
+
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
+}
+
+.title {
+  color: var(--color-bg);
+}
+
+.description {
+  color: var(--color-bg);
+  opacity: 0.7;
+  margin-bottom: vw-1440(24);
+
+  @media (max-width: 768px) {
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+}
+
+.catalogLink {
+  width: vw-1440(220);
+
+  @media (max-width: 768px) {
+    width: 180px;
+  }
+}

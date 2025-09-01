@@ -1,9 +1,22 @@
 'use client';
-import React, { ReactNode } from 'react';
+import React, { Dispatch, ReactNode } from 'react';
 import s from './SliderWrapper.module.scss';
 import { Slider } from '@/shared/ui/slider';
 import { useBreakpoint } from '@/shared/lib/hooks/useBreakpoint';
 import clsx from 'clsx';
+import { ProductTag } from '@/shared/api/product/types';
+
+interface SliderWrapperProps {
+  title?: string;
+  children: ReactNode;
+  variant?: 'news' | 'product' | 'discount' | 'mini_product';
+  className?: string;
+  itemsCount: number;
+  [key: string]: any;
+  tags?: ProductTag[];
+  activeTag?: number | null;
+  setActiveTag?: Dispatch<React.SetStateAction<number | null>>;
+}
 
 export const SliderWrapper = ({
   title,
@@ -11,15 +24,11 @@ export const SliderWrapper = ({
   variant,
   className,
   itemsCount,
+  tags,
+  activeTag,
+  setActiveTag,
   ...props
-}: {
-  title?: string;
-  children: ReactNode;
-  variant?: 'news' | 'product' | 'discount' | 'mini_product';
-  className?: string;
-  itemsCount: number;
-  [key: string]: any;
-}) => {
+}: SliderWrapperProps) => {
   const { isMobile } = useBreakpoint();
 
   const itemWidth = () => {
@@ -39,6 +48,22 @@ export const SliderWrapper = ({
   return (
     <div className={clsx(s.container, className)}>
       {title && <h2 className="h2">{title}</h2>}
+      {activeTag !== undefined && setActiveTag && tags && (
+        <div className={s.tags}>
+          <button className={clsx(s.tagBtn, 'button')} onClick={() => setActiveTag(null)}>
+            Все
+          </button>
+          {tags.map((tag) => (
+            <button
+              className={clsx(s.tagBtn, 'button', activeTag === tag.id && s.activeTag)}
+              key={tag.id}
+              onClick={() => setActiveTag(tag.id)}
+            >
+              {tag.name}
+            </button>
+          ))}
+        </div>
+      )}
       <Slider itemWidth={itemWidth()} itemsCount={itemsCount} {...props}>
         {children}
       </Slider>

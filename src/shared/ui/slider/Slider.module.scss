@@ -1,4 +1,4 @@
-@use "../../config/styles/functions" as *;
+@use '../../config/styles/functions' as *;
 
 .container {
   position: relative;
@@ -11,7 +11,7 @@
 }
 
 .itemsContainer {
-  width: calc(100% + vw-1440(40));
+  // width: calc(100% + vw-1440(40));
   margin-bottom: vw-1440(-48);
   margin-left: vw-1440(-20);
   display: flex;

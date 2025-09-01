@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: vw-1440(32);
 
   & > h2 {
@@ -12,5 +12,34 @@
 
   @media (max-width: 768px) {
     gap: 24px;
+  }
+}
+
+.tags {
+  display: flex;
+  gap: vw-1440(18);
+
+  @media (max-width: 768px) {
+    gap: 14px;
+  }
+}
+
+.tagBtn {
+  cursor: pointer;
+  background: #fbfbfb;
+  border-radius: 4px;
+
+  padding: vw-1440(12) vw-1440(20);
+
+  &:hover {
+    background-color: var(--color-button-additional);
+  }
+
+  &.activeTag {
+    background-color: var(--color-button-additional);
+  }
+
+  @media (max-width: 768px) {
+    padding: 12px 20px;
   }
 }

@@ -1,23 +1,41 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
-.container {
+.wrapper {
   width: vw-1440(1296);
   margin: 0 auto;
-  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
 
   @media (max-width: 768px) {
     width: 336px;
     margin-bottom: 117px;
+    gap: 24px;
+  }
+}
+
+.container {
+  width: 100%;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
   }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: vw-1440(36);
+  align-items: start;
+  gap: vw-1440(32);
 
-  width: vw-1440(746);
-  padding: vw-1440(64) vw-1440(134) vw-1440(64) vw-1440(48);
+  padding: vw-1440(36);
 
   background-color: var(--color-bg-card);
   border-radius: 6px;
@@ -26,7 +44,7 @@
     display: flex;
     flex-direction: column;
 
-    gap: vw-1440(16);
+    gap: vw-1440(12);
     @media (max-width: 768px) {
       gap: 12px;
     }
@@ -34,35 +52,42 @@
 
   @media (max-width: 768px) {
     width: 100%;
-    padding: 32px 24px 97px;
+    padding: 32px 24px;
     gap: 20px;
+  }
+}
 
-    align-items: center;
-    text-align: center;
+.aboutLink {
+  width: vw-1440(130);
+
+  @media (max-width: 768px) {
+    width: 160px;
   }
 }
 
 .imageContainer {
-  width: vw-1440(636);
-  height: vw-1440(396);
+  position: relative;
+  height: 100%;
   border-radius: 6px;
   overflow: hidden;
-
-  position: absolute;
-  bottom: 50%;
-  right: 0;
-  transform: translate(0, 50%);
 
   & > img {
     object-fit: cover;
   }
 
   @media (max-width: 768px) {
-    width: 287px;
-    height: 178px;
+    height: 200px;
     border-radius: 4px;
-    bottom: -117px;
-    right: 50%;
-    transform: translate(50%, 0);
+  }
+}
+
+.advantagesContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
   }
 }

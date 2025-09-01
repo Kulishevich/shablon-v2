@@ -17,6 +17,7 @@ import { AdvantagesSection } from '@/widgets/advantages-section';
 import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
 import { getTags } from '@/shared/api/tags/getTags';
 import { cookies } from 'next/headers';
+import { ProductsOfTheWeek } from '@/widgets/products-of-the-week';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -78,19 +79,18 @@ export default async function Home() {
       <Suspense fallback={<div style={{ height: '400px', background: '#f5f5f5' }} />}>
         <MainSlider slides={banners || []} variant={variant} />
       </Suspense>
-
       <MainShortcuts tags={tags} variant={variant} />
       <CatalogProducts categories={categories} />
-
       <PopularProductsSection products={popularProducts} />
 
       <AboutUsSection
         text={setting?.about?.text || ''}
         image={setting?.about?.image || ''}
         variant={variant}
+        advantages={advantages || []}
       />
-
-      <AdvantagesSection advantages={advantages} />
+      {/* Эндпоинта на ПРодукты недели еще нет поэтому пока популярные беру */}
+      <ProductsOfTheWeek products={popularProducts} variant={variant} />
 
       {!!brands?.length && (
         <Suspense>
@@ -99,25 +99,20 @@ export default async function Home() {
       )}
 
       <MainBanner banner={setting?.main_banner || null} variant={variant} />
-
       <Suspense>
         <ReviewsSection reviews={reviews} variant={variant} />
       </Suspense>
-
       {!!newsList?.data?.length && (
         <Suspense>
           <NewsSliderSection newsList={newsList?.data} />
         </Suspense>
       )}
-
       <Suspense>
         <ContactsSection contacts={contacts} isMain />
       </Suspense>
-
       <Suspense>
         <SeoBlock page="/main" />
       </Suspense>
-
       <Suspense>
         <Feedback variant={variant} />
       </Suspense>

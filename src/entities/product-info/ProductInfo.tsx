@@ -31,8 +31,8 @@ export const ProductInfo = ({
 }) => {
   const { isTablet } = useBreakpoint();
   const [count, setCount] = useState(1);
-  const isDiscount = !!Number(product?.discount);
   const dispatch = useDispatch();
+  const isDiscount = !!Number(product?.discount);
 
   const totalPrice = !!product?.discount
     ? Math.round((Number(product?.price) * (100 - Number(product?.discount))) / 100)

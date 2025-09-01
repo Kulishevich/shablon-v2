@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   width: vw-1440(306);
@@ -7,12 +7,19 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    padding 0.2s ease;
+
+  flex-shrink: 0;
 
   &:hover {
-    color: var(--color-text);
-    .imageContainer {
-      box-shadow: 4px 14px 15px 0px #0b0c1908;
-    }
+    background-color: var(--color-bg);
+    z-index: 1;
+    box-shadow: 0px 0px vw-1440(20) 0px #0b0c190d;
+
+    transform: scale(1.14);
+    padding: vw-1440(20);
   }
 
   @media (max-width: 768px) {
@@ -22,7 +29,7 @@
 
 .imageContainer {
   position: relative;
-  width: vw-1440(306);
+  width: 100%;
   height: vw-1440(306);
   margin-bottom: vw-1440(16);
   box-sizing: border-box;
@@ -180,7 +187,7 @@
 .footerCard {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  // gap: vw-1440(12);
   align-items: flex-end;
 
   & > .priceContainer {
