@@ -9,6 +9,16 @@
   gap: 39px;
   z-index: 1001;
   background-color: var(--color-bg);
+  transition: background-color 0.3s ease;
+
+  &.home {
+    background-color: transparent;
+  }
+
+  &.scrolled {
+    background-color: var(--color-bg);
+  }
+
   @media (min-width: 768px) {
     display: none;
   }
