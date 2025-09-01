@@ -12,6 +12,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
     | 'icon_outlined'
     | 'icon_primary'
     | 'icon_secondary'
+    | 'icon_banner_nav'
     | 'link'
     | 'burger'
     | 'primary'

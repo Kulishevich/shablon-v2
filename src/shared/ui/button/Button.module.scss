@@ -158,6 +158,43 @@
   }
 }
 
+.icon_banner_nav {
+  width: fit-content;
+  color: var(--color-white);
+  background: #ffffff33;
+  padding: vw-1440(11);
+  border-radius: 50%;
+
+  & > svg {
+    width: vw-1440(30);
+    height: vw-1440(30);
+  }
+
+  &:hover {
+    background-color: var(--color-button);
+    color: var(--color-bg);
+  }
+
+  &:active {
+    background-color: var(--color-button);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-button);
+  }
+
+  &:disabled {
+    color: var(--color-bg-overlay);
+    background-color: var(--color-bg-card);
+  }
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    padding: 17px;
+  }
+}
+
 .icon_secondary {
   width: fit-content;
   color: var(--color-text);

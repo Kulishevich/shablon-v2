@@ -54,8 +54,8 @@ export const HeaderFixed = ({
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <div className={clsx(s.inner, isOpen && s.open)}>
-        <Navigation contacts={contacts} />
-        <Search categories={categories} />
+        <Navigation phones={contacts?.phones || []} variant={'default'} />
+        <Search categories={categories} variant="default" />
       </div>
 
       <button className={s.button} onClick={handleToggle} aria-label="Открыть/закрыть меню">

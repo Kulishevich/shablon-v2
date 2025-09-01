@@ -2,29 +2,6 @@
 
 .wrapper {
   position: relative;
-
-  .iconLeft {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(vw-1440(-754), -50%);
-    z-index: 100;
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  .iconRight {
-    position: absolute;
-    right: 50%;
-    top: 50%;
-    transform: translate(vw-1440(754), -50%);
-
-    z-index: 100;
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
 }
 
 .container {
@@ -91,30 +68,41 @@
   }
 }
 
-.pagination {
+.footer {
   position: absolute;
-  bottom: vw-1440(48) !important;
-  left: 50% !important;
-  transform: translateX(vw-1440(-625));
-  z-index: 100;
+  left: 50%;
+  bottom: 0;
+  z-index: 10;
 
-  @media (max-width: 768px) {
-    transform: translateX(-170px);
-    bottom: 36px !important;
-  }
+  transform: translateX(-50%);
+
+  width: vw-1440(1296);
+  padding-bottom: 54px;
+
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 14px;
+}
+
+.pagination {
+  width: fit-content !important;
+  margin-right: 18px;
 }
 
 .bullet {
-  width: vw-1440(68);
-  height: 3px;
+  width: 6px;
+  height: 6px;
   margin: 0 5px;
   background-color: var(--color-bg);
   border-radius: 0;
   display: inline-block;
   transition: background-color 0.3s;
+  border-radius: 50%;
 
   &.swiper-pagination-bullet-active {
-    background-color: black;
+    width: 24px !important;
+    border-radius: 43px;
   }
 
   @media (max-width: 768px) {

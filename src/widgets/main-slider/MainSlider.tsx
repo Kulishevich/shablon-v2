@@ -89,27 +89,20 @@ export const MainSlider = ({ slides, variant }: { slides: BannerT[]; variant?: s
         ))}
       </Swiper>
 
-      {slides.length > 1 && (
-        <Button
-          variant="icon_primary"
-          onClick={handlePrev}
-          className={s.iconLeft}
-          aria-label="Слайд влево"
-        >
-          <ArrowLeftIcon />
-        </Button>
-      )}
-      {slides.length > 1 && (
-        <Button
-          variant="icon_primary"
-          onClick={handleNext}
-          className={s.iconRight}
-          aria-label="Слайд вправо"
-        >
-          <ArrowRightIcon />
-        </Button>
-      )}
-      <div className={`custom-pagination ${s.pagination}`} />
+      <div className={s.footer}>
+        <div className={`custom-pagination ${s.pagination}`} />
+
+        {slides.length > 1 && (
+          <Button variant="icon_banner_nav" onClick={handlePrev} aria-label="Слайд влево">
+            <ArrowLeftIcon />
+          </Button>
+        )}
+        {slides.length > 1 && (
+          <Button variant="icon_banner_nav" onClick={handleNext} aria-label="Слайд вправо">
+            <ArrowRightIcon />
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
