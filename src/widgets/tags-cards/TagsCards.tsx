@@ -4,7 +4,6 @@ import React from 'react';
 import s from './styles.module.scss';
 import Image from 'next/image';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
-import { Button } from '@/shared/ui/button';
 import clsx from 'clsx';
 
 interface ITagsCardsProps {
@@ -13,7 +12,6 @@ interface ITagsCardsProps {
 }
 
 export const TagsCards = ({ tags, variant }: ITagsCardsProps) => {
-  console.log(tags);
   return (
     <div className={s.container}>
       {tags?.map((tag) => (
@@ -23,7 +21,9 @@ export const TagsCards = ({ tags, variant }: ITagsCardsProps) => {
 
           <div className={s.content}>
             <p className="h3">{tag.name}</p>
-            <button className={clsx(s.catalogLink, 'button')}>В каталог</button>
+            <a className={clsx(s.catalogLink, 'button')} href={`/search?q=а&tags=${tag.name}`}>
+              В каталог
+            </a>
           </div>
         </div>
       ))}

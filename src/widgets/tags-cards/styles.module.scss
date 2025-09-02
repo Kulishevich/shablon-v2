@@ -8,10 +8,20 @@
   width: vw-1440(1296);
   border-radius: 6px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    width: 336px;
+  }
 }
 .tag {
   position: relative;
   height: vw-1440(416);
+
+  @media (max-width: 768px) {
+    height: 336px;
+  }
 }
 
 .background {
@@ -39,7 +49,12 @@
   gap: vw-1440(20);
 
   padding: vw-1440(32);
-  flex: 1;
+  height: 100%;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+    padding: 24px;
+  }
 }
 .catalogLink {
   cursor: pointer;
@@ -50,4 +65,9 @@
 
   padding: vw-1440(12);
   width: vw-1440(154);
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    width: 100%;
+  }
 }
