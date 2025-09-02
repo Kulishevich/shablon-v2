@@ -33,7 +33,13 @@ export const GallerySection = ({ items }: { items: PhotoT[] }) => {
 
   return (
     <div className={s.container}>
-      <h2 className="h2">Фотогалерея</h2>
+      <h2 className={clsx(s.title, 'h2')}>Фотогалерея</h2>
+      <p className={clsx(s.description, 'body_2')}>
+        Яркие фотографии наших реализованных проектов, корпоративных праздников и рабочих процессов
+        расскажут о жизни компании красноречивее любых текстов — добро пожаловать в обновлённую
+        галерею, где мы становимся ближе
+      </p>
+
       <div className={s.innerContainer}>
         <Swiper
           slidesPerView={'auto'}
@@ -46,15 +52,14 @@ export const GallerySection = ({ items }: { items: PhotoT[] }) => {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
-          className={s.swiper}
+          // className={s.swiper}
         >
           {items?.map((item, index) => (
             <SwiperSlide key={index} className={s.swiperSlide}>
               <Image
                 src={`${getStoreBaseUrl(variant)}/${item.image_path}`}
                 alt={item.title || ''}
-                width={416}
-                height={340}
+                fill
                 onClick={() => setActiveSlide(index)}
               />
             </SwiperSlide>
@@ -69,6 +74,7 @@ export const GallerySection = ({ items }: { items: PhotoT[] }) => {
           </Button>
         </div>
       </div>
+
       <div
         className={clsx(s.fullSize, { [s.active]: activeSlide !== undefined })}
         onClick={() => setActiveSlide(undefined)}

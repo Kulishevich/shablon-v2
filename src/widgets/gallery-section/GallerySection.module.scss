@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   width: vw-1440(1296);
@@ -7,9 +7,16 @@
     width: 336px;
   }
 
-  h2 {
+  .title {
+    margin-bottom: vw-1440(16);
+
+    @media (max-width: 768px) {
+      margin-bottom: 12px;
+    }
+  }
+
+  .description {
     margin-bottom: vw-1440(32);
-    text-align: center;
 
     @media (max-width: 768px) {
       margin-bottom: 24px;
@@ -19,34 +26,29 @@
   .innerContainer {
     position: relative;
     width: 100%;
-    height: vw-1440(340);
+    height: 100%;
 
-    @media (max-width: 768px) {
-      height: auto;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
+    // .swiper {
+    //   width: 100%;
+    //   height: 100%;
+    // }
 
     .swiperSlide {
+      position: relative;
       border-radius: vw-1440(6);
-      width: vw-1440(416);
-      height: vw-1440(340);
+      width: vw-1440(306);
+      height: vw-1440(418);
       cursor: pointer;
 
       img {
         border-radius: vw-1440(6);
-        width: 100%;
-        height: 100%;
         object-fit: cover;
       }
 
       @media (max-width: 768px) {
         border-radius: 6px;
-        width: 240px;
-        height: 169px;
+        width: 216px;
+        height: 300px;
 
         img {
           border-radius: 6px;

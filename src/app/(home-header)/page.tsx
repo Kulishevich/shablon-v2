@@ -13,12 +13,15 @@ import { MainShortcuts } from '@/widgets/main-shortcuts';
 import { CatalogProducts } from '@/widgets/catalog-products';
 import { PopularProductsSection } from '@/widgets/popular-products-section';
 import { AboutUsSection } from '@/widgets/about-us-section';
-import { AdvantagesSection } from '@/widgets/advantages-section';
 import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
 import { getTags } from '@/shared/api/tags/getTags';
 import { cookies } from 'next/headers';
 import { ProductsOfTheWeek } from '@/widgets/products-of-the-week';
 import { TagsCards } from '@/widgets/tags-cards';
+import { GallerySection } from '@/widgets/gallery-section/GallerySection';
+import { getPhotos } from '@/shared/api/photos/getPhotos';
+import { SharesSlider } from '@/widgets/shares-slider';
+import { getPromotions } from '@/shared/api/promotions/getPromotions';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -57,6 +60,8 @@ export default async function Home() {
     brands,
     reviews,
     tags,
+    photos,
+    promotions,
   ] = await Promise.all([
     getPopularProducts({ variant }),
     getAllNews({ variant }),
@@ -68,6 +73,8 @@ export default async function Home() {
     getBrands({ variant }),
     getReviews({ variant }),
     getTags({ variant }),
+    getPhotos({ variant }),
+    getPromotions({ variant }),
   ]);
 
   // Обогащаем популярные продукты полным путем
@@ -112,8 +119,8 @@ export default async function Home() {
           <NewsSliderSection newsList={newsList?.data} />
         </Suspense>
       )}
-      {/* фотогалерея */}
-      {/* акции */}
+      {!!photos?.length && <GallerySection items={photos} />}
+      <SharesSlider promotions={promotions} variant={variant} />
       {/* товары для вашего уютного уголка */}
       <Suspense>
         <ContactsSection contacts={contacts} isMain />

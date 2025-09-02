@@ -5,6 +5,7 @@ import s from './styles.module.scss';
 import Image from 'next/image';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import clsx from 'clsx';
+import { paths } from '@/shared/config/constants/paths';
 
 interface ITagsCardsProps {
   tags: TagT[] | null;
@@ -21,7 +22,10 @@ export const TagsCards = ({ tags, variant }: ITagsCardsProps) => {
 
           <div className={s.content}>
             <p className="h3">{tag.name}</p>
-            <a className={clsx(s.catalogLink, 'button')} href={`/search?q=а&tags=${tag.name}`}>
+            <a
+              className={clsx(s.catalogLink, 'button')}
+              href={`${paths.catalog}/all?tags=${tag.name}`}
+            >
               В каталог
             </a>
           </div>
