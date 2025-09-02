@@ -28,7 +28,7 @@ export const Slider = ({ children, itemWidth, itemsCount, ...props }: SliderProp
 
   return (
     <div className={s.container}>
-      {itemsCount > 4 && (
+      {itemsCount > 2 && (
         <Button
           variant="icon_secondary"
           className={s.iconLeft}
@@ -42,7 +42,7 @@ export const Slider = ({ children, itemWidth, itemsCount, ...props }: SliderProp
       <div className={s.itemsContainer} ref={scrollRef} {...props}>
         {children}
       </div>
-      {itemsCount > 4 && (
+      {itemsCount > 2 && (
         <Button
           variant="icon_secondary"
           className={s.iconRight}

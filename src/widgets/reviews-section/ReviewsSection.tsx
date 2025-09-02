@@ -13,7 +13,9 @@ export const ReviewsSection = ({
   return (
     !!reviews?.length && (
       <SliderWrapper title="Отзывы покупателей" variant="news" itemsCount={reviews?.length}>
-        {reviews?.map((review) => <ReviewCard key={review.id} review={review} variant={variant} />)}
+        {reviews.map((review) => (
+          <ReviewCard key={review.id} review={review} variant={variant} />
+        ))}
       </SliderWrapper>
     )
   );

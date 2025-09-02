@@ -21,3 +21,78 @@
     padding: 24px;
   }
 }
+
+.quotes {
+  width: 60px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  margin-bottom: 20px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(6);
+  flex: 1 1 100%;
+
+  & > .textClamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    margin-bottom: vw-1440(20);
+
+    @media (max-width: 768px) {
+      margin-bottom: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 4px;
+    margin-bottom: 17px;
+  }
+}
+
+.head {
+  display: flex;
+  gap: vw-1440(14);
+  align-items: center;
+
+  .imageContainer {
+    position: relative;
+    width: vw-1440(60);
+    height: vw-1440(60);
+    border-radius: 50%;
+    overflow: hidden;
+
+    & > img {
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  .nameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(4);
+
+    @media (max-width: 768px) {
+      gap: 6px;
+    }
+  }
+
+  .date {
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+}

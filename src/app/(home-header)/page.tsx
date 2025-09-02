@@ -18,6 +18,7 @@ import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
 import { getTags } from '@/shared/api/tags/getTags';
 import { cookies } from 'next/headers';
 import { ProductsOfTheWeek } from '@/widgets/products-of-the-week';
+import { TagsCards } from '@/widgets/tags-cards';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -96,27 +97,34 @@ export default async function Home() {
         <ReviewsSection reviews={reviews} variant={variant} />
       </Suspense>
 
+      <TagsCards tags={tags} variant={variant} />
+
+      <MainBanner banner={setting?.main_banner || null} variant={variant} />
+
       {!!brands?.length && (
         <Suspense>
           <BrandsSection brands={brands} variant={variant} />
         </Suspense>
       )}
 
-      <MainBanner banner={setting?.main_banner || null} variant={variant} />
-
       {!!newsList?.data?.length && (
         <Suspense>
           <NewsSliderSection newsList={newsList?.data} />
         </Suspense>
       )}
+      {/* фотогалерея */}
+      {/* акции */}
+      {/* товары для вашего уютного уголка */}
       <Suspense>
         <ContactsSection contacts={contacts} isMain />
       </Suspense>
-      <Suspense>
-        <SeoBlock page="/main" />
-      </Suspense>
+      {/* Вы недавно смотрели */}
       <Suspense>
         <Feedback variant={variant} />
+      </Suspense>
+
+      <Suspense>
+        <SeoBlock page="/main" />
       </Suspense>
     </main>
   );
