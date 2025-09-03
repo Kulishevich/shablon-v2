@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react';
-import s from './PopularProductsMobile.module.scss';
+import s from './ProductsForYourCozyCornerMobile.module.scss';
 import { ProductCard } from '@/entities/product-card';
 import { ProductT, ProductTag } from '@/shared/api/product/types';
 import clsx from 'clsx';
@@ -11,7 +11,7 @@ interface PopularProductsMobile {
   setActiveTag?: Dispatch<React.SetStateAction<number | null>>;
 }
 
-export const PopularProductsMobile = ({
+export const ProductsForYourCozyCornerMobile = ({
   products,
   activeTag,
   setActiveTag,

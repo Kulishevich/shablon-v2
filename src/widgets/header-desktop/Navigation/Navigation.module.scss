@@ -121,6 +121,11 @@
   background-color: color-mix(in srgb, var(--color-text) 5%, transparent);
   border-radius: vw-1440(4);
 
+  & > svg {
+    width: vw-1440(10);
+    height: vw-1440(13);
+  }
+
   &.home {
     color: var(--color-white);
     background: #ffffff33;

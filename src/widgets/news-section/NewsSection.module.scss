@@ -56,11 +56,11 @@
 
 .newsList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: vw-1440(32) vw-1440(24);
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px 15px;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
   }
 }

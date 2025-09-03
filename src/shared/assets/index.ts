@@ -49,3 +49,4 @@ export { default as MiniArrowDownIcon } from './MiniArrowDownIcon';
 export { default as HeartIcon } from './HeartIcon';
 export { default as DotIcon } from './DotIcon';
 export { default as QuotesIcon } from './QuotesIcon';
+export { default as MailingListIcon } from './MailingListIcon';

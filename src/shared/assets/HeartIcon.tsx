@@ -14,8 +14,8 @@ const HeartIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
       d="M18 11.542C15 4.50031 4.5 5.25031 4.5 14.2504C4.5 23.2503 18 30.7506 18 30.7506C18 30.7506 31.5 23.2503 31.5 14.2504C31.5 5.25031 21 4.50031 18 11.542Z"
       stroke="currentColor"
       strokeWidth="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

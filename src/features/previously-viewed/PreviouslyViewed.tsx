@@ -27,7 +27,7 @@ export const PreviouslyViewed = () => {
       <SectionAnimationWrapper>
         {!!viewedProducts.length && (
           <SliderWrapper
-            title={'Вы смотрели ранее'}
+            title={'Вы недавно смотрели'}
             variant="mini_product"
             itemsCount={viewedProducts?.length}
             itemScope

@@ -14,8 +14,8 @@ const PercentIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) =>
       d="M6.41602 15.5827L15.5827 6.41602"
       stroke="currentColor"
       strokeWidth="1.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M14.6673 16.5007C15.6798 16.5007 16.5007 15.6798 16.5007 14.6673C16.5007 13.6548 15.6798 12.834 14.6673 12.834C13.6548 12.834 12.834 13.6548 12.834 14.6673C12.834 15.6798 13.6548 16.5007 14.6673 16.5007Z"

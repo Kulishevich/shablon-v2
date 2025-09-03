@@ -1,8 +1,6 @@
 import React from 'react';
 import s from './NewsCard.module.scss';
 import Image from 'next/image';
-import { Button } from '@/shared/ui/button';
-import { ArrowRightUpIcon } from '@/shared/assets';
 import Link from 'next/link';
 import { paths } from '@/shared/config/constants/paths';
 import clsx from 'clsx';
@@ -36,7 +34,16 @@ export const NewsCard = async ({ news, enableMicrodata = true }: NewsCardProps) 
           alt="news"
           {...(enableMicrodata && { itemProp: 'image' })}
         />
+
+        <div className={s.tags}>
+          {news.tags?.map((tag) => <span className={clsx('body_4', s.tag)}>{tag}</span>)}
+        </div>
       </div>
+
+      <div className={clsx('h5', s.content)} {...(enableMicrodata && { itemProp: 'headline' })}>
+        {news?.title}
+      </div>
+
       <span className={clsx(s.date, 'tag')}>
         {enableMicrodata && <meta itemProp="datePublished" content={news?.created_at || ''} />}
         {new Date(news?.created_at || '').toLocaleString('ru-RU', {
@@ -45,20 +52,6 @@ export const NewsCard = async ({ news, enableMicrodata = true }: NewsCardProps) 
           year: 'numeric',
         })}
       </span>
-      <div className={s.content}>
-        <div className="h5" {...(enableMicrodata && { itemProp: 'headline' })}>
-          {news?.title}
-        </div>
-        <Button
-          as={'p'}
-          variant="link"
-          className={s.button}
-          {...(enableMicrodata && { itemProp: 'mainEntityOfPage' })}
-        >
-          Подробнее
-          <ArrowRightUpIcon />
-        </Button>
-      </div>
     </Link>
   );
 };

@@ -22,6 +22,8 @@ import { GallerySection } from '@/widgets/gallery-section/GallerySection';
 import { getPhotos } from '@/shared/api/photos/getPhotos';
 import { SharesSlider } from '@/widgets/shares-slider';
 import { getPromotions } from '@/shared/api/promotions/getPromotions';
+import { ProductsForYourCozyCorner } from '@/widgets/products-for-your-cozy-corner';
+import { PreviouslyViewed } from '@/features/previously-viewed';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -121,11 +123,16 @@ export default async function Home() {
       )}
       {!!photos?.length && <GallerySection items={photos} />}
       <SharesSlider promotions={promotions} variant={variant} />
-      {/* товары для вашего уютного уголка */}
+
+      {/* Не понятно что за Товары для вашего уютного уголка, пока что брал популярные*/}
+      <ProductsForYourCozyCorner products={popularProducts} />
+
       <Suspense>
         <ContactsSection contacts={contacts} isMain />
       </Suspense>
-      {/* Вы недавно смотрели */}
+
+      <PreviouslyViewed />
+
       <Suspense>
         <Feedback variant={variant} />
       </Suspense>
