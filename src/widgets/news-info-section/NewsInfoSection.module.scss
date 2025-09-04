@@ -63,50 +63,6 @@
   }
 }
 
-.mailingList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  padding: vw-1440(48) vw-1440(28) vw-1440(24);
-
-  background: var(--color-bg-card);
-  border-radius: vw-1440(6);
-
-  &__icon {
-    width: vw-1440(54);
-    height: vw-1440(54);
-
-    margin-bottom: vw-1440(18);
-    color: var(--color-accent-1);
-
-    @media (max-width: 768px) {
-      width: 54px;
-      height: 54px;
-      margin-bottom: 12px;
-    }
-  }
-
-  &__title {
-    margin-bottom: vw-1440(36);
-
-    @media (max-width: 768px) {
-      margin-bottom: 20px;
-    }
-  }
-
-  &__btn {
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    margin-top: 48px;
-    padding: 32px;
-    border-radius: 4px;
-  }
-}
-
 .secondBlock {
   width: vw-1440(966);
 

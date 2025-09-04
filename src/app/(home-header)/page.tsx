@@ -24,6 +24,7 @@ import { SharesSlider } from '@/widgets/shares-slider';
 import { getPromotions } from '@/shared/api/promotions/getPromotions';
 import { ProductsForYourCozyCorner } from '@/widgets/products-for-your-cozy-corner';
 import { PreviouslyViewed } from '@/features/previously-viewed';
+import { CompanyContactsSection } from '@/widgets/company-contacts-section';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -128,7 +129,7 @@ export default async function Home() {
       <ProductsForYourCozyCorner products={popularProducts} />
 
       <Suspense>
-        <ContactsSection contacts={contacts} isMain />
+        <CompanyContactsSection contacts={contacts} isMain />
       </Suspense>
 
       <PreviouslyViewed />

@@ -50,3 +50,8 @@ export { default as HeartIcon } from './HeartIcon';
 export { default as DotIcon } from './DotIcon';
 export { default as QuotesIcon } from './QuotesIcon';
 export { default as MailingListIcon } from './MailingListIcon';
+export { default as MailIcon } from './MailIcon';
+export { default as SecondPhoneIcon } from './SecondPhoneIcon';
+export { default as TimeIcon } from './TimeIcon';
+export { default as BanknoteIcon } from './BanknoteIcon';
+export { default as InfoCircleIcon } from './InfoCircleIcon';

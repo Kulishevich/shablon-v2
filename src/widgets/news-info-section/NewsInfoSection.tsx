@@ -7,6 +7,7 @@ import s from './NewsInfoSection.module.scss';
 import { NewsT } from '@/shared/api/news/types';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import clsx from 'clsx';
+import { MailingList } from '@/features/mailing-list';
 
 //todo: заменить за данные с API
 const tags = ['Мебель и фурнитура', 'Интерьер', 'Кухни'];
@@ -31,13 +32,8 @@ export const NewsInfoSection = ({ news, variant }: { news: NewsT | null; variant
               <button className={clsx(s.tagBtn, 'button')}>{tag}</button>
             ))}
           </div>
-          <div className={clsx(s.mailingList, 'desktop-only')}>
-            <MailingListIcon className={s.mailingList__icon} />
-            <p className={clsx(s.mailingList__title, 'body_3')}>
-              Подпишитесь на нашу email-рассылку
-            </p>
-            <Button className={s.mailingList__btn}>Подписаться</Button>
-          </div>
+
+          <MailingList className="desktop-only" />
         </div>
 
         <div className={s.secondBlock}>
@@ -64,13 +60,7 @@ export const NewsInfoSection = ({ news, variant }: { news: NewsT | null; variant
             <ArrowSmLeftIcon /> Назад к новостям
           </Button>
 
-          <div className={clsx(s.mailingList, 'mobile-only')}>
-            <MailingListIcon className={s.mailingList__icon} />
-            <p className={clsx(s.mailingList__title, 'body_3')}>
-              Подпишитесь на нашу email-рассылку
-            </p>
-            <Button className={s.mailingList__btn}>Подписаться</Button>
-          </div>
+          <MailingList className="mobile-only" />
         </div>
       </div>
     </div>
