@@ -19,6 +19,10 @@ export const ShareInfo = ({
 }: PromotionT & { variant?: string }) => {
   return (
     <div className={s.container} itemScope itemType="http://schema.org/Article">
+      <h1 className={clsx(s.title, 'h1_discount')} itemProp="name">
+        {title}
+      </h1>
+
       <div className={s.imageContainer}>
         <Image
           src={`${getStoreBaseUrl(variant)}/${photo_path}`}
@@ -27,22 +31,18 @@ export const ShareInfo = ({
           itemProp="image"
         />
       </div>
+
       <div className={s.content}>
-        <Breadcrumbs
-          dynamicPath={[{ title: title || '', path: `/${slug}` }]}
-          className={s.breadcrumbs}
-        />
-        <h1 className="h1_discount" itemProp="name">
-          {title}
-        </h1>
-        <span className="body_5" itemProp="datePublished">
+        <span className="body_6" itemProp="datePublished">
           {new Date(published_at || '').toLocaleDateString('RU-ru')}
         </span>
+
         <div
           className={clsx('body_2', s.text)}
           dangerouslySetInnerHTML={{ __html: content || '' }}
           itemProp="articleBody"
         />
+
         <Button variant="link" as={Link} href={paths.shares}>
           <ArrowSmLeftIcon /> Назад к акциям
         </Button>

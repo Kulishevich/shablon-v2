@@ -7,6 +7,7 @@ import { getPromotions } from '@/shared/api/promotions/getPromotions';
 import { notFound } from 'next/navigation';
 import { SeoBlock } from '@/entities/seo-block';
 import { cookies } from 'next/headers';
+import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
 
 export default async function Share({ params }: { params: Promise<{ slug: string }> }) {
   const cookieStore = await cookies();
@@ -23,15 +24,24 @@ export default async function Share({ params }: { params: Promise<{ slug: string
   const otherPromotions = allPromotions?.data.filter((elem) => elem.id !== promotion.id);
 
   return (
-    <main>
-      {!!promotion && <ShareInfo {...promotion} variant={variant} />}
-      {!!otherPromotions?.length && (
-        <SliderWrapper title="Другие акции" variant="discount" itemsCount={otherPromotions?.length}>
-          {otherPromotions?.map((promotion, index) => <DiscountCard {...promotion} key={index} />)}
-        </SliderWrapper>
-      )}
-      <SeoBlock page={`/shares/${slug}`} />
-      <Feedback variant={variant} />
-    </main>
+    <>
+      <Breadcrumbs dynamicPath={[{ title: promotion.title || '', path: `/${slug}` }]} />
+      <main>
+        {!!promotion && <ShareInfo {...promotion} variant={variant} />}
+        {!!otherPromotions?.length && (
+          <SliderWrapper
+            title="Другие акции"
+            variant="discount"
+            itemsCount={otherPromotions?.length}
+          >
+            {otherPromotions?.map((promotion, index) => (
+              <DiscountCard {...promotion} key={index} />
+            ))}
+          </SliderWrapper>
+        )}
+        <SeoBlock page={`/shares/${slug}`} />
+        <Feedback variant={variant} />
+      </main>
+    </>
   );
 }
