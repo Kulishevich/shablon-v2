@@ -14,6 +14,8 @@ import { TagsFilter } from '@/entities/tags-filter';
 import { SeoBlock } from '@/entities/seo-block';
 import { ReduxProvider } from '@/shared/lib/redux/providers/ReduxProvider';
 import Script from 'next/script';
+import Link from 'next/link';
+import { SecondCardCategory } from '@/entities/second-card-category';
 
 export const CatalogSection = ({
   products,
@@ -62,11 +64,16 @@ export const CatalogSection = ({
         />
       )}
       <h1 className="h1">{category?.name}</h1>
-      {tags && tags.length > 0 && (
+      {/* {tags && tags.length > 0 && (
         <div className={s.navigation}>
           <TagsFilter tags={tags} currentPath={currentPath} />
         </div>
-      )}
+      )} */}
+
+      <div className={s.subcategoriesList}>
+        {category?.subcategories?.map((sub) => <SecondCardCategory {...sub} />)}
+      </div>
+
       <div className={s.catalog}>
         <Filters
           className="desktop-only"

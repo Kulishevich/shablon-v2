@@ -1,0 +1,24 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: vw-1440(32);
+
+  width: vw-1440(1296);
+  @media (max-width: 768px) {
+    gap: 24px;
+    width: 336px;
+  }
+}
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}

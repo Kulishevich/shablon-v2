@@ -1,0 +1,74 @@
+@use '../../shared/config/styles/functions' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(24);
+
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: vw-1440(32);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: vw-1440(16);
+
+  @media (max-width: 768px) {
+    gap: 12px;
+  }
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: vw-1440(56);
+  height: vw-1440(56);
+
+  border-radius: 50%;
+  background-color: var(--color-bg-card);
+
+  & > svg {
+    width: vw-1440(32);
+    height: vw-1440(32);
+  }
+
+  @media (max-width: 768px) {
+    width: 56px;
+    height: 56px;
+
+    & > svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(12);
+
+  padding-top: vw-1440(24);
+  white-space: pre-line;
+
+  ul,
+  ol {
+    list-style: none;
+  }
+  @media (max-width: 768px) {
+    gap: 8px;
+  }
+}

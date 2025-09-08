@@ -11,5 +11,5 @@ export type CategoryT = {
   created_at: string;
   updated_at: string;
   products_count?: number;
-  subcategories: Omit<CategoryT, 'subcategories'>[];
+  subcategories?: CategoryT[];
 };

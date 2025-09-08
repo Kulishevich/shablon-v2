@@ -1,4 +1,4 @@
-@use "../../shared/config/styles/functions" as *;
+@use '../../shared/config/styles/functions' as *;
 
 .container {
   display: flex;
@@ -17,62 +17,68 @@
   }
 }
 
-.navigation {
-  display: flex;
+.subcategoriesList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: vw-1440(24);
-
-  margin-bottom: vw-1440(44);
-
-  & > a,
-  & > .tag {
-    background-color: var(--color-bg-card);
-    border-radius: 4px;
-    padding: vw-1440(12) vw-1440(24);
-    display: inline-block;
-
-    &.active {
-      color: var(--color-bg);
-      background-color: var(--color-button);
-    }
-
-    &:hover {
-      cursor: pointer;
-      color: var(--color-bg);
-      background-color: var(--color-button);
-      opacity: 0.8;
-    }
-  }
-
-  & > .tag {
-    color: var(--color-bg);
-    border: 2px solid transparent;
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    gap: 16px;
-    width: 336px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-    margin-bottom: 32px;
-
-    & > a,
-    & > .tag {
-      padding: 10px 20px;
-    }
-  }
 }
+
+// .navigation {
+//   display: flex;
+//   gap: vw-1440(24);
+
+//   margin-bottom: vw-1440(44);
+
+//   & > a,
+//   & > .tag {
+//     background-color: var(--color-bg-card);
+//     border-radius: 4px;
+//     padding: vw-1440(12) vw-1440(24);
+//     display: inline-block;
+
+//     &.active {
+//       color: var(--color-bg);
+//       background-color: var(--color-button);
+//     }
+
+//     &:hover {
+//       cursor: pointer;
+//       color: var(--color-bg);
+//       background-color: var(--color-button);
+//       opacity: 0.8;
+//     }
+//   }
+
+//   & > .tag {
+//     color: var(--color-bg);
+//     border: 2px solid transparent;
+//     position: relative;
+
+//     &::before {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       right: 0;
+//       bottom: 0;
+//       background-color: rgba(0, 0, 0, 0.1);
+//       border-radius: 4px;
+//     }
+//   }
+
+//   @media (max-width: 768px) {
+//     gap: 16px;
+//     width: 336px;
+//     overflow-x: auto;
+//     padding-bottom: 5px;
+//     margin-bottom: 32px;
+
+//     & > a,
+//     & > .tag {
+//       padding: 10px 20px;
+//     }
+//   }
+// }
 
 .catalog {
   display: flex;

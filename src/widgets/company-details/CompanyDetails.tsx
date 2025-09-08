@@ -14,7 +14,7 @@ export const CompanyDetails = ({ bank_details, company_info }: ContactsT) => {
             <BanknoteIcon />
           </div>
 
-          <div dangerouslySetInnerHTML={{ __html: bank_details || '' }} />
+          <div dangerouslySetInnerHTML={{ __html: bank_details || '' }} className={s.textContent} />
         </div>
 
         <div className={s.contentBlock}>
@@ -22,7 +22,7 @@ export const CompanyDetails = ({ bank_details, company_info }: ContactsT) => {
             <InfoCircleIcon />
           </div>
 
-          <div dangerouslySetInnerHTML={{ __html: company_info || '' }} />
+          <div dangerouslySetInnerHTML={{ __html: company_info || '' }} className={s.textContent} />
         </div>
       </div>
     </div>

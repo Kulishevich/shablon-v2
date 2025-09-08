@@ -4,6 +4,9 @@ import { getCategories } from '@/shared/api/category/getCategories';
 import { Feedback } from '@/widgets/feedback/Feedback';
 import { Breadcrumbs } from '@/shared/ui/breadcrumbs';
 import { cookies } from 'next/headers';
+import { CatalogList } from '@/widgets/catalog-list';
+import { notFound } from 'next/navigation';
+import { PreviouslyViewed } from '@/features/previously-viewed';
 
 export default async function Catalog() {
   const cookieStore = await cookies();
@@ -11,12 +14,16 @@ export default async function Catalog() {
 
   const categories = await getCategories({ variant });
 
+  if (!categories) {
+    return notFound();
+  }
+
   return (
     <>
       <Breadcrumbs />
       <main>
-        <CatalogProducts title="Каталог" categories={categories} />
-
+        <CatalogList categories={categories} variant={variant} />
+        <PreviouslyViewed />
         <SeoBlock page="/catalog" />
         <Feedback variant={variant} />
       </main>
