@@ -1,0 +1,160 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 vw-1440(264);
+    border-right: 1px solid rgba(17, 20, 52, 0.1);
+
+    .logo {
+      margin: vw-1440(28);
+      width: vw-1440(190);
+      height: vw-1440(46);
+    }
+
+    .tabs {
+      flex: 0 0 auto;
+
+      border-top: 1px solid rgba(17, 20, 52, 0.1);
+
+      .tab {
+        border-bottom: 1px solid rgba(17, 20, 52, 0.1);
+
+        &.active {
+          background-color: var(--color-button-additional);
+          color: var(--color-text);
+
+          svg {
+            color: var(--color-text);
+          }
+        }
+      }
+    }
+
+    .info {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: vw-1440(28);
+
+      .caption {
+        display: flex;
+        flex-direction: column;
+        gap: vw-1440(4);
+
+        span {
+          opacity: 0.5;
+        }
+
+        a {
+          color: var(--color-text);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .style {
+    flex: 1 1 vw-1440(464);
+    padding: vw-1440(102) vw-1440(36);
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(32);
+    overflow-x: hidden;
+
+    .styleItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: vw-1440(12);
+      border-radius: vw-1440(6);
+      cursor: pointer;
+      overflow: hidden;
+
+      img {
+        border: 1px solid transparent;
+
+        width: 100%;
+        height: vw-1440(192);
+        object-fit: cover;
+      }
+
+      &.active {
+        color: var(--color-accent-1);
+        img {
+          border: 1px solid var(--color-accent-1);
+        }
+      }
+    }
+  }
+
+  .variants {
+    flex: 1 1 vw-1440(464);
+    padding: vw-1440(69) vw-1440(36);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: vw-1440(32) vw-1440(28);
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: vw-1440(6);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-accent-1);
+      border-radius: vw-1440(6);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(17, 20, 52, 0.2);
+    }
+
+    .variantItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: vw-1440(10);
+      cursor: pointer;
+      transition:
+        color 0.3s ease,
+        background-color 0.3s ease;
+
+      img {
+        background-color: var(--color-bg-card);
+        border: 1px solid rgba(37, 51, 140, 0.2);
+        border-radius: vw-1440(6);
+        width: vw-1440(180);
+        height: vw-1440(180);
+        object-fit: contain;
+        padding: vw-1440(16);
+        transition:
+          background-color 0.3s ease,
+          border 0.3s ease;
+      }
+
+      &.active {
+        color: var(--color-accent-1);
+        img {
+          background-color: var(--color-button-additional);
+          border: 1px solid var(--color-accent-1);
+        }
+      }
+
+      &:hover {
+        color: var(--color-accent-1);
+        img {
+          background-color: var(--color-button-additional);
+        }
+      }
+    }
+  }
+}

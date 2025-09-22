@@ -1,0 +1,161 @@
+@use "../../config/styles/functions" as *;
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg-card);
+  padding: vw-1440(11) vw-1440(16);
+  border-radius: vw-1440(4);
+
+  @media (max-width: 768px) {
+    padding: 11px 16px;
+    border-radius: 4px;
+  }
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: vw-1440(10);
+
+  background-color: transparent;
+  border: none;
+  text-align: left;
+
+  svg {
+    width: vw-1440(12);
+    height: vw-1440(10);
+  }
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  & > svg {
+    transition: transform 0.3s ease;
+  }
+
+  & > p {
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+    & > p {
+      color: var(--color-button);
+    }
+  }
+
+  &[data-state="open"] {
+    & > svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(12);
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+  }
+
+  & > :first-child {
+    margin-top: vw-1440(12);
+
+    @media (max-width: 768px) {
+      margin-top: 12px;
+    }
+  }
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  background-color: #252b3399;
+  animation: fadeIn 0.1s ease-out;
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100svh;
+  width: vw-1440(728);
+  display: flex;
+  background-color: var(--color-bg);
+  animation: slideIn 0.3s ease-out;
+
+  .closeButton {
+    display: flex;
+    position: absolute;
+    top: vw-1440(12);
+    right: vw-1440(12);
+    border-radius: 50%;
+    padding: vw-1440(10);
+
+    & > svg {
+      width: vw-1440(12);
+      height: vw-1440(12);
+      @media (max-width: 768px) {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      top: 8px;
+      right: 8px;
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 335px;
+    padding: 24px;
+
+    flex-direction: column;
+    & > img {
+      display: none;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

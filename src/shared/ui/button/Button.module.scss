@@ -1,4 +1,4 @@
-@use '../../config/styles/functions' as *;
+@use "../../config/styles/functions" as *;
 
 .button {
   cursor: pointer;
@@ -88,6 +88,60 @@
 
   @media (max-width: 768px) {
     padding: 14px 12px;
+  }
+}
+
+.white {
+  color: var(--color-text);
+  background-color: var(--color-white);
+  padding: vw-1440(12) vw-1440(28);
+  display: flex;
+  align-items: center;
+  gap: vw-1440(8);
+  width: 100%;
+  font-size: vw-1440(16);
+  font-weight: 400;
+
+  svg {
+    width: vw-1440(26);
+    height: vw-1440(26);
+    flex-shrink: 0;
+    color: var(--color-text);
+  }
+
+  span {
+    flex: 1 1 auto;
+    text-align: left;
+  }
+
+  &:hover {
+    background-color: var(--color-button);
+    color: var(--color-bg);
+
+    svg {
+      color: var(--color-bg);
+    }
+  }
+
+  &:active {
+    background-color: var(--color-button-additional);
+    color: var(--color-text);
+
+    svg {
+      color: var(--color-text);
+    }
+  }
+
+  &:disabled {
+    color: var(--color-bg);
+    background-color: var(--color-text);
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    padding: 14px 12px;
+
+    font-size: 16px;
   }
 }
 

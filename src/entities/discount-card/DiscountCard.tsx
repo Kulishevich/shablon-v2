@@ -6,7 +6,7 @@ import { paths } from '@/shared/config/constants/paths';
 import { PromotionT } from '@/shared/api/promotions/types';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 
-export const DiscountCard = async ({
+export const DiscountCard = ({
   title,
   photo_path,
   slug,

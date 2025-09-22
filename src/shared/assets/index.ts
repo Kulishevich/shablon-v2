@@ -55,3 +55,7 @@ export { default as SecondPhoneIcon } from './SecondPhoneIcon';
 export { default as TimeIcon } from './TimeIcon';
 export { default as BanknoteIcon } from './BanknoteIcon';
 export { default as InfoCircleIcon } from './InfoCircleIcon';
+export { default as ArrowTriangleIcon } from './ArrowTriangleIcon';
+export { default as StylesSettingsIcon } from './StylesSettingsIcon';
+export { default as VariantsSettingsIcon } from './VariantsSettingsIcon';
+export { default as SiteSettingsIcon } from './SiteSettingsIcon';
