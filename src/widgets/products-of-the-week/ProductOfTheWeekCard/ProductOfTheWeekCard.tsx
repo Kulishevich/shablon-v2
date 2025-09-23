@@ -5,20 +5,20 @@ import Image from 'next/image';
 import React from 'react';
 import s from './styles.module.scss';
 import { Button } from '@/shared/ui/button';
-import { ShoppingCartIcon } from '@/shared/assets';
+import { HeartIcon, ShoppingCartIcon, StarIcon } from '@/shared/assets';
 import clsx from 'clsx';
 import { useBreakpoint } from '@/shared/lib/hooks/useBreakpoint';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectIsInFavorites } from '@/shared/lib/redux/selectors/FavoritesSelectors';
+import { addToFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
+import { removeFromFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
 
-export const ProductOfTheWeekCard = ({
-  discount,
-  price,
-  photo_path,
-  name,
-  id,
-  variant,
-}: ProductT & { variant?: string }) => {
+export const ProductOfTheWeekCard = ({ variant, ...product }: ProductT & { variant: string }) => {
+  const { photo_path, name, id, discount, price, rating } = product;
   const { isMobile } = useBreakpoint();
   const isDiscount = !!Number(discount);
+  const dispatch = useDispatch();
+  const isFavorites = useSelector(selectIsInFavorites(id));
 
   const totalPrice = !!discount
     ? Math.round((Number(price) * (100 - Number(discount))) / 100)
@@ -33,6 +33,24 @@ export const ProductOfTheWeekCard = ({
           alt="Products of the week"
           className={s.card__image}
         />
+        <HeartIcon
+          className={clsx(s.favoritesButton, { [s.active]: isFavorites })}
+          onClick={(e: React.MouseEvent<SVGSVGElement>) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (isFavorites) {
+              dispatch(removeFromFavorites(id));
+            } else {
+              dispatch(addToFavorites(product));
+            }
+          }}
+        />
+        {rating > 0 && (
+          <div className={clsx(s.rating, 'body_7')}>
+            <StarIcon className={clsx(s.star, s.active)} />
+            {rating}
+          </div>
+        )}
       </div>
       <p className={clsx(s.card__name, 'body_6')}>{name}</p>
       <div className={s.card__footer}>

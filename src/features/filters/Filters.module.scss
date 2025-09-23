@@ -1,7 +1,7 @@
 @use "../../shared/config/styles/functions" as *;
 
 .filters {
-  width: vw-1440(282);
+  width: vw-1440(298);
 
   display: flex;
   flex-direction: column;
@@ -10,6 +10,14 @@
   @media (max-width: 768px) {
     width: 100%;
     gap: 12px;
+  }
+
+  .filterTitle {
+    margin-top: vw-1440(20);
+
+    @media (max-width: 768px) {
+      margin-top: 20px;
+    }
   }
 }
 
@@ -34,10 +42,19 @@
 
 .inputsContainer {
   display: grid;
-  grid-template-columns: repeat(2, 86px);
-  gap: 12px;
+  grid-template-columns: repeat(2, vw-1440(86));
+  gap: vw-1440(12);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 86px);
+    gap: 12px;
+  }
 
   .input {
-    height: 44px;
+    height: vw-1440(44);
+
+    @media (max-width: 768px) {
+      height: 44px;
+    }
   }
 }

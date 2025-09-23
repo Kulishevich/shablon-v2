@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { paths } from '@/shared/config/constants/paths';
 import { HeartIcon } from '@/shared/assets';
 import { useSelector } from 'react-redux';
-import { selectCartCountProducts } from '@/shared/lib/redux/selectors/CartSelectors';
+import { selectFavoritesCount } from '@/shared/lib/redux/selectors/FavoritesSelectors';
 import clsx from 'clsx';
 
 interface FavoritesButtonProps {
@@ -13,13 +13,13 @@ interface FavoritesButtonProps {
 }
 
 export const FavoritesButton = ({ variant }: FavoritesButtonProps) => {
-  const productsQuantity = useSelector(selectCartCountProducts);
+  const favoritesCount = useSelector(selectFavoritesCount);
 
   return (
     <Link className={clsx(s.favoritesButton, s[variant])} href={paths.cart}>
       <div className={s.favoritesButton__iconWrapper}>
         <HeartIcon className={s.favoritesButton__icon} />
-        <p className={clsx('body_7', s.favoritesButton__count)}>{productsQuantity}</p>
+        <p className={clsx('body_7', s.favoritesButton__count)}>{favoritesCount}</p>
       </div>
       <p className={'body_7'}>Избранное</p>
     </Link>

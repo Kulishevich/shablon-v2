@@ -116,7 +116,7 @@ export const CompanyContactsSection = ({
 
       {contacts?.address && (
         <YandexMap
-          coordinatesOffset={[-0.006, 0]}
+          coordinatesOffset={[0, 0]}
           address={contacts?.address}
           className={clsx(s.map, { [s.main]: isMain })}
         />

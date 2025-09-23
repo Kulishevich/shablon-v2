@@ -139,7 +139,7 @@ export default async function AllProductsPage({
           currentPath={canonicalUrl}
           filters={products?.filters || []}
         />
-        <PreviouslyViewed />
+        <PreviouslyViewed variant={variant || ''} />
         <SeoBlock page={canonicalUrl} />
         <Feedback variant={variant} />
       </main>

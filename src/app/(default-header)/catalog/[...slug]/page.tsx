@@ -222,6 +222,7 @@ async function renderAllProductsSection({
       <Breadcrumbs dynamicPath={breadcrumbsPath} />
       <main className="main-container">
         <CatalogSection
+          variant={variant || ''}
           products={products}
           category={allCategory}
           page={page || '1'}
@@ -234,7 +235,7 @@ async function renderAllProductsSection({
           currentPath={canonicalUrl}
           filters={products?.filters || []}
         />
-        <PreviouslyViewed />
+        <PreviouslyViewed variant={variant || ''} />
         <SeoBlock page={canonicalUrl} />
         <Feedback variant={variant} />
       </main>
@@ -332,6 +333,7 @@ async function renderCatalogSection({
       <Breadcrumbs dynamicPath={breadcrumbsPath} />
       <main className="main-container">
         <CatalogSection
+          variant={variant || ''}
           tags={allTags || undefined}
           products={products}
           category={category}
@@ -344,7 +346,7 @@ async function renderCatalogSection({
           currentPath={canonicalUrl}
           filters={products?.filters || []}
         />
-        <PreviouslyViewed />
+        <PreviouslyViewed variant={variant || ''} />
         <SeoBlock page={canonicalUrl} />
         <Feedback variant={variant} />
       </main>
@@ -384,7 +386,7 @@ async function renderProductSection(product: ProductT, slug: string[]) {
           advantages={advantages}
           deliveryAndPayment={deliveryAndPayment}
         />
-        <PreviouslyViewed />
+        <PreviouslyViewed variant={variant || ''} />
         <SeoBlock page={canonicalUrl} />
         <Feedback variant={variant} />
       </main>

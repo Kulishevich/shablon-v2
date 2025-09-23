@@ -198,6 +198,8 @@ export const Filters = ({
         />
       )}
 
+      <div className={clsx(s.filterTitle, 'h4')}>Фильтр</div>
+
       {brands.length > 0 && (
         <CollapseFilter title="Бренд">
           {brands.map((brand, index) => (
@@ -250,7 +252,7 @@ export const Filters = ({
       ))}
 
       <Button variant="secondary" fullWidth onClick={resetFilters}>
-        Сбросить фильтр
+        Очистить фильтр
       </Button>
     </div>
   );

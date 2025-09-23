@@ -132,7 +132,7 @@ export default async function Home() {
         <CompanyContactsSection contacts={contacts} isMain />
       </Suspense>
 
-      <PreviouslyViewed />
+      <PreviouslyViewed variant={variant || ''} />
 
       <Suspense>
         <Feedback variant={variant} />

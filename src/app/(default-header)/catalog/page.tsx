@@ -23,7 +23,7 @@ export default async function Catalog() {
       <Breadcrumbs />
       <main>
         <CatalogList categories={categories} variant={variant} />
-        <PreviouslyViewed />
+        <PreviouslyViewed variant={variant || ''} />
         <SeoBlock page="/catalog" />
         <Feedback variant={variant} />
       </main>

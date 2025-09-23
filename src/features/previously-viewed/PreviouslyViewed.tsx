@@ -5,8 +5,9 @@ import { ProductT } from '@/shared/api/product/types';
 import SectionAnimationWrapper from '@/shared/ui/section/SectionAnimationWrapper';
 import { ProductCard } from '@/entities/product-card/ProductCard';
 import { ReduxProvider } from '@/shared/lib/redux/providers/ReduxProvider';
+import { ProductOfTheWeekCard } from '@/widgets/products-of-the-week/ProductOfTheWeekCard';
 
-export const PreviouslyViewed = () => {
+export const PreviouslyViewed = ({ variant }: { variant: string }) => {
   const [viewedProducts, setViewedProducts] = useState<ProductT[]>([]);
 
   const getViewedProductIds = (): ProductT[] => {
@@ -34,7 +35,7 @@ export const PreviouslyViewed = () => {
             itemType="http://schema.org/ItemList"
           >
             {viewedProducts.map((product, index) => (
-              <ProductCard key={index} product={product} />
+              <ProductOfTheWeekCard key={index} {...product} variant={variant} />
             ))}
           </SliderWrapper>
         )}

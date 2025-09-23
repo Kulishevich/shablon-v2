@@ -8,19 +8,26 @@ import {
   ArrowLeftIcon,
   ArrowRightIcon,
   CloseIcon,
+  HeartIcon,
   ShoppingCartIcon,
   StarIcon,
 } from '@/shared/assets';
 import clsx from 'clsx';
 import s from './ProductCard.module.scss';
 import { ProductT } from '@/shared/api/product/types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addInCart, changeProductCount, deleteFromCart } from '@/shared/lib/redux/slices/cartSlice';
 import { TextField } from '@/shared/ui/text-field';
 import debounce from 'lodash.debounce';
 import { buildProductUrlSync } from '@/shared/lib/utils/productUtils';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import Cookies from 'js-cookie';
+import { selectIsInFavorites } from '@/shared/lib/redux/selectors/FavoritesSelectors';
+import { addToFavorites, removeFromFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export const ProductCard = ({
   product,
@@ -36,25 +43,14 @@ export const ProductCard = ({
     setVariant(cookieVariant);
   }, []);
 
-  const {
-    discount,
-    price,
-    is_popular,
-    is_novelty,
-    id,
-    name,
-    description,
-    slug,
-    main_image,
-    quantity,
-    sku,
-  } = product;
+  const { discount, price, id, name, main_image, images, quantity, sku } = product;
   const [count, setCount] = useState<number>(quantity || 1);
   const dispatch = useDispatch();
   const totalPrice = discount
     ? Math.round((Number(price) * (100 - Number(discount))) / 100)
     : price;
   const is_discount = !!Number(discount);
+  const isInFavorites = useSelector(selectIsInFavorites(id));
 
   const handleAddInCard = () => {
     dispatch(addInCart({ ...product, quantity: count }));
@@ -99,14 +95,47 @@ export const ProductCard = ({
   return (
     <Link className={s.container} href={buildProductUrlSync({ product, variant })}>
       <div className={s.imageContainer}>
-        <div>
-          <Image
-            src={`${getStoreBaseUrl(variant)}/${main_image?.image_path}`}
-            fill
-            alt="product"
-            className={s.image}
-          />
-        </div>
+        <Swiper
+          className={s.swiper}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          modules={[Pagination]}
+        >
+          {main_image && (
+            <SwiperSlide>
+              <Image
+                src={`${getStoreBaseUrl(variant)}/${main_image?.image_path}`}
+                fill
+                alt="product"
+                className={s.image}
+              />
+            </SwiperSlide>
+          )}
+          {images?.map((image) => (
+            <SwiperSlide key={image.id}>
+              <Image
+                src={`${getStoreBaseUrl(variant)}/${image.image_path}`}
+                fill
+                alt="product"
+                className={s.image}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <HeartIcon
+          className={clsx(s.favoritesButton, { [s.active]: isInFavorites })}
+          onClick={(e: React.MouseEvent<SVGSVGElement>) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (isInFavorites) {
+              dispatch(removeFromFavorites(id));
+            } else {
+              dispatch(addToFavorites(product));
+            }
+          }}
+        />
+
         <div className={s.tagsContainer}>
           {product?.tags?.map((tag) => (
             <span style={{ background: tag.color }} key={tag.id} className={clsx('tag', s.popular)}>
@@ -124,25 +153,38 @@ export const ProductCard = ({
           </Button>
         )}
       </div>
-      <div className={s.info}>
-        <div className={s.rating}>
-          {Array.from({ length: 5 }).map((_, index) => (
-            <StarIcon
-              key={index}
-              className={clsx(s.star, { [s.active]: index < product?.rating })}
-            />
-          ))}
-        </div>
-        <div className={s.availability}>
-          <span className={clsx(s.availabilityText, 'body_6')}>в наличии</span>
-        </div>
-      </div>
-      <div className={clsx(s.title, 'h5')}>{name}</div>
       <div
-        className={clsx(s.description, 'body_5')}
-        dangerouslySetInnerHTML={{ __html: description || '' }}
-      />
+        className={s.priceContainer}
+        onClick={(e: React.MouseEvent<HTMLDivElement>) => e.preventDefault()}
+      >
+        <div className={s.price}>
+          <div className="h4">
+            <span>{totalPrice}</span> BYN/шт
+          </div>
+          {is_discount && (
+            <span className="discount">
+              <span>{product?.price}</span> BYN
+            </span>
+          )}
+        </div>
+        {productInCart && (
+          <div className={s.countContainer}>
+            <Button variant="icon" onClick={decrement} className={s.countButton}>
+              <ArrowLeftIcon />
+            </Button>
+            <TextField
+              className={s.counter}
+              value={count}
+              onChange={(e) => changeCountValue(e.target.value)}
+            />
+            <Button variant="icon" onClick={increment} className={s.countButton}>
+              <ArrowRightIcon />
+            </Button>
+          </div>
+        )}
+      </div>
 
+      <div className={clsx(s.title, 'body_4')}>{name}</div>
       <div
         className={clsx(s.sku, 'body_7')}
         onClick={(e: React.MouseEvent<HTMLDivElement>) => e.preventDefault()}
@@ -150,37 +192,19 @@ export const ProductCard = ({
         Артикул: <span>{sku}</span>
       </div>
 
-      <div className={s.footerCard}>
-        <div
-          className={s.priceContainer}
-          onClick={(e: React.MouseEvent<HTMLDivElement>) => e.preventDefault()}
-        >
-          <div className={s.price}>
-            {is_discount && (
-              <span className="discount">
-                <span>{product?.price}</span> BYN
-              </span>
-            )}
-            <div className="h4">
-              <span>{totalPrice}</span> BYN
-            </div>
+      <div className={s.info}>
+        {product?.rating > 0 && (
+          <div className={clsx(s.rating, 'body_7')}>
+            <StarIcon className={clsx(s.star, s.active)} />
+            {product?.rating}
           </div>
-          {productInCart && (
-            <div className={s.countContainer}>
-              <Button variant="icon" onClick={decrement} className={s.countButton}>
-                <ArrowLeftIcon />
-              </Button>
-              <TextField
-                className={s.counter}
-                value={count}
-                onChange={(e) => changeCountValue(e.target.value)}
-              />
-              <Button variant="icon" onClick={increment} className={s.countButton}>
-                <ArrowRightIcon />
-              </Button>
-            </div>
-          )}
+        )}
+        <div className={s.availability}>
+          <span className={clsx(s.availabilityText, 'body_6')}>в наличии</span>
         </div>
+      </div>
+
+      <div className={s.footerCard}>
         <Button
           fullWidth
           onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
@@ -205,6 +229,14 @@ export const ProductCard = ({
           </Button>
         )}
       </div>
+
+      {/*  <div className={s.specifications}>
+        {product?.specifications?.slice(0, 3).map((specification) => (
+          <div key={specification.id} className={clsx(s.specification, 'body_7')}>
+            {specification.name}: <span>{specification.pivot?.value}</span>
+          </div>
+        ))}
+      </div> */}
     </Link>
   );
 };

@@ -1,7 +1,8 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   width: vw-1440(306);
+  max-width: vw-1440(306);
   position: relative;
   border-radius: 5px;
   box-sizing: border-box;
@@ -24,6 +25,7 @@
 
   @media (max-width: 768px) {
     width: 160px;
+    max-width: 160px;
   }
 }
 
@@ -36,8 +38,28 @@
   background-color: var(--color-bg-card);
   border-radius: 6px;
 
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
   img {
     object-fit: cover;
+  }
+
+  .favoritesButton {
+    position: absolute;
+    top: vw-1440(16);
+    right: vw-1440(16);
+    width: vw-1440(36);
+    height: vw-1440(36);
+    color: rgba(17, 20, 52, 0.1);
+    z-index: 1;
+
+    &.active {
+      color: var(--color-accent-1);
+      fill: var(--color-accent-1);
+    }
   }
 
   & > .deleteButton {
@@ -103,7 +125,7 @@
   margin-top: vw-1440(16);
   margin-bottom: vw-1440(16);
   display: flex;
-  justify-content: space-between;
+  gap: vw-1440(10);
   align-items: center;
 
   @media (max-width: 768px) {
@@ -114,15 +136,16 @@
   .rating {
     display: flex;
     align-items: center;
-    gap: vw-1440(2);
+    gap: vw-1440(4);
+    line-height: 1;
 
     @media (max-width: 768px) {
       gap: 2px;
     }
 
     .star {
-      width: vw-1440(24);
-      height: vw-1440(24);
+      width: vw-1440(20);
+      height: vw-1440(20);
       opacity: 0.2;
 
       @media (max-width: 768px) {
@@ -141,6 +164,8 @@
     color: var(--color-accent-green);
     text-decoration: underline;
     text-decoration-skip-ink: none;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -172,16 +197,7 @@
 }
 
 .sku {
-  margin-bottom: vw-1440(20);
   cursor: default;
-
-  span {
-    font-weight: 700;
-    text-decoration: underline;
-  }
-  @media (max-width: 768px) {
-    margin-bottom: 8px;
-  }
 }
 
 .footerCard {
@@ -218,9 +234,11 @@
 
 .price {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-start;
+  gap: vw-1440(8);
   flex-shrink: 0;
+  margin-bottom: vw-1440(16);
 
   & > span {
     opacity: 0.3;

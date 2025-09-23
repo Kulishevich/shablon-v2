@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -6,6 +6,13 @@
   max-width: vw-1440(1296);
 
   & > h1 {
+    margin-bottom: vw-1440(24);
+    @media (max-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .description {
     margin-bottom: vw-1440(24);
     @media (max-width: 768px) {
       margin-bottom: 24px;
@@ -21,6 +28,11 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: vw-1440(24);
+  margin-bottom: vw-1440(48);
+
+  @media (max-width: 768px) {
+    margin-bottom: 36px;
+  }
 }
 
 // .navigation {
@@ -82,11 +94,11 @@
 
 .catalog {
   display: flex;
-  gap: vw-1440(48);
+  gap: vw-1440(32);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
   }
 }
 

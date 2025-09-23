@@ -7,6 +7,7 @@ import { ProductT } from '@/shared/api/product/types';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import { ShoppingCartIcon } from '@/shared/assets';
 import { ProductOfTheWeekCard } from './ProductOfTheWeekCard';
+import { ReduxProvider } from '@/shared/lib/redux/providers/ReduxProvider';
 
 interface ProductsOfTheWeekProps {
   products: ProductT[] | null;
@@ -17,14 +18,16 @@ export const ProductsOfTheWeek = ({ products, variant }: ProductsOfTheWeekProps)
   return (
     products && (
       <div className={s.container}>
-        <div className={s.firstBlock}>
-          <h2 className={'h2'}>Товары недели</h2>
-          <div className={s.cardsList}>
-            {products.slice(0, 8).map((product) => (
-              <ProductOfTheWeekCard {...product} variant={variant} />
-            ))}
+        <ReduxProvider>
+          <div className={s.firstBlock}>
+            <h2 className={'h2'}>Товары недели</h2>
+            <div className={s.cardsList}>
+              {products.slice(0, 8).map((product) => (
+                <ProductOfTheWeekCard {...product} variant={variant || ''} />
+              ))}
+            </div>
           </div>
-        </div>
+        </ReduxProvider>
 
         <div className={s.secondBlock}>
           <div className={s.content}>

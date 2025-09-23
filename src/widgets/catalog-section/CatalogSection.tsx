@@ -16,6 +16,7 @@ import { ReduxProvider } from '@/shared/lib/redux/providers/ReduxProvider';
 import Script from 'next/script';
 import Link from 'next/link';
 import { SecondCardCategory } from '@/entities/second-card-category';
+import clsx from 'clsx';
 
 export const CatalogSection = ({
   products,
@@ -29,6 +30,7 @@ export const CatalogSection = ({
   tags,
   currentPath,
   filters,
+  variant,
 }: {
   products: ProductsResponseT | null;
   category: CategoryT | null;
@@ -41,6 +43,7 @@ export const CatalogSection = ({
   tags?: TagT[];
   currentPath: string;
   filters: FilterT[];
+  variant: string;
 }) => {
   return (
     <div className={s.container}>
@@ -64,6 +67,8 @@ export const CatalogSection = ({
         />
       )}
       <h1 className="h1">{category?.name}</h1>
+
+      <div className={clsx(s.description, 'body_2')}>{category?.description}</div>
       {/* {tags && tags.length > 0 && (
         <div className={s.navigation}>
           <TagsFilter tags={tags} currentPath={currentPath} />
@@ -71,7 +76,7 @@ export const CatalogSection = ({
       )} */}
 
       <div className={s.subcategoriesList}>
-        {category?.subcategories?.map((sub) => <SecondCardCategory {...sub} />)}
+        {category?.subcategories?.map((sub) => <SecondCardCategory {...sub} variant={variant} />)}
       </div>
 
       <div className={s.catalog}>

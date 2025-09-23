@@ -160,6 +160,7 @@ export const CategoryTree = ({
 
   return (
     <div className={`${s.categoryTree} ${className || ''}`}>
+      <div className={clsx(s.title, 'h4')}>Категория</div>
       <div className={s.categoriesList}>
         {categories.map((category, index) => {
           const isActive = currentCategoryPath.includes(category.slug);

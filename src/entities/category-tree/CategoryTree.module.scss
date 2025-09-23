@@ -3,10 +3,13 @@
 .categoryTree {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg-card);
-  border-radius: vw-1440(6);
+
   overflow: hidden;
   margin-bottom: vw-1440(12);
+
+  .title {
+    margin-bottom: vw-1440(14);
+  }
 
   @media (max-width: 768px) {
     border-radius: 6px;
@@ -31,19 +34,20 @@
   // Стили для категорий первого уровня (темные)
   &[data-level="0"] {
     .triggerContainer {
-      background-color: var(--color-text);
+      background-color: var(--color-button-additional);
+      border-radius: vw-1440(4);
 
       .categoryLink {
-        color: var(--color-bg);
-        font-weight: 500;
+        color: var(--color-text);
 
         &.active {
-          color: var(--color-button-hover);
+          color: var(--color-text);
+          font-weight: 700;
         }
       }
 
       .trigger {
-        color: var(--color-bg);
+        color: var(--color-accent-1);
       }
     }
   }
@@ -53,9 +57,10 @@
     .triggerContainer {
       background-color: var(--color-bg);
       transition: all 0.3s ease;
+      padding: 0;
 
       &:has(.categoryLink:hover) {
-        background-color: var(--color-button-hover);
+        color: var(--color-button-additional);
       }
 
       .categoryLink {
@@ -120,7 +125,7 @@
     height: vw-1440(24);
 
     path {
-      fill: var(--color-bg);
+      fill: var(--color-accent-1);
     }
 
     @media (max-width: 768px) {
@@ -142,8 +147,9 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: vw-1440(1);
+    gap: vw-1440(12);
     overflow: hidden;
+    padding: vw-1440(12) 0;
 
     @media (max-width: 768px) {
       gap: 1px;

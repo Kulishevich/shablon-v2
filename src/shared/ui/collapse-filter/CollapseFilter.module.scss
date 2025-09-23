@@ -3,12 +3,13 @@
 .rootState {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-bg-card);
-  padding: vw-1440(16);
-  border-radius: 6px;
+  background-color: var(--color-bg);
+  padding: vw-1440(15) vw-1440(24);
+  border-radius: 4px;
+  border: 1px solid rgba(17, 20, 52, 0.1);
 
   @media (max-width: 768px) {
-    padding: 16px;
+    padding: 15px 24px;
   }
 }
 
@@ -24,6 +25,13 @@
 
   & > svg {
     transition: transform 0.3s ease;
+    width: vw-1440(20);
+    height: vw-1440(20);
+
+    @media (max-width: 768px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   & > p {
