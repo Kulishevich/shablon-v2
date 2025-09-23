@@ -1,0 +1,100 @@
+@use "../../config/styles/functions" as *;
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  padding: vw-1440(16);
+  border-radius: 6px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+}
+
+.trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(17, 20, 52, 0.1);
+  background-color: transparent;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    padding: 12px 20px;
+  }
+
+  &[data-state="open"] {
+    background-color: var(--color-button-additional);
+  }
+
+  & > svg {
+    transition: transform 0.3s ease;
+    width: 12px;
+    height: 10px;
+    transform: rotate(180deg);
+  }
+
+  & > p {
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: vw-1440(8);
+
+    @media (max-width: 768px) {
+      gap: 8px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    & > p {
+      color: var(--color-button);
+    }
+  }
+
+  &[data-state="open"] {
+    & > svg {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  .content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      padding: 24px 20px;
+    }
+  }
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}

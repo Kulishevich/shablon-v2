@@ -1,4 +1,4 @@
-@use '../../config/styles/functions' as *;
+@use "../../config/styles/functions" as *;
 
 .icon {
   width: vw-1440(24);
@@ -28,12 +28,12 @@
   border-radius: 6px;
   background-color: var(--color-bg);
 
-  &[data-state='open'] .icon {
+  &[data-state="open"] .icon {
     transform: rotate(180deg);
     transition: all 0.5s ease-in-out;
   }
 
-  &[data-state='closed'] .icon {
+  &[data-state="closed"] .icon {
     transition: all 0.5s ease-in-out;
   }
 
@@ -66,6 +66,7 @@
   border-radius: 6px;
   background-color: var(--color-bg);
   border-top: none;
+  z-index: 1100;
 
   animation: fade-in 0.6s ease;
 
@@ -93,7 +94,7 @@
     }
   }
 
-  &[data-state='checked'] {
+  &[data-state="checked"] {
     outline: none;
     & > div > p {
       color: var(--color-accent-red);

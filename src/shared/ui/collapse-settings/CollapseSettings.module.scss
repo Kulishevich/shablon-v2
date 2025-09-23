@@ -19,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   gap: vw-1440(10);
+  border-radius: vw-1440(4);
 
   background-color: transparent;
   border: none;
@@ -27,10 +28,16 @@
   svg {
     width: vw-1440(12);
     height: vw-1440(10);
+
+    @media (max-width: 768px) {
+      width: 12px;
+      height: 10px;
+    }
   }
 
   @media (max-width: 768px) {
     gap: 10px;
+    border-radius: 4px;
   }
 
   & > svg {
@@ -123,15 +130,14 @@
     }
 
     @media (max-width: 768px) {
-      top: 8px;
-      right: 8px;
+      top: 16px;
+      right: 16px;
       padding: 10px;
     }
   }
 
   @media (max-width: 768px) {
-    width: 335px;
-    padding: 24px;
+    width: 267px;
 
     flex-direction: column;
     & > img {

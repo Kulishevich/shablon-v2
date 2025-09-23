@@ -2,6 +2,26 @@
 
 .container {
   display: flex;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-accent-1);
+      border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: rgba(17, 20, 52, 0.2);
+    }
+  }
 
   .sidebar {
     display: flex;
@@ -9,10 +29,22 @@
     flex: 0 0 vw-1440(264);
     border-right: 1px solid rgba(17, 20, 52, 0.1);
 
+    @media (max-width: 768px) {
+      flex: 0 0 auto;
+      border-right: none;
+      border-bottom: 1px solid rgba(17, 20, 52, 0.1);
+    }
+
     .logo {
       margin: vw-1440(28);
       width: vw-1440(190);
       height: vw-1440(46);
+
+      @media (max-width: 768px) {
+        margin: 16px 20px 24px;
+        width: 165px;
+        height: 40px;
+      }
     }
 
     .tabs {
@@ -40,6 +72,10 @@
       flex-direction: column;
       justify-content: flex-end;
       padding: vw-1440(28);
+
+      @media (max-width: 768px) {
+        display: none;
+      }
 
       .caption {
         display: flex;
@@ -70,14 +106,23 @@
     gap: vw-1440(32);
     overflow-x: hidden;
 
+    @media (max-width: 768px) {
+      padding: 0;
+      flex: initial;
+      gap: 16px;
+    }
+
     .styleItem {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: vw-1440(12);
-      border-radius: vw-1440(6);
       cursor: pointer;
       overflow: hidden;
+
+      @media (max-width: 768px) {
+        gap: 6px;
+      }
 
       img {
         border: 1px solid transparent;
@@ -85,6 +130,12 @@
         width: 100%;
         height: vw-1440(192);
         object-fit: cover;
+        border-radius: vw-1440(6);
+
+        @media (max-width: 768px) {
+          border-radius: 6px;
+          height: 110px;
+        }
       }
 
       &.active {
@@ -104,6 +155,14 @@
     gap: vw-1440(32) vw-1440(28);
     overflow-y: auto;
     overflow-x: hidden;
+
+    @media (max-width: 768px) {
+      padding: 0;
+      flex: initial;
+      gap: 16px;
+      overflow-y: hidden;
+      height: fit-content;
+    }
 
     &::-webkit-scrollbar {
       width: vw-1440(6);
@@ -128,6 +187,10 @@
         color 0.3s ease,
         background-color 0.3s ease;
 
+      @media (max-width: 768px) {
+        gap: 6px;
+      }
+
       img {
         background-color: var(--color-bg-card);
         border: 1px solid rgba(37, 51, 140, 0.2);
@@ -139,6 +202,13 @@
         transition:
           background-color 0.3s ease,
           border 0.3s ease;
+
+        @media (max-width: 768px) {
+          border-radius: 6px;
+          height: 104px;
+          width: 104px;
+          padding: 12px;
+        }
       }
 
       &.active {
@@ -155,6 +225,16 @@
           background-color: var(--color-button-additional);
         }
       }
+    }
+  }
+
+  .fonts {
+    flex: 1 1 vw-1440(464);
+    padding: vw-1440(102) vw-1440(36);
+
+    @media (max-width: 768px) {
+      padding: 0;
+      flex: initial;
     }
   }
 }

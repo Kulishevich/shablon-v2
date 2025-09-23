@@ -59,3 +59,4 @@ export { default as ArrowTriangleIcon } from './ArrowTriangleIcon';
 export { default as StylesSettingsIcon } from './StylesSettingsIcon';
 export { default as VariantsSettingsIcon } from './VariantsSettingsIcon';
 export { default as SiteSettingsIcon } from './SiteSettingsIcon';
+export { default as ColorPickerIcon } from './ColorPickerIcon';

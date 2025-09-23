@@ -1,0 +1,42 @@
+@use "../../shared/config/styles/functions" as *;
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+
+  .filed {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: vw-1440(10);
+
+    @media (max-width: 768px) {
+      gap: 8px;
+    }
+  }
+
+  .select {
+    width: 100%;
+  }
+
+  .colorsContainer {
+    display: flex;
+
+    gap: vw-1440(60);
+
+    @media (max-width: 768px) {
+      gap: 12px;
+      flex-direction: column;
+    }
+  }
+
+  .colorPicker {
+    width: 100%;
+  }
+}
