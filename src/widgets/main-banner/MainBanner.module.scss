@@ -4,9 +4,31 @@
   width: 100%;
   position: relative;
   height: vw-1440(340);
+  border-radius: vw-1440(6);
+  overflow: hidden;
 
   @media (max-width: 768px) {
     height: 340px;
+    border-radius: 4px;
+  }
+
+  &.inner {
+    height: 100%;
+
+    @media (max-width: 768px) {
+      height: 435px;
+    }
+
+    .content {
+      max-width: 100%;
+      padding: vw-1440(36);
+
+      @media (max-width: 768px) {
+        padding: 32px 24px;
+        justify-content: flex-start;
+        gap: 16px;
+      }
+    }
   }
 
   .content {
@@ -59,6 +81,15 @@
 
       .button {
         margin-top: vw-1440(16);
+
+        &.inner {
+          width: fit-content;
+          font-size: vw-1440(16);
+          min-width: vw-1440(154);
+          padding: vw-1440(10);
+          background-color: transparent;
+          border: 1px solid rgba(17, 20, 52, 0.1);
+        }
       }
 
       @media (max-width: 768px) {
@@ -66,6 +97,14 @@
 
         .button {
           margin-top: 16px;
+
+          &.inner {
+            padding: 10px;
+            font-size: 14px;
+            min-width: 180px;
+            background-color: transparent;
+            border: 1px solid rgba(17, 20, 52, 0.1);
+          }
         }
       }
     }

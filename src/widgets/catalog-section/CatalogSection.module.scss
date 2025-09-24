@@ -21,13 +21,15 @@
 
   @media (max-width: 768px) {
     max-width: 336px;
+
+    .banner {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
 .subcategoriesList {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: vw-1440(24);
   margin-bottom: vw-1440(48);
 
   @media (max-width: 768px) {

@@ -11,6 +11,7 @@ import clsx from 'clsx';
 interface SecondCardCategoryProps extends CategoryT {
   variant?: string;
   className?: string;
+  categoryPath?: CategoryT[];
 }
 
 export const SecondCardCategory = ({
@@ -19,9 +20,13 @@ export const SecondCardCategory = ({
   photo_path,
   variant,
   className,
+  categoryPath,
 }: SecondCardCategoryProps) => {
   return (
-    <Link href={`${paths.catalog}/${slug}`} className={clsx(s.card, className)}>
+    <Link
+      href={`${paths.catalog}/${categoryPath?.map((category) => category.slug).join('/')}/${slug}`}
+      className={clsx(s.card, className)}
+    >
       <div className={s.card__contentWrapper}>
         <div className={s.card__content}>
           <p className="h3">{name}</p>

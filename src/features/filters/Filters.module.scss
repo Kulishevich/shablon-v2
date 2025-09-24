@@ -17,25 +17,27 @@
 
     @media (max-width: 768px) {
       margin-top: 20px;
+      display: none;
     }
   }
-}
 
-.categoryFilter {
-  margin-bottom: vw-1440(4);
-
-  @media (max-width: 768px) {
-    margin-bottom: 4px;
-  }
-
-  // Убираем стандартные стили для мобильной версии в диалоге
-  .mobile-only & {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: vw-1440(12);
+  .categoryFilter {
+    margin-bottom: vw-1440(4);
 
     @media (max-width: 768px) {
-      margin-bottom: 12px;
+      margin-bottom: 4px;
+      display: none;
+    }
+
+    // Убираем стандартные стили для мобильной версии в диалоге
+    .mobile-only & {
+      background-color: transparent;
+      padding: 0;
+      margin-bottom: vw-1440(12);
+
+      @media (max-width: 768px) {
+        margin-bottom: 12px;
+      }
     }
   }
 }
@@ -56,5 +58,16 @@
     @media (max-width: 768px) {
       height: 44px;
     }
+  }
+}
+
+.banner {
+  margin-top: vw-1440(12);
+  width: 100%;
+  height: vw-1440(354);
+  object-fit: cover;
+
+  @media (max-width: 768px) {
+    display: none;
   }
 }

@@ -1,75 +1,114 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .images {
+  position: relative;
   display: flex;
-  gap: vw-1440(24);
-
+  flex-direction: column;
+  height: fit-content;
   margin-right: vw-1440(48);
+  flex: 0 0 vw-1440(636);
 
   @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    gap: 16px;
     margin-right: 0;
+    flex: initial;
   }
 }
 
-.miniImages {
-  display: flex;
-  flex-direction: column;
-  gap: vw-1440(16);
-
-  .smallImage {
-    position: relative;
-    width: vw-1440(86);
-    height: vw-1440(86);
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: var(--color-bg-card);
-    border: 1px solid transparent;
-    flex-shrink: 0;
-
-    & > img {
-      object-fit: cover;
-    }
-
-    &:hover {
-      cursor: pointer;
-      opacity: 0.8;
-    }
-
-    &.active {
-      border: 1px solid var(--color-button);
-    }
-
-    @media (max-width: 768px) {
-      width: 86px;
-      height: 86px;
-    }
-  }
+// Основной слайдер
+.mainSwiper {
+  width: vw-1440(636);
+  height: vw-1440(636);
+  border-radius: vw-1440(6);
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    flex-direction: row;
-    width: 336px;
-    overflow-x: auto;
-    gap: 16px;
+    width: 335px;
+    height: 335px;
+    border-radius: 4px;
   }
+}
+
+.mainSlide {
+  position: relative;
 }
 
 .imageContainer {
   position: relative;
+  width: 100%;
+  height: 100%;
   background-color: var(--color-bg-card);
-  border-radius: 6px;
+
+  & > img {
+    object-fit: cover;
+  }
+}
+
+// Thumbnails слайдер
+.thumbsSwiper {
+  position: absolute;
+  bottom: vw-1440(32);
+  left: vw-1440(32);
+  z-index: 3;
+  width: calc(100% - vw-1440(64));
   overflow: hidden;
-  height: fit-content;
-  height: vw-1440(392);
-  width: vw-1440(392);
+
+  @media (max-width: 768px) {
+    width: calc(100% - 40px);
+    left: 20px;
+    bottom: 20px;
+  }
+
+  // Активный thumbnail
+  :global(.swiper-slide-thumb-active) .thumbImage {
+    border: 1px solid rgba(37, 51, 140, 0.2);
+  }
+}
+
+.thumbSlide {
+  cursor: pointer;
+  background-color: var(--color-bg);
+  width: auto;
+}
+
+.thumbImage {
+  position: relative;
+  width: vw-1440(86);
+  height: vw-1440(86);
+  border-radius: vw-1440(6);
+  overflow: hidden;
+  background-color: var(--color-bg-card);
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  border: 1px solid transparent;
 
   & > img {
     object-fit: cover;
   }
 
   @media (max-width: 768px) {
-    width: 335px;
-    height: 335px;
+    height: 86px;
+    width: 86px;
+    border-radius: 4px;
+  }
+}
+
+.navigation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: calc(100% + vw-1440(52));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+
+  & > button {
+    pointer-events: auto;
+  }
+
+  @media (max-width: 768px) {
+    width: calc(100% + 40px);
   }
 }

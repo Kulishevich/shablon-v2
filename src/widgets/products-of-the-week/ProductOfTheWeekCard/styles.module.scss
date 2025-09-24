@@ -3,7 +3,7 @@
 .card {
   display: flex;
   flex-direction: column;
-
+  width: vw-1440(205);
   padding: vw-1440(12);
 
   background-color: var(--color-bg-card);
@@ -123,5 +123,6 @@
   @media (max-width: 768px) {
     padding: 8px;
     border-radius: 6px;
+    width: 136px;
   }
 }

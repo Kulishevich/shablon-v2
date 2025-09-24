@@ -1,0 +1,29 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  grid-column: 1 / -1;
+
+  .navigation {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% + vw-1440(52));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
+
+    & > button {
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      width: calc(100% + 40px);
+    }
+  }
+}

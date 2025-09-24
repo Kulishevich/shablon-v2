@@ -44,26 +44,18 @@ export const ProductSection = ({
         }}
       />
       <div className={s.header}>
-        <h1 className="h3" itemProp="name">
+        <h1 className="h1 mobile-only" itemProp="name">
           {product?.name}
         </h1>
-        <div className={clsx(s.sku, 'body_5')}>
-          Артикул: <span>{product?.sku}</span>
-        </div>
-        {product?.brand && (
-          <span itemProp="brand" content={product?.brand?.name}>
-            <Image
-              src={`${getStoreBaseUrl(variant)}/${product?.brand?.image_path}`}
-              alt={product?.brand?.name}
-              width={55}
-              height={55}
-            />
-          </span>
-        )}
       </div>
       <div className={s.container}>
         <ReduxProvider>
-          <ProductInfo product={product} advantages={advantages} setActiveTag={setActiveTag} />
+          <ProductInfo
+            variant={variant}
+            product={product}
+            advantages={advantages}
+            setActiveTag={setActiveTag}
+          />
           <ProductDescription
             product={product}
             reviews={reviews}

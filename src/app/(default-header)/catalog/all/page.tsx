@@ -127,6 +127,7 @@ export default async function AllProductsPage({
       <Breadcrumbs dynamicPath={breadcrumbsPath} />
       <main className="main-container">
         <CatalogSection
+          variant={variant || ''}
           products={products}
           category={allCategory}
           allCategories={allCategories || []}

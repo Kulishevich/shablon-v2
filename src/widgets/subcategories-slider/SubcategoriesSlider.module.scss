@@ -1,0 +1,26 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  width: 100%;
+
+  .swiper {
+    width: 100%;
+
+    @media (max-width: 768px) {
+      width: 100svw;
+      margin-left: calc((100svw - 336px) / 2 * -1);
+      padding: 0 calc((100svw - 336px) / 2);
+    }
+
+    .slide {
+      width: auto;
+
+      .slideCategory {
+        @media (max-width: 768px) {
+          width: 216px;
+          height: 216px;
+        }
+      }
+    }
+  }
+}

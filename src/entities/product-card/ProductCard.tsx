@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/shared/ui/button';
 import Link from 'next/link';
@@ -26,6 +26,7 @@ import { selectIsInFavorites } from '@/shared/lib/redux/selectors/FavoritesSelec
 import { addToFavorites, removeFromFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -37,6 +38,7 @@ export const ProductCard = ({
   product: ProductT & { quantity?: number };
 }) => {
   const [variant, setVariant] = useState<string | undefined>(undefined);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     const cookieVariant = Cookies.get('variant');
@@ -92,16 +94,53 @@ export const ProductCard = ({
     setCount((prev) => Math.max(--prev, 1));
   };
 
+  // Вычисляем общее количество слайдов
+  const totalSlides = useMemo(() => {
+    let count = 0;
+    if (main_image) count++;
+    if (images) count += images.length;
+    return count;
+  }, [main_image, images]);
+
+  // Обработчик движения мыши над слайдером
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!swiperRef.current || totalSlides <= 1) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const width = rect.width;
+
+    // Делим слайдер на равные секторы по количеству слайдов
+    const sectorWidth = width / totalSlides;
+    const sectorIndex = Math.floor(x / sectorWidth);
+
+    // Ограничиваем индекс в пределах доступных слайдов
+    const clampedIndex = Math.max(0, Math.min(sectorIndex, totalSlides - 1));
+
+    // Переключаем на соответствующий слайд
+    swiperRef.current.slideTo(clampedIndex, 200);
+  };
+
   return (
     <Link className={s.container} href={buildProductUrlSync({ product, variant })}>
       <div className={s.imageContainer}>
+        <div
+          onMouseMove={handleMouseMove}
+          style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 5 }}
+        />
         <Swiper
           className={s.swiper}
           slidesPerView={1}
           pagination={{ clickable: true }}
           modules={[Pagination]}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
         >
-          {main_image && (
+          {images?.length == 0 && main_image && (
             <SwiperSlide>
               <Image
                 src={`${getStoreBaseUrl(variant)}/${main_image?.image_path}`}
@@ -211,11 +250,10 @@ export const ProductCard = ({
             e.preventDefault();
             handleAddInCard();
           }}
-          className={'desktop-only'}
         >
           В корзину
         </Button>
-        {!productInCart && (
+        {/* {!productInCart && (
           <Button
             variant={'icon_outlined'}
             className={'mobile-only'}
@@ -227,7 +265,7 @@ export const ProductCard = ({
           >
             <ShoppingCartIcon />
           </Button>
-        )}
+        )} */}
       </div>
 
       {/*  <div className={s.specifications}>

@@ -1,4 +1,4 @@
-@use '../../config/styles/functions' as *;
+@use "../../config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -67,7 +67,7 @@
   }
 
   &.text {
-    padding: vw-1440(20);
+    padding: vw-1440(12) vw-1440(20);
 
     &:focus {
       border: 1px solid var(--color-accent-1);
@@ -82,7 +82,7 @@
     }
 
     @media (max-width: 768px) {
-      padding: 20px;
+      padding: 12px 20px;
     }
   }
 

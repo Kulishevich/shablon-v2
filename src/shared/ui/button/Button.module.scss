@@ -33,7 +33,7 @@
 .primary {
   color: var(--color-bg);
   background-color: var(--color-button);
-  padding: vw-1440(15) vw-1440(12);
+  padding: vw-1440(11) vw-1440(12);
 
   &:hover {
     background-color: var(--color-button-hover);
@@ -54,7 +54,7 @@
   }
 
   @media (max-width: 768px) {
-    padding: 15px 12px;
+    padding: 10px 12px;
   }
 }
 
@@ -148,7 +148,7 @@
 .burger {
   color: var(--color-text);
   background-color: var(--color-button-additional);
-  padding: vw-1440(15) vw-1440(24);
+  padding: vw-1440(11) vw-1440(24);
   gap: vw-1440(10);
 
   &:hover {
@@ -172,7 +172,7 @@
   }
 
   @media (max-width: 768px) {
-    padding: 15px 24px;
+    padding: 11px 24px;
     gap: 10px;
   }
 }
@@ -329,15 +329,15 @@
 .icon {
   color: var(--color-button);
   background-color: transparent;
-  padding: vw-1440(8);
+  padding: vw-1440(12);
   outline: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
   border: none;
   & > svg {
-    width: vw-1440(16);
-    height: vw-1440(16);
+    width: vw-1440(24);
+    height: vw-1440(24);
     @media (max-width: 768px) {
-      width: 16px;
-      height: 16px;
+      width: 24px;
+      height: 24px;
     }
   }
   &:hover {
@@ -359,7 +359,7 @@
     color: var(--color-bg-overlay);
   }
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 12px;
   }
 }
 

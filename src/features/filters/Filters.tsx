@@ -14,6 +14,7 @@ import { TextField } from '@/shared/ui/text-field';
 import { CategoryTree } from '@/entities/category-tree';
 import { CategoryT } from '@/shared/api/category/types';
 import { FilterT } from '@/shared/api/product/types';
+import Image from 'next/image';
 
 export const Filters = ({
   className,
@@ -254,6 +255,8 @@ export const Filters = ({
       <Button variant="secondary" fullWidth onClick={resetFilters}>
         Очистить фильтр
       </Button>
+
+      <Image src="/delivery-image.png" alt="banner" width={298} height={354} className={s.banner} />
     </div>
   );
 };

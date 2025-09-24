@@ -31,13 +31,15 @@ export const ProductDescription = ({
     }
   }, [product.id]);
 
-  // Обработка параметра characteristics для автоматического переключения на вкладку
   useEffect(() => {
     if (searchParams.get('characteristics') === '1') {
       setActiveTag(2);
     }
     if (searchParams.get('reviews') === '1') {
       setActiveTag(4);
+    }
+    if (searchParams.get('description') === '1') {
+      setActiveTag(1);
     }
   }, [searchParams]);
 
@@ -79,7 +81,7 @@ export const ProductDescription = ({
           <button
             key={index}
             onClick={() => changeActiveTag(item.id)}
-            className={clsx(activeTag === item.id && s.active, 'h6')}
+            className={clsx(activeTag === item.id && s.active, 'button')}
           >
             {item.title}
           </button>
@@ -89,6 +91,7 @@ export const ProductDescription = ({
       {activeTag === 1 && (
         <div
           className={s.content}
+          id="description"
           dangerouslySetInnerHTML={{ __html: product.description || '' }}
         />
       )}
@@ -110,8 +113,12 @@ export const ProductDescription = ({
         <div>
           {deliveryAndPayment
             ?.filter((elem) => elem.title.toLowerCase().includes('доставка'))
-            .map((item) => (
-              <div dangerouslySetInnerHTML={{ __html: item.content }} className={s.content} />
+            .map((item, index) => (
+              <div
+                key={index}
+                dangerouslySetInnerHTML={{ __html: item.content }}
+                className={s.content}
+              />
             ))}
         </div>
       )}

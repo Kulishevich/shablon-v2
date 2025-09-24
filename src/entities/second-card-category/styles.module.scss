@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .card {
   position: relative;
@@ -13,6 +13,11 @@
   overflow: hidden;
 
   transition: border-color 0.3s ease;
+
+  @media (max-width: 768px) {
+    height: 336px;
+    border-radius: 4px;
+  }
 
   & > img {
     object-fit: cover;
@@ -82,10 +87,5 @@
       background-color: var(--color-white);
       border-color: 1px solid transparent;
     }
-  }
-
-  @media (max-width: 768px) {
-    height: 336px;
-    border-radius: 4px;
   }
 }

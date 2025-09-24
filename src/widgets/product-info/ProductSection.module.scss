@@ -18,39 +18,12 @@
   justify-content: space-between;
   margin-bottom: vw-1440(-100);
 
-  img {
-    width: auto;
-    height: vw-1440(55);
-    object-fit: contain;
-  }
-
-  .sku {
-    display: none;
-  }
-
   @media (max-width: 768px) {
     width: 336px;
     margin-bottom: -52px;
     flex-direction: column;
     align-items: center;
     gap: 13px;
-
-    h1 {
-      text-align: center;
-    }
-
-    img {
-      width: auto;
-      height: 32px;
-    }
-
-    .sku {
-      display: block;
-
-      span {
-        font-weight: 700;
-      }
-    }
   }
 }
 

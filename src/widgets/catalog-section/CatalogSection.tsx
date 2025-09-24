@@ -17,8 +17,13 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { SecondCardCategory } from '@/entities/second-card-category';
 import clsx from 'clsx';
+import { CatalogTags } from '@/features/catalog-tags';
+import { getSetting } from '@/shared/api/design/getSetting';
+import { MainBannerSlider } from '../main-banner-slider';
+import { SubcategoriesSlider } from '../subcategories-slider';
+import Image from 'next/image';
 
-export const CatalogSection = ({
+export const CatalogSection = async ({
   products,
   category,
   page,
@@ -45,6 +50,8 @@ export const CatalogSection = ({
   filters: FilterT[];
   variant: string;
 }) => {
+  const settings = await getSetting({ variant });
+
   return (
     <div className={s.container}>
       {category && (
@@ -69,15 +76,13 @@ export const CatalogSection = ({
       <h1 className="h1">{category?.name}</h1>
 
       <div className={clsx(s.description, 'body_2')}>{category?.description}</div>
-      {/* {tags && tags.length > 0 && (
-        <div className={s.navigation}>
-          <TagsFilter tags={tags} currentPath={currentPath} />
-        </div>
-      )} */}
 
-      <div className={s.subcategoriesList}>
-        {category?.subcategories?.map((sub) => <SecondCardCategory {...sub} variant={variant} />)}
-      </div>
+      <SubcategoriesSlider
+        className={s.subcategoriesList}
+        subcategories={category?.subcategories || []}
+        variant={variant}
+        categoryPath={categoryPath || []}
+      />
 
       <div className={s.catalog}>
         <Filters
@@ -92,7 +97,7 @@ export const CatalogSection = ({
         />
         <div className={s.productsContainer}>
           <div className={s.search}>
-            <CatalogSearch />
+            <CatalogTags tags={tags || []} />
             <div className={s.selectContainer}>
               <SortSelect />
               <FiltersMobile
@@ -108,9 +113,23 @@ export const CatalogSection = ({
           </div>
           <div className={s.productList} itemScope itemType="http://schema.org/ItemList">
             <ReduxProvider>
-              {products?.data?.data?.map((product, index) => (
-                <ProductCard key={index} product={product} />
-              ))}
+              {products?.data?.data?.map((product, index, array) => {
+                if (array.length > 6 && index === 6) {
+                  return (
+                    <>
+                      {settings?.main_banner && (
+                        <MainBannerSlider
+                          banners={[settings.main_banner, settings.main_banner]}
+                          variant={variant}
+                        />
+                      )}
+                      <ProductCard key={index} product={product} />
+                    </>
+                  );
+                }
+
+                return <ProductCard key={index} product={product} />;
+              })}
             </ReduxProvider>
           </div>
           <div className={s.pagination}>
@@ -118,6 +137,14 @@ export const CatalogSection = ({
             <Pagination totalPages={products?.data?.last_page || 1} currentPage={page} />
           </div>
           <SeoBlock page={`catalog`} align="left" />
+
+          <Image
+            src="/delivery-image.png"
+            alt="banner"
+            width={298}
+            height={354}
+            className={clsx(s.banner, 'mobile-only')}
+          />
         </div>
       </div>
     </div>

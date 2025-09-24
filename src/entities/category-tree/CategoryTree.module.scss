@@ -105,11 +105,15 @@
 .categoryLink {
   flex: 1;
   text-decoration: none;
-  font-size: 14px;
+  font-size: vw-1440(14);
   line-height: 1.4;
   transition: color 0.3s ease;
   width: fit-content;
   flex: 0 0 auto;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .trigger {
