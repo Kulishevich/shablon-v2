@@ -13,6 +13,7 @@ import { ControlledTextArea } from '@/shared/ui/controlled-text-area/ControlledT
 import { PaymentT } from '@/shared/api/payment-methods/types';
 import { DeliveryT } from '@/shared/api/delivery-methods/types';
 import { ControlledPhoneField } from '@/shared/ui/controlled-phone-field';
+import clsx from 'clsx';
 
 export const OrderForm = ({
   paymentMethods,
@@ -82,7 +83,12 @@ export const OrderForm = ({
             <span className="h6">2</span>
             <p className="h3">Выберите способ доставки</p>
           </div>
-          <Button variant="link" as={Link} href={paths.payment_and_delivery}>
+          <Button
+            variant="link"
+            as={Link}
+            href={paths.payment_and_delivery}
+            className={'desktop-only'}
+          >
             О доставке <ArrowRightUpIcon />
           </Button>
         </div>
@@ -99,38 +105,54 @@ export const OrderForm = ({
             />
           ))}
         </div>
+        <Button
+          variant="link"
+          as={Link}
+          href={paths.payment_and_delivery}
+          className={'mobile-only'}
+        >
+          О доставке <ArrowRightUpIcon />
+        </Button>
       </div>
 
-      {!isPickup && (
-        <div className={s.elem}>
-          <div className={s.title}>
-            <span className="h6">3</span>
-            <p className="h3">Укажите адрес доставки</p>
-          </div>
-          <div className={s.address}>
-            <ControlledTextField
-              control={control}
-              name="address"
-              label="Адрес доставки"
-              placeholder="Введите адрес доставки"
-              isRequired
-              disabled={!deliveryCost}
-            />
-            <ControlledTextArea
-              control={control}
-              name="comment"
-              label="Комментарий"
-              placeholder="Комментарий"
-              className={s.textarea}
-            />
-          </div>
+      <div className={clsx(s.elem, { [s.disabled]: isPickup })}>
+        <div className={s.title}>
+          <span className="h6">3</span>
+          <p className="h3">Укажите адрес доставки</p>
         </div>
-      )}
+        <div className={s.address}>
+          <ControlledTextField
+            control={control}
+            name="address"
+            label="Адрес доставки"
+            placeholder="Введите адрес доставки"
+            isRequired
+            disabled={!deliveryCost}
+          />
+          <ControlledTextArea
+            control={control}
+            name="comment"
+            label="Комментарий"
+            placeholder="Комментарий"
+            className={s.textarea}
+          />
+        </div>
+      </div>
 
       <div className={s.elem}>
         <div className={s.title}>
-          <span className="h6">{isPickup ? '3' : '4'}</span>
-          <p className="h3">Способ оплаты</p>
+          <div>
+            <span className="h6">4</span>
+            <p className="h3">Способ оплаты</p>
+          </div>
+          <Button
+            variant="link"
+            as={Link}
+            href={paths.payment_and_delivery}
+            className={'desktop-only'}
+          >
+            Об оплате <ArrowRightUpIcon />
+          </Button>
         </div>
         <div className={s.paymentMethod}>
           {paymentMethods?.map((item) => (
@@ -142,6 +164,14 @@ export const OrderForm = ({
             />
           ))}
         </div>
+        <Button
+          variant="link"
+          as={Link}
+          href={paths.payment_and_delivery}
+          className={'mobile-only'}
+        >
+          Об оплате <ArrowRightUpIcon />
+        </Button>
       </div>
     </div>
   );

@@ -22,7 +22,12 @@ export default async function HomeHeaderLayout({
 
   return (
     <>
-      <HeaderDesktop categories={categories || []} contacts={contacts} variant={'home'} />
+      <HeaderDesktop
+        siteVariant={variant || ''}
+        categories={categories || []}
+        contacts={contacts}
+        variant={'home'}
+      />
       <HeaderMobile categories={categories} contacts={contacts} variant={'home'} />
       {children}
     </>

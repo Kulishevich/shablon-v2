@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -9,6 +9,17 @@
 
   & > button {
     margin-right: vw-1440(16);
+  }
+
+  & > .deleteButton {
+    svg {
+      width: vw-1440(16);
+      height: vw-1440(16);
+      @media (max-width: 768px) {
+        width: 16px;
+        height: 16px;
+      }
+    }
   }
 
   & > .count {

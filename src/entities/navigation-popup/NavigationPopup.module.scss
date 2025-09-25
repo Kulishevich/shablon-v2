@@ -2,55 +2,71 @@
 
 .content {
   position: absolute;
-  top: vw-1440(55);
+  bottom: 0;
+  transform: translateY(100%);
   left: 0;
+  width: vw-1440(1296);
+  max-height: vw-1440(506);
   z-index: 1000;
-
+  padding: vw-1440(36);
   border: 1px solid #25338c1a;
   display: flex;
-
+  justify-content: space-between;
+  gap: vw-1440(48);
   background-color: var(--color-bg);
   border-radius: 6px;
-  overflow: hidden;
-
+  overflow-y: auto;
   animation: fadeIn 0.1s ease-out;
-}
 
-.categoryList {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #25338c1a;
-  width: vw-1440(375);
-  box-sizing: border-box;
+  .banner {
+    position: sticky;
+    top: 0;
+    width: vw-1440(298);
+    height: vw-1440(354);
+    border-radius: 6px;
+    overflow: hidden;
+  }
 
-  & > a {
-    text-decoration: none;
-    padding: vw-1440(16) vw-1440(24);
+  &::-webkit-scrollbar {
+    width: vw-1440(6);
+    border-radius: vw-1440(50);
+  }
 
-    &:hover {
-      color: var(--color-bg);
-      background-color: var(--color-button);
-    }
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-text);
+    border-radius: vw-1440(50);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(17, 20, 52, 0.2);
   }
 }
 
-.subcategoryList {
-  display: flex;
-  flex-direction: column;
-  gap: vw-1440(20);
-  padding: vw-1440(25) vw-1440(24) vw-1440(45);
-}
-
-.subcategories {
+.categoryList {
+  flex: 1 1 auto;
   display: grid;
-  grid-template-columns: repeat(2, vw-1440(290));
-  gap: vw-1440(16) vw-1440(31);
+  grid-template-columns: repeat(3, 1fr);
+  gap: vw-1440(36) vw-1440(46);
+  box-sizing: border-box;
+  height: fit-content;
 
-  & > a {
-    text-decoration: none;
+  .category {
+    display: flex;
+    gap: vw-1440(16);
+    max-width: vw-1440(262);
+    height: fit-content;
 
-    &:hover {
-      color: var(--color-link);
+    .image {
+      width: vw-1440(80);
+      height: vw-1440(80);
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .caption {
+      display: flex;
+      flex-direction: column;
+      gap: vw-1440(8);
     }
   }
 }

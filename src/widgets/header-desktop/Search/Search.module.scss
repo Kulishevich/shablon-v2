@@ -1,4 +1,4 @@
-@use '../../../shared/config/styles/functions' as *;
+@use "../../../shared/config/styles/functions" as *;
 
 .wrapper {
   width: 100%;
@@ -13,7 +13,7 @@
 .container {
   width: vw-1440(1296);
   margin: 0 auto;
-
+  position: relative;
   display: flex;
   align-items: center;
 }

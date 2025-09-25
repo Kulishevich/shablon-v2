@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: vw-1440(36);
 
-  width: vw-1440(636);
+  width: vw-1440(856);
 
   @media (max-width: 768px) {
     width: 336px;
@@ -16,8 +16,37 @@
   display: flex;
   flex-direction: column;
   gap: vw-1440(24);
+  padding: vw-1440(36);
+  border-radius: vw-1440(8);
+  border: 1px solid rgba(37, 51, 140, 0.2);
+  transition: border 0.2s ease;
+  box-shadow:
+    1px 4px 8px 0 rgba(11, 12, 25, 0.03),
+    4px 14px 15px 0 rgba(11, 12, 25, 0.02),
+    8px 32px 20px 0 rgba(11, 12, 25, 0.01),
+    14px 57px 24px 0 rgba(11, 12, 25, 0.01),
+    22px 89px 26px 0 rgba(11, 12, 25, 0);
+
+  &:has(input:focus) {
+    border-color: var(--color-accent-1);
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+
+    .title {
+      span {
+        background-color: #111434;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     gap: 16px;
+    padding: 24px;
+    border-radius: 6px;
   }
 }
 
@@ -74,12 +103,13 @@
 }
 
 .delivery {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: vw-1440(24);
 
-  flex-wrap: wrap;
   @media (max-width: 768px) {
-    gap: 15px;
+    gap: 16px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -101,11 +131,13 @@
 }
 
 .paymentMethod {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   gap: vw-1440(24);
 
   @media (max-width: 768px) {
-    gap: 15px;
+    gap: 16px;
+    grid-template-columns: repeat(1, 1fr);
   }
 }

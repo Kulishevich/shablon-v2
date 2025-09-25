@@ -38,7 +38,6 @@ export const ProductsImages = ({ product }: { product: ProductT | null }) => {
       {/* Основной слайдер */}
       <Swiper
         spaceBetween={10}
-        navigation={true}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
         modules={[FreeMode, Thumbs]}
         className={s.mainSwiper}

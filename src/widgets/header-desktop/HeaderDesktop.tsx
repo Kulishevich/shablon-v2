@@ -11,20 +11,22 @@ interface HeaderDesktopProps {
   categories: CategoryT[];
   contacts: ContactsT | null;
   variant?: 'home' | 'default';
+  siteVariant: string;
 }
 
 export const HeaderDesktop = ({
   categories,
   contacts,
   variant = 'default',
+  siteVariant,
 }: HeaderDesktopProps) => {
   return (
     <>
       <header className={clsx(s.container, s[variant])} data-header-desktop>
         <Navigation phones={contacts?.phones || []} variant={variant} />
-        <Search categories={categories} variant={variant} />
+        <Search categories={categories} variant={variant} siteVariant={siteVariant} />
       </header>
-      <HeaderFixed categories={categories} contacts={contacts} />
+      <HeaderFixed categories={categories} contacts={contacts} siteVariant={siteVariant} />
     </>
   );
 };

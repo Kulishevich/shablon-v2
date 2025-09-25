@@ -1,4 +1,4 @@
-@use '../../../shared/config/styles/functions' as *;
+@use "../../../shared/config/styles/functions" as *;
 
 .wrapper {
   width: 100%;
@@ -19,16 +19,14 @@
       width: vw-1440(196);
       @media (max-width: 768px) {
         width: 196px;
-        align-items: center;
-        text-align: center;
       }
     }
 
     &:nth-child(3) {
       width: vw-1440(224);
       @media (max-width: 768px) {
-        width: 196px;
-        align-items: center;
+        width: 100%;
+        align-items: flex-start;
       }
     }
 
@@ -36,18 +34,19 @@
       white-space: pre-line;
       width: vw-1440(224);
       @media (max-width: 768px) {
-        text-align: center;
-        width: 204px;
+        text-align: start;
+        align-items: flex-start;
+        width: 100%;
       }
     }
   }
 
   @media (max-width: 768px) {
     width: 336px;
-    gap: 48px;
-    padding: 47px 0 42px;
+    gap: 28px;
+    padding: 32px 0 32px;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 

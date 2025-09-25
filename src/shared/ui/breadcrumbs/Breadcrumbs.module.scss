@@ -1,4 +1,4 @@
-@use '../../config/styles/functions' as *;
+@use "../../config/styles/functions" as *;
 
 .container {
   width: vw-1440(1296);
@@ -10,7 +10,7 @@
   list-style: none;
 
   @media (max-width: 768px) {
-    justify-content: center;
+    justify-content: flex-start;
     gap: 6px;
     max-width: 336px;
     width: 100%;

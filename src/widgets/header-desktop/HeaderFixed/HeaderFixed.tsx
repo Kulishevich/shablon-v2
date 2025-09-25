@@ -12,9 +12,11 @@ import { motion as m } from 'framer-motion';
 export const HeaderFixed = ({
   categories,
   contacts,
+  siteVariant,
 }: {
   categories: CategoryT[];
   contacts: ContactsT | null;
+  siteVariant: string;
 }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
@@ -55,7 +57,7 @@ export const HeaderFixed = ({
     >
       <div className={clsx(s.inner, isOpen && s.open)}>
         <Navigation phones={contacts?.phones || []} variant={'default'} />
-        <Search categories={categories} variant="default" />
+        <Search categories={categories} variant="default" siteVariant={siteVariant} />
       </div>
 
       <button className={s.button} onClick={handleToggle} aria-label="Открыть/закрыть меню">

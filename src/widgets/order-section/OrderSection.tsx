@@ -19,6 +19,10 @@ import { getPriceWithoutDiscount } from '@/shared/lib/utils/getPriceWithoutDisco
 import { getPriceWithDiscount } from '@/shared/lib/utils/getPriceWithDiscount';
 import { checkCartPriceWitchPromocode } from '@/shared/api/promocode/checkCartPriceWitchPromocode.ts';
 import Cookies from 'js-cookie';
+import { Button } from '@/shared/ui/button';
+import { paths } from '@/shared/config/constants/paths';
+import Link from 'next/link';
+import { ArrowLeftIcon, ArrowSmLeftIcon } from '@/shared/assets';
 
 export const OrderSection = ({
   paymentMethods,
@@ -111,11 +115,8 @@ export const OrderSection = ({
   const currentIsPickup = deliveryCost === 0;
 
   useEffect(() => {
-    // Обновляем схему валидации при изменении типа доставки
-    form.clearErrors(); // Очищаем ошибки валидации
-    const newResolver = zodResolver(createOrderFormSchema(currentIsPickup));
-    // К сожалению, react-hook-form не позволяет динамически менять resolver
-    // Поэтому мы очищаем ошибки валидации поля address при переключении на самовывоз
+    form.clearErrors();
+
     if (currentIsPickup) {
       form.clearErrors('address');
     }
@@ -166,7 +167,13 @@ export const OrderSection = ({
     <SectionAnimationWrapper>
       <FormProvider {...form}>
         <div className={s.container}>
-          <h1 className="h1">Оформление заказа</h1>
+          <div className={s.title}>
+            <h1 className="h1">Оформление заказа</h1>
+            <Button variant="link" as={Link} href={paths.cart}>
+              <ArrowSmLeftIcon />
+              Вернуться в корзину
+            </Button>
+          </div>
           <form onSubmit={onSubmit} className={s.content}>
             <OrderForm paymentMethods={paymentMethods} deliveryMethods={deliveryMethods} />
             <OrderPrice

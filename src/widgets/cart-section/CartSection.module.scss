@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -21,7 +21,7 @@
     margin-bottom: vw-1440(11);
   }
   @media (max-width: 768px) {
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     gap: 16px;
     & > button {
@@ -35,6 +35,6 @@
   gap: vw-1440(48);
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
   }
 }

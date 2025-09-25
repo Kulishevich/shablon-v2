@@ -22,11 +22,12 @@ export const SecondCardCategory = ({
   className,
   categoryPath,
 }: SecondCardCategoryProps) => {
+  const href = categoryPath
+    ? `${paths.catalog}/${categoryPath?.map((category) => category.slug).join('/')}/${slug}`
+    : `${paths.catalog}/${slug}`;
+
   return (
-    <Link
-      href={`${paths.catalog}/${categoryPath?.map((category) => category.slug).join('/')}/${slug}`}
-      className={clsx(s.card, className)}
-    >
+    <Link href={href} className={clsx(s.card, className)}>
       <div className={s.card__contentWrapper}>
         <div className={s.card__content}>
           <p className="h3">{name}</p>

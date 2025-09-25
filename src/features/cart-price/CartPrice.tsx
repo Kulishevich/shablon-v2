@@ -96,7 +96,7 @@ export const CartPrice = ({
           <p className="h6">{(priceWithOutDiscount - priceWithDiscount).toFixed(2)} BYN</p>
         </div>
         <div className={s.elem}>
-          <p className="body_7">Стоимость доставки</p>
+          <p className="body_7">* Стоимость доставки</p>
           <p className="h6">При оформлении</p>
         </div>
       </div>

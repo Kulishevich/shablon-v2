@@ -83,7 +83,12 @@ export const RowProductCart = ({
 
   return (
     <div className={s.container} itemScope itemType="http://schema.org/ListItem">
-      <Button variant="icon" onClick={() => dispatch(deleteFromCart(id))}>
+      <Button
+        variant="icon"
+        onClick={() => dispatch(deleteFromCart(id))}
+        aria-label="Удалить товар из корзины"
+        className={s.deleteButton}
+      >
         <CloseIcon />
       </Button>
       <div className={s.card}>

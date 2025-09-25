@@ -7,9 +7,17 @@ import { BurgerIcon } from '@/shared/assets';
 import { CategoryT } from '@/shared/api/category/types';
 import { paths } from '@/shared/config/constants/paths';
 
-export const BurgerButton = ({ categories }: { categories: CategoryT[] | null }) => {
+export const BurgerButton = ({
+  categories,
+  variant,
+  containerRef,
+}: {
+  categories: CategoryT[] | null;
+  variant: string;
+  containerRef: React.RefObject<HTMLDivElement | null>;
+}) => {
   const [isOpenNavigation, setIsOpenNavigation] = useState(false);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const buttonRef = useRef<HTMLDivElement | null>(null);
 
   const handleOpenCatalog = () => {
     setIsOpenNavigation(true);
@@ -20,26 +28,27 @@ export const BurgerButton = ({ categories }: { categories: CategoryT[] | null })
   };
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef?.current;
+    const button = buttonRef.current;
 
-    if (!container) return;
+    if (!container || !button) return;
 
-    container.addEventListener('mouseenter', handleOpenCatalog);
+    button.addEventListener('mouseenter', handleOpenCatalog);
     container.addEventListener('mouseleave', handleCloseCatalog);
 
     return () => {
-      container.removeEventListener('mouseenter', handleOpenCatalog);
+      button.removeEventListener('mouseenter', handleOpenCatalog);
       container.removeEventListener('mouseleave', handleCloseCatalog);
     };
   }, []);
 
   return (
-    <div className={s.burgerMenu} ref={containerRef}>
+    <div className={s.burgerMenu} ref={buttonRef}>
       <Button variant="burger" as="a" href={paths.catalog}>
         <BurgerIcon />
         Каталог
       </Button>
-      {isOpenNavigation && <NavigationPopup categories={categories} />}
+      {isOpenNavigation && <NavigationPopup categories={categories} variant={variant} />}
     </div>
   );
 };

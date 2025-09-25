@@ -26,6 +26,11 @@
   @media (max-width: 768px) {
     width: 160px;
     max-width: 160px;
+
+    &:hover {
+      transform: none;
+      padding: 0;
+    }
   }
 }
 
@@ -275,5 +280,19 @@
     align-items: flex-start;
     gap: 0px;
     margin-bottom: 12px;
+  }
+}
+
+.countContainer {
+  display: flex;
+  align-items: center;
+  gap: vw-1440(10);
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  .counter {
+    text-align: center;
   }
 }

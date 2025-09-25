@@ -11,8 +11,6 @@ export default async function Order() {
   const paymentMethods = await getPaymentMethods({ variant });
   const deliveryMethods = await getDeliveryMethods({ variant });
 
-  console.log(deliveryMethods);
-
   return (
     <main>
       <ReduxProvider>

@@ -4,12 +4,19 @@
   display: flex;
   flex-direction: column;
   gap: vw-1440(16);
+  flex: 0 0 vw-1440(392);
 
   height: fit-content;
   padding: vw-1440(24) vw-1440(20);
-
+  border: 1px solid rgba(37, 51, 140, 0.2);
   border-radius: 6px;
-  background-color: var(--color-bg-card);
+  background-color: var(--color-bg);
+  box-shadow:
+    1px 4px 8px 0 rgba(11, 12, 25, 0.03),
+    4px 14px 15px 0 rgba(11, 12, 25, 0.02),
+    8px 32px 20px 0 rgba(11, 12, 25, 0.01),
+    14px 57px 24px 0 rgba(11, 12, 25, 0.01),
+    22px 89px 26px 0 rgba(11, 12, 25, 0);
 
   .button {
     text-decoration: none;
@@ -31,11 +38,10 @@
     flex-shrink: 0;
   }
   .input {
-    width: vw-1440(304);
+    width: 100%;
     height: vw-1440(44);
     padding: vw-1440(10) vw-1440(20);
     @media (max-width: 768px) {
-      width: 143px;
       height: 44px;
       padding: 10px 20px;
     }
@@ -55,12 +61,12 @@
   display: flex;
   flex-direction: column;
   gap: vw-1440(12);
-  padding-bottom: vw-1440(24);
+  padding-bottom: vw-1440(14);
   border-bottom: 1px solid #11143413;
 
   @media (max-width: 768px) {
     gap: 12px;
-    padding-bottom: 24px;
+    padding-bottom: 6px;
   }
 }
 

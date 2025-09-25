@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useRef } from 'react';
 import s from './Search.module.scss';
 import { Logo } from '@/shared/ui/logo';
 import { BurgerButton } from '@/entities/burger-button';
@@ -13,16 +14,18 @@ import clsx from 'clsx';
 
 interface SearchProps {
   variant: 'home' | 'default';
+  siteVariant: string;
   categories: CategoryT[] | null;
 }
 
-export const Search = ({ categories, variant }: SearchProps) => {
+export const Search = ({ categories, variant, siteVariant }: SearchProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   return (
     <>
       <div className={clsx(s.wrapper, s[variant])}>
-        <div className={s.container}>
+        <div className={s.container} ref={containerRef}>
           <Logo variant="primary" />
-          <BurgerButton categories={categories} />
+          <BurgerButton categories={categories} variant={siteVariant} containerRef={containerRef} />
           <SearchInput categories={categories} headerVariant={variant} />
           <ReduxProvider>
             <FavoritesButton variant={variant} />

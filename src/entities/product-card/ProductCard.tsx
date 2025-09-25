@@ -86,11 +86,15 @@ export const ProductCard = ({
     };
   }, [debouncedDispatch]);
 
-  const increment = () => {
+  const increment = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     setCount((prev) => ++prev);
   };
 
-  const decrement = () => {
+  const decrement = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
     setCount((prev) => Math.max(--prev, 1));
   };
 
@@ -140,7 +144,7 @@ export const ProductCard = ({
             swiperRef.current = swiper;
           }}
         >
-          {images?.length == 0 && main_image && (
+          {(!images || images.length === 0) && main_image && (
             <SwiperSlide>
               <Image
                 src={`${getStoreBaseUrl(variant)}/${main_image?.image_path}`}
@@ -206,21 +210,6 @@ export const ProductCard = ({
             </span>
           )}
         </div>
-        {productInCart && (
-          <div className={s.countContainer}>
-            <Button variant="icon" onClick={decrement} className={s.countButton}>
-              <ArrowLeftIcon />
-            </Button>
-            <TextField
-              className={s.counter}
-              value={count}
-              onChange={(e) => changeCountValue(e.target.value)}
-            />
-            <Button variant="icon" onClick={increment} className={s.countButton}>
-              <ArrowRightIcon />
-            </Button>
-          </div>
-        )}
       </div>
 
       <div className={clsx(s.title, 'body_4')}>{name}</div>
@@ -244,29 +233,34 @@ export const ProductCard = ({
       </div>
 
       <div className={s.footerCard}>
-        <Button
-          fullWidth
-          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-            e.preventDefault();
-            handleAddInCard();
-          }}
-        >
-          В корзину
-        </Button>
-        {/* {!productInCart && (
+        {!productInCart && (
           <Button
-            variant={'icon_outlined'}
-            className={'mobile-only'}
+            fullWidth
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
               handleAddInCard();
             }}
-            aria-label="В корзину"
           >
-            <ShoppingCartIcon />
+            В корзину
           </Button>
-        )} */}
+        )}
       </div>
+
+      {productInCart && (
+        <div className={s.countContainer}>
+          <Button variant="icon" onClick={decrement} className={s.countButton}>
+            <ArrowLeftIcon />
+          </Button>
+          <TextField
+            className={s.counter}
+            value={count}
+            onChange={(e) => changeCountValue(e.target.value)}
+          />
+          <Button variant="icon" onClick={increment} className={s.countButton}>
+            <ArrowRightIcon />
+          </Button>
+        </div>
+      )}
 
       {/*  <div className={s.specifications}>
         {product?.specifications?.slice(0, 3).map((specification) => (

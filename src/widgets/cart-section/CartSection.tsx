@@ -13,6 +13,7 @@ import { checkCartPriceWitchPromocode } from '@/shared/api/promocode/checkCartPr
 import { getPriceWithoutDiscount } from '@/shared/lib/utils/getPriceWithoutDiscount';
 import { getPriceWithDiscount } from '@/shared/lib/utils/getPriceWithDiscount';
 import Cookies from 'js-cookie';
+import { EmptyCart } from '../empty-card';
 
 export const CartSection = () => {
   const [variant, setVariant] = useState<string | undefined>(undefined);
@@ -69,6 +70,19 @@ export const CartSection = () => {
       setPromocodeDiscount(0);
     }
   }, [promocode, productsCart]);
+
+  if (productsState.length === 0) {
+    return (
+      <SectionAnimationWrapper>
+        <div className={s.container}>
+          <div className={s.title}>
+            <h1 className="h1">Корзина</h1>
+          </div>
+          <EmptyCart />
+        </div>
+      </SectionAnimationWrapper>
+    );
+  }
 
   return (
     <SectionAnimationWrapper>

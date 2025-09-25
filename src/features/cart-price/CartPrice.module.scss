@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -7,9 +7,16 @@
 
   height: fit-content;
   padding: vw-1440(24) vw-1440(20);
-
-  background-color: var(--color-bg-card);
+  border: 1px solid rgba(37, 51, 140, 0.2);
+  background-color: var(--color-bg);
   border-radius: 6px;
+  box-shadow:
+    1px 4px 8px 0 rgba(11, 12, 25, 0.03),
+    4px 14px 15px 0 rgba(11, 12, 25, 0.02),
+    8px 32px 20px 0 rgba(11, 12, 25, 0.01),
+    14px 57px 24px 0 rgba(11, 12, 25, 0.01),
+    22px 89px 26px 0 rgba(11, 12, 25, 0);
+  background: var(--white);
 
   .button {
     text-decoration: none;
@@ -54,12 +61,12 @@
   display: flex;
   flex-direction: column;
   gap: vw-1440(12);
-  padding-bottom: vw-1440(24);
+  padding-bottom: vw-1440(16);
   border-bottom: 1px solid #11143413;
 
   @media (max-width: 768px) {
     gap: 8px;
-    padding-bottom: 24px;
+    padding-bottom: 6px;
   }
 }
 
@@ -67,6 +74,13 @@
   display: grid;
   grid-template-columns: repeat(2, vw-1440(170));
   gap: vw-1440(12);
+
+  h5 {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
 
   &:nth-child(2) {
     & > p {

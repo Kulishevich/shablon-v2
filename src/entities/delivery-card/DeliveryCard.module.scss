@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -11,31 +11,28 @@
   border-radius: 6px;
   background-color: transparent;
 
-  width: vw-1440(196);
-  height: vw-1440(174);
+  width: 100%;
+  gap: vw-1440(16);
+  min-height: vw-1440(170);
   padding: vw-1440(16);
+  opacity: 0.8;
 
   &:hover {
     cursor: pointer;
-    background-color: var(--color-button);
-    opacity: 0.8;
-    p {
-      color: var(--color-bg);
-    }
+    opacity: 1;
+    color: var(--color-text);
   }
 
   @media (max-width: 768px) {
-    width: 160px;
-    height: 150px;
+    width: 100%;
+    height: fit-content;
     padding: 16px;
+    gap: 16px;
   }
 }
 
 .active {
-  background-color: var(--color-button);
+  background-color: var(--color-button-additional);
   border: none;
-
-  p {
-    color: var(--color-bg);
-  }
+  opacity: 1;
 }
