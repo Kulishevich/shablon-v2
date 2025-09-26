@@ -15,8 +15,7 @@ export const ReviewPopup = ({ review, variant }: { review: ReviewT; variant?: st
     <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
       <Dialog.Trigger asChild>
         <Button variant="link" className={s.trigger}>
-          Читать весь отзыв
-          <ArrowRightUpIcon />
+          Отзыв полностью
         </Button>
       </Dialog.Trigger>
       <Dialog.Portal>

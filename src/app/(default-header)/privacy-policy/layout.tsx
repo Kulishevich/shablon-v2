@@ -26,7 +26,7 @@ export default async function ContactsLayout({
 }>) {
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs className="breadcrumbs" />
       {children}
     </>
   );

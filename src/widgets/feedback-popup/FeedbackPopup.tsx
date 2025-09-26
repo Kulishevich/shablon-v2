@@ -27,7 +27,7 @@ export const FeedbackPopup = ({ children, image }: { children: ReactNode; image:
             <Dialog.Title>Форма обратной связи</Dialog.Title>
           </VisuallyHidden>
           <Dialog.Content className={s.content}>
-            <FeedbackImage image={image} variant={variant} />
+            <FeedbackImage image={image} variant={variant} className={s.image} />
             <FeedbackForm variant={variant} />
             <Dialog.DialogClose asChild>
               <Button className={s.closeButton}>

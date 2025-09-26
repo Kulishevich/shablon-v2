@@ -12,7 +12,7 @@ import { PhotoT } from '@/shared/api/photos/types';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import Cookies from 'js-cookie';
 
-export const GallerySection = ({ items }: { items: PhotoT[] }) => {
+export const GallerySection = ({ items, isMedium }: { items: PhotoT[]; isMedium?: boolean }) => {
   const [variant, setVariant] = useState<string | undefined>(undefined);
 
   const [activeSlide, setActiveSlide] = useState<number | undefined>(undefined);
@@ -32,7 +32,7 @@ export const GallerySection = ({ items }: { items: PhotoT[] }) => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={clsx(s.container, { [s.medium]: isMedium })}>
       <h2 className={clsx(s.title, 'h2')}>Фотогалерея</h2>
       <p className={clsx(s.description, 'body_2')}>
         Яркие фотографии наших реализованных проектов, корпоративных праздников и рабочих процессов

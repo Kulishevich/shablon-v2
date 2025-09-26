@@ -3,15 +3,23 @@ import React, { ReactNode, useRef } from 'react';
 import s from './Slider.module.scss';
 import { Button } from '../button';
 import { ArrowLeftIcon, ArrowRightIcon } from '@/shared/assets';
+import clsx from 'clsx';
 
 type SliderProps = {
   children: ReactNode;
   itemWidth: number;
   itemsCount: number;
+  containerClassName?: string;
   [key: string]: any;
 };
 
-export const Slider = ({ children, itemWidth, itemsCount, ...props }: SliderProps) => {
+export const Slider = ({
+  children,
+  itemWidth,
+  itemsCount,
+  containerClassName,
+  ...props
+}: SliderProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -27,7 +35,7 @@ export const Slider = ({ children, itemWidth, itemsCount, ...props }: SliderProp
   };
 
   return (
-    <div className={s.container}>
+    <div className={clsx(s.container, containerClassName)}>
       {itemsCount > 2 && (
         <Button
           variant="icon_secondary"

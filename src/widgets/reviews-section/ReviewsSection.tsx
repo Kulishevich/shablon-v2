@@ -6,13 +6,20 @@ import React from 'react';
 export const ReviewsSection = ({
   reviews,
   variant,
+  className,
 }: {
   reviews: ReviewT[] | null;
   variant?: string;
+  className?: string;
 }) => {
   return (
     !!reviews?.length && (
-      <SliderWrapper title="Отзывы покупателей" variant="news" itemsCount={reviews?.length}>
+      <SliderWrapper
+        title="Отзывы покупателей"
+        variant="news"
+        itemsCount={reviews?.length}
+        className={className}
+      >
         {reviews.map((review) => (
           <ReviewCard key={review.id} review={review} variant={variant} />
         ))}

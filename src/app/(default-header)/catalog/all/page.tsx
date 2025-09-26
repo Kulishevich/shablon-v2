@@ -124,7 +124,7 @@ export default async function AllProductsPage({
   return (
     <>
       <CanonicalLink href={canonicalUrl} />
-      <Breadcrumbs dynamicPath={breadcrumbsPath} />
+      <Breadcrumbs dynamicPath={breadcrumbsPath} className="breadcrumbs" />
       <main className="main-container">
         <CatalogSection
           variant={variant || ''}

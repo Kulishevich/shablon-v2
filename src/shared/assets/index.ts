@@ -60,3 +60,4 @@ export { default as StylesSettingsIcon } from './StylesSettingsIcon';
 export { default as VariantsSettingsIcon } from './VariantsSettingsIcon';
 export { default as SiteSettingsIcon } from './SiteSettingsIcon';
 export { default as ColorPickerIcon } from './ColorPickerIcon';
+export { default as CircleIcon } from './CircleIcon'; 

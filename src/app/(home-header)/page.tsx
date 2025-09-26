@@ -86,7 +86,7 @@ export default async function Home() {
     : null;
 
   return (
-    <main>
+    <main style={{ marginTop: '0px' }}>
       <Suspense fallback={<div style={{ height: '400px', background: '#f5f5f5' }} />}>
         <MainSlider slides={banners || []} variant={variant} />
       </Suspense>

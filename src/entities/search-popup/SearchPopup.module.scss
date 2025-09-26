@@ -29,6 +29,19 @@
   overflow-y: auto;
 
   animation: fadeIn 0.1s ease-out;
+
+  &::-webkit-scrollbar {
+    width: vw-1440(6);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-text);
+    border-radius: vw-1440(50);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(17, 20, 52, 0.2);
+  }
 }
 
 .content {

@@ -64,7 +64,12 @@ export const SliderWrapper = ({
           ))}
         </div>
       )}
-      <Slider itemWidth={itemWidth()} itemsCount={itemsCount} {...props}>
+      <Slider
+        containerClassName={className}
+        itemWidth={itemWidth()}
+        itemsCount={itemsCount}
+        {...props}
+      >
         {children}
       </Slider>
     </div>

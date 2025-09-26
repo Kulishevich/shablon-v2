@@ -4,7 +4,7 @@
   width: vw-1440(1296);
 
   h1 {
-    margin-bottom: vw-1440(48);
+    margin-bottom: vw-1440(32);
   }
 
   @media (max-width: 768px) {
@@ -24,7 +24,7 @@
 
   .block {
     display: flex;
-    gap: vw-1440(48);
+    gap: vw-1440(24);
     flex-direction: row-reverse;
 
     &.reverse {
@@ -43,19 +43,31 @@
     .caption {
       display: flex;
       flex-direction: column;
-      gap: vw-1440(16);
       flex: 1 1 vw-1440(612);
+      padding: vw-1440(36);
+      background-color: var(--color-bg-card);
+      border-radius: vw-1440(6);
 
       @media (max-width: 768px) {
         gap: 12px;
         text-align: center;
+        flex: initial;
+        padding: 24px;
+        border-radius: 4px;
+      }
+    }
+
+    .imageContainer {
+      flex: 1 1 vw-1440(636);
+
+      @media (max-width: 768px) {
         flex: initial;
       }
     }
 
     .image {
       width: vw-1440(636);
-      height: vw-1440(396);
+      height: 100%;
       object-fit: cover;
       border-radius: vw-1440(6);
       flex: 1 1 vw-1440(636);

@@ -214,7 +214,7 @@ async function renderAllProductsSection({
   return (
     <>
       <CanonicalLink href={canonicalUrl} />
-      <Breadcrumbs dynamicPath={breadcrumbsPath} />
+      <Breadcrumbs dynamicPath={breadcrumbsPath} className="breadcrumbs" />
       <main className="main-container">
         <CatalogSection
           variant={variant || ''}
@@ -325,7 +325,7 @@ async function renderCatalogSection({
   return (
     <>
       <CanonicalLink href={canonicalUrl} />
-      <Breadcrumbs dynamicPath={breadcrumbsPath} />
+      <Breadcrumbs dynamicPath={breadcrumbsPath} className="breadcrumbs" />
       <main className="main-container">
         <CatalogSection
           variant={variant || ''}
@@ -373,7 +373,7 @@ async function renderProductSection(product: ProductT, slug: string[]) {
   return (
     <>
       <CanonicalLink href={canonicalUrl} />
-      <Breadcrumbs dynamicPath={breadcrumbsPath} />
+      <Breadcrumbs dynamicPath={breadcrumbsPath} className="breadcrumbs" />
       <main className="main-container">
         <ProductSection
           product={product}

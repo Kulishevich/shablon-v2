@@ -3,7 +3,7 @@ import s from './ReviewCard.module.scss';
 import { ReviewT } from '@/shared/api/reviews/types';
 import { ReviewPopup } from '../review-popup';
 import Image from 'next/image';
-import { QuotesIcon } from '@/shared/assets';
+import { CircleIcon, QuotesIcon } from '@/shared/assets';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
 import clsx from 'clsx';
 
@@ -22,6 +22,7 @@ export const ReviewCard = ({ review, variant }: { review: ReviewT; variant?: str
           {review_text}
         </p>
       </div>
+      <ReviewPopup review={review} variant={variant} />
 
       <div className={s.head}>
         <div className={s.imageContainer}>
@@ -32,11 +33,12 @@ export const ReviewCard = ({ review, variant }: { review: ReviewT; variant?: str
             {author_name}
           </p>
           <span className={clsx(s.date, 'body_6')} itemProp="datePublished">
-            {new Date(created_at).toLocaleDateString()}
+            Онлайн-покупатель кресла Valencia
+            <CircleIcon className={s.circle} />
+            <span>{new Date(created_at).toLocaleDateString()}</span>
           </span>
         </div>
       </div>
-      <ReviewPopup review={review} variant={variant} />
     </div>
   );
 };

@@ -17,12 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-  body {
-    margin-top: 56px;
-  }
-}
-
 a,
 button {
   text-decoration: none;
@@ -53,6 +47,12 @@ main {
 
   @media (max-width: 768px) {
     gap: 72px;
+  }
+}
+
+.breadcrumbs {
+  @media (max-width: 768px) {
+    margin-top: 72px !important;
   }
 }
 

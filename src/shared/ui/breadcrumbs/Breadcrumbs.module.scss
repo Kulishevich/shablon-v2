@@ -33,11 +33,11 @@
 .icon {
   flex-shrink: 0;
   width: vw-1440(4);
-  height: vw-1440(3);
+  height: vw-1440(4);
 
   @media (max-width: 768px) {
     width: 4px;
-    height: 3px;
+    height: 4px;
   }
 }
 

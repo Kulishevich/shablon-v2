@@ -27,13 +27,15 @@ export const AboutSection = ({
                 >
                   <div className={s.caption} dangerouslySetInnerHTML={{ __html: caption }} />
 
-                  <Image
-                    src={`${getStoreBaseUrl(variant)}/${item.content.image_path}`}
-                    alt="about"
-                    width={636}
-                    height={396}
-                    className={s.image}
-                  />
+                  <div className={s.imageContainer}>
+                    <Image
+                      src={`${getStoreBaseUrl(variant)}/${item.content.image_path}`}
+                      alt="about"
+                      width={636}
+                      height={396}
+                      className={s.image}
+                    />
+                  </div>
                 </div>
               );
             } else {

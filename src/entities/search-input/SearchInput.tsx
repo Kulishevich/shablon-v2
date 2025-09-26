@@ -7,6 +7,7 @@ import { ProductT } from '@/shared/api/product/types';
 import { CategoryT } from '@/shared/api/category/types';
 import { useRouter } from 'next/navigation';
 import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
+import { searchCategoriesDeep } from '@/shared/lib/utils/categoryUtils';
 import { searchProducts } from '@/shared/api/product/searchProducts';
 import Cookies from 'js-cookie';
 
@@ -89,12 +90,7 @@ export const SearchInput = ({ categories, headerVariant }: SearchInputProps) => 
 
   const searchResult = useMemo(
     () => ({
-      categories: categories?.filter((category) =>
-        category.name.toLowerCase().includes(searchValue.toLowerCase())
-      ),
-      products: products?.filter((product) =>
-        product.name.toLowerCase().includes(searchValue.toLowerCase())
-      ),
+      categories: categories ? searchCategoriesDeep(categories, searchValue) : [],
     }),
     [categories, products, searchValue]
   );

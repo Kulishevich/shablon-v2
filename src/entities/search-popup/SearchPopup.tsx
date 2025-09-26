@@ -2,17 +2,24 @@ import React from 'react';
 import s from './SearchPopup.module.scss';
 import { SearchProductCard } from '../search-product-card';
 import Link from 'next/link';
-import { paths } from '@/shared/config/constants/paths';
-import { CategoryT } from '@/shared/api/category/types';
 import { ProductT } from '@/shared/api/product/types';
+import { CategoryWithPath } from '@/shared/lib/utils/categoryUtils';
 import { ReduxProvider } from '@/shared/lib/redux/providers/ReduxProvider';
+
+const CategoryItem = ({ category }: { category: CategoryWithPath }) => {
+  return (
+    <Link href={category.fullUrl} className="body_4" style={{ display: 'block' }}>
+      {category.name}
+    </Link>
+  );
+};
 
 export const SearchPopup = ({
   categories,
   products,
   isLoading = false,
 }: {
-  categories: CategoryT[];
+  categories: CategoryWithPath[];
   products: ProductT[];
   isLoading?: boolean;
 }) => {
@@ -23,9 +30,7 @@ export const SearchPopup = ({
           <div className={s.categories}>
             <h6 className="h6">Поиск по категориям:</h6>
             {categories.map((category, index) => (
-              <Link href={`${paths.catalog}/${category.slug}`} className="body_4" key={index}>
-                {category.name}
-              </Link>
+              <CategoryItem key={index} category={category} />
             ))}
           </div>
         )}

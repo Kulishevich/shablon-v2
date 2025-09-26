@@ -1,7 +1,12 @@
 @use "../../shared/config/styles/functions" as *;
 
 .trigger {
-  margin-top: vw-1440(22);
+  margin-bottom: vw-1440(24);
+  color: var(--color-text);
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 
 .overlay {
@@ -24,6 +29,7 @@
   display: flex;
   flex-direction: column;
   padding: vw-1440(24);
+  padding-bottom: 0;
   width: vw-1440(636);
 
   background-color: var(--color-bg);
@@ -32,6 +38,7 @@
   animation: fadeIn 0.1s ease-out;
   max-height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
 
   .closeButton {
     display: flex;
@@ -60,6 +67,7 @@
   @media (max-width: 768px) {
     width: 335px;
     padding: 20px;
+    padding-bottom: 0;
   }
 }
 

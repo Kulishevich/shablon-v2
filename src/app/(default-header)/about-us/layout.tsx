@@ -26,7 +26,7 @@ export default async function AboutUsLayout({
 }>) {
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs className="breadcrumbs" />
       {children}
     </>
   );

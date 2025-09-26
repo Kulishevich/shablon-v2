@@ -26,7 +26,7 @@ export default async function CartLayout({
 }>) {
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs className="breadcrumbs" />
       {children}
     </>
   );

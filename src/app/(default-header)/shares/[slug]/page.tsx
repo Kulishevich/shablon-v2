@@ -25,7 +25,10 @@ export default async function Share({ params }: { params: Promise<{ slug: string
 
   return (
     <>
-      <Breadcrumbs dynamicPath={[{ title: promotion.title || '', path: `/${slug}` }]} />
+      <Breadcrumbs
+        dynamicPath={[{ title: promotion.title || '', path: `/${slug}` }]}
+        className="breadcrumbs"
+      />
       <main>
         {!!promotion && <ShareInfo {...promotion} variant={variant} />}
         {!!otherPromotions?.length && (

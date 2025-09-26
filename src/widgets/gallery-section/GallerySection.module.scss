@@ -1,7 +1,11 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   width: vw-1440(1296);
+
+  &.medium {
+    width: vw-1440(966);
+  }
 
   @media (max-width: 768px) {
     width: 336px;

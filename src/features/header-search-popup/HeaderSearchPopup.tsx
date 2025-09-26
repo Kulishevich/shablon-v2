@@ -11,8 +11,8 @@ import { ProductT } from '@/shared/api/product/types';
 import { useRouter } from 'next/navigation';
 import { searchProducts } from '@/shared/api/product/searchProducts';
 import { enrichProductsWithFullPath } from '@/shared/lib/utils/productUtils';
-import { paths } from '@/shared/config/constants/paths';
 import Cookies from 'js-cookie';
+import { searchCategoriesDeep } from '@/shared/lib/utils/categoryUtils';
 
 export const HeaderSearchPopup = ({ categories }: { categories: CategoryT[] | null }) => {
   const [variant, setVariant] = useState<string | undefined>(undefined);
@@ -100,12 +100,7 @@ export const HeaderSearchPopup = ({ categories }: { categories: CategoryT[] | nu
 
   const searchResult = useMemo(
     () => ({
-      categories:
-        searchValue.length > 0
-          ? categories?.filter((category) =>
-              category.name.toLowerCase().includes(searchValue.toLowerCase())
-            )
-          : [],
+      categories: categories ? searchCategoriesDeep(categories, searchValue) : [],
       products: productResult,
     }),
     [categories, productResult, searchValue]
@@ -163,7 +158,7 @@ export const HeaderSearchPopup = ({ categories }: { categories: CategoryT[] | nu
                       <Link
                         className="body_4"
                         key={index}
-                        href={`${paths.catalog}/${category.slug}`}
+                        href={category.fullUrl}
                         onClick={() => {
                           setIsOpen(false);
                           setSearchValue('');

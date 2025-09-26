@@ -116,7 +116,7 @@ export default async function SearchPage({
   return (
     <>
       <CanonicalLink href={canonicalUrl} />
-      <Breadcrumbs dynamicPath={breadcrumbsPath} />
+      <Breadcrumbs dynamicPath={breadcrumbsPath} className="breadcrumbs" />
       <main>
         <SearchSection
           products={products}

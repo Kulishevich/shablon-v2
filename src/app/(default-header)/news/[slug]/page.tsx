@@ -33,6 +33,7 @@ export default async function New({ params }: { params: Promise<{ slug: string }
             path: `${paths.news}/${news?.slug}`,
           },
         ]}
+        className="breadcrumbs"
       />
       <main>
         <NewsInfoSection news={news} variant={variant} />

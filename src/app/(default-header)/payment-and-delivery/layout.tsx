@@ -26,7 +26,7 @@ export default async function PaymentAndDeliveryLayout({
 }>) {
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs className="breadcrumbs" />
       {children}
     </>
   );

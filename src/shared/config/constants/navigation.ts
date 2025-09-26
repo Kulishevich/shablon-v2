@@ -11,4 +11,5 @@ export const navigation = [
   { title: 'Каталог', path: paths.catalog },
   { title: 'Корзина', path: paths.cart },
   { title: 'Оформление заказа', path: paths.order },
+  { title: 'Услуги', path: paths.services },
 ];

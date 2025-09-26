@@ -10,4 +10,5 @@ export const paths = {
   order: '/order',
   about_us: '/about-us',
   profile: '/profile',
+  services: '/services',
 };

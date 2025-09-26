@@ -22,7 +22,7 @@ export default async function Shares({
     <>
       <CanonicalLink href={'shares'} />
 
-      <Breadcrumbs />
+      <Breadcrumbs className="breadcrumbs" />
       <main>
         <SharesSection promotions={promotions} page={page} standalone={true} />
         <SeoBlock page="/shares" />
