@@ -18,6 +18,11 @@
   gap: vw-1440(32);
   position: relative;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .navigation {
     position: sticky;
     left: 0;
@@ -36,10 +41,30 @@
     display: flex;
     gap: vw-1440(72);
 
+    @media (max-width: 768px) {
+      gap: 24px;
+      flex: initial;
+    }
+
     .brands,
     .reviews,
     .gallery {
       width: vw-1440(966);
+
+      @media (max-width: 768px) {
+        width: 336px;
+      }
+    }
+
+    .cardsContainer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw-1440(24);
+
+      @media (max-width: 768px) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 16px;
+      }
     }
   }
 }

@@ -1,0 +1,52 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: vw-1440(20);
+  line-height: 140%;
+
+  @media (max-width: 768px) {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+  }
+
+  p {
+    margin-bottom: vw-1440(6);
+
+    @media (max-width: 768px) {
+      margin-bottom: 6px;
+    }
+  }
+
+  h2 {
+    font-family: var(--font-onest);
+    font-weight: 600;
+    font-size: vw-1440(42);
+    line-height: 120%;
+    margin-bottom: vw-1440(32);
+
+    @media (max-width: 768px) {
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 120%;
+      margin-bottom: 24px;
+    }
+  }
+
+  h3 {
+    font-family: var(--font-onest);
+    font-weight: 400;
+    font-size: vw-1440(24);
+    line-height: 140%;
+    margin-bottom: vw-1440(12);
+
+    @media (max-width: 768px) {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 140%;
+      margin-bottom: 8px;
+    }
+  }
+}

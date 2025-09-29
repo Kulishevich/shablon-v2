@@ -1,0 +1,145 @@
+@use "../../shared/config/styles/functions" as *;
+
+.rootState {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-button-additional);
+  border-radius: vw-1440(4);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    border-radius: 4px;
+  }
+}
+
+.triggerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw-1440(12);
+  padding: vw-1440(16);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-button-additional-hover, rgba(0, 0, 0, 0.05));
+  }
+
+  @media (max-width: 768px) {
+    gap: 12px;
+    padding: 16px;
+  }
+}
+
+.title {
+  color: var(--color-text);
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+  font-size: vw-1440(16);
+  line-height: 1.4;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-accent-1);
+
+  & > svg {
+    transition: transform 0.3s ease;
+    width: vw-1440(24);
+    height: vw-1440(24);
+
+    path {
+      fill: var(--color-accent-1);
+    }
+
+    @media (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &[data-state="open"] {
+    & > svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.wrapper {
+  overflow: hidden;
+  background-color: var(--color-bg);
+
+  &[data-state="open"] {
+    animation: slideDown 300ms ease-out;
+  }
+
+  &[data-state="closed"] {
+    animation: slideUp 300ms ease-out;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: vw-1440(16) 0;
+  gap: vw-1440(8);
+
+  @media (max-width: 768px) {
+    padding: 16px 0;
+    gap: 8px;
+  }
+}
+
+.itemLink {
+  color: var(--color-text);
+  text-decoration: none;
+  padding: vw-1440(8) vw-1440(12);
+  border-radius: vw-1440(4);
+  transition: all 0.3s ease;
+  font-size: vw-1440(14);
+  line-height: 1.4;
+
+  &:hover {
+    background-color: var(--color-button-additional);
+    color: var(--color-accent-1);
+  }
+
+  &:active {
+    background-color: var(--color-button-additional-active, rgba(0, 0, 0, 0.1));
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
