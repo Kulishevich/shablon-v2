@@ -7,6 +7,7 @@
   border-radius: 6px;
   overflow: hidden;
   flex-shrink: 0;
+  display: block;
 
   & > img {
     object-fit: cover;

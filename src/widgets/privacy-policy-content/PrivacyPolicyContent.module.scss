@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -9,7 +9,7 @@
 
   h1 {
     hyphens: auto;
-    text-align: center;
+    text-align: left;
   }
   @media (max-width: 768px) {
     width: 335px;

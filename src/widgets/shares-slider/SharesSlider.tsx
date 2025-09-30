@@ -15,13 +15,14 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@/shared/assets';
 interface SharesSlider {
   promotions: PromotionsResponse | null;
   variant?: string;
+  title: string;
 }
 
-export const SharesSlider = ({ promotions, variant }: SharesSlider) => {
+export const SharesSlider = ({ promotions, variant, title }: SharesSlider) => {
   return (
     <div className={s.container}>
       <div className={s.header}>
-        <h2 className="h2">Акции</h2>
+        <h2 className="h2">{title}</h2>
         <Button as={Link} href={`${paths.shares}`} className={s.sharesLink}>
           Все акции
         </Button>
@@ -44,7 +45,6 @@ export const SharesSlider = ({ promotions, variant }: SharesSlider) => {
           }}
           slidesPerView={'auto'}
           className={s.promotionsList}
-          loop={true}
         >
           {promotions?.data.map((promotion) => (
             <SwiperSlide className={s.slide} key={promotion.id}>

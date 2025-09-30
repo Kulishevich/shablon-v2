@@ -34,9 +34,9 @@ const mockOffices = [
   },
 ];
 
-export const CompanyOffices = () => {
+export const CompanyOffices = ({ id }: { id?: string }) => {
   return (
-    <div className={s.container}>
+    <div className={s.container} id={id}>
       <h2 className={clsx('h2')}>Офисы компании</h2>
       <div className={s.cardsList}>
         {mockOffices.map((item) => (

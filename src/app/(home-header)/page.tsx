@@ -121,11 +121,11 @@ export default async function Home() {
 
       {!!newsList?.data?.length && (
         <Suspense>
-          <NewsSlider newsList={newsList?.data} variant={variant} />
+          <NewsSlider title="Новости" newsList={newsList?.data} variant={variant} />
         </Suspense>
       )}
       {!!photos?.length && <GallerySection items={photos} />}
-      <SharesSlider promotions={promotions} variant={variant} />
+      <SharesSlider promotions={promotions} variant={variant} title="Акции" />
 
       {/* Не понятно что за Товары для вашего уютного уголка, пока что брал популярные*/}
       <ProductsForYourCozyCorner products={popularProducts} />

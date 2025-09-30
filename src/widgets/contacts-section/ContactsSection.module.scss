@@ -1,11 +1,10 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .wrapper {
   display: flex;
   flex-direction: column;
   gap: vw-1440(32);
   width: 100%;
-  overflow: hidden;
 
   width: vw-1440(1296);
 
@@ -20,6 +19,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  position: relative;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 24px;
@@ -27,14 +27,18 @@
 }
 
 .firstBlock {
+  position: sticky;
+  top: vw-1440(24);
+  left: 0;
   width: vw-1440(298);
-
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: vw-1440(24);
 
   @media (max-width: 768px) {
     width: 100%;
+    position: static;
   }
 }
 

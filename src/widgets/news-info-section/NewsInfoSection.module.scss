@@ -106,6 +106,12 @@
   gap: vw-1440(12);
 
   margin-bottom: vw-1440(42);
+
+  ul,
+  ol {
+    list-style: inside;
+  }
+
   @media (max-width: 768px) {
     gap: 12px;
     margin-bottom: 32px;

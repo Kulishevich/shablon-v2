@@ -6,9 +6,14 @@ import { MailingList } from '@/features/mailing-list';
 import { CompanyContactsSection } from '../company-contacts-section';
 import { CompanyOffices } from '../company-offices';
 import { CompanyDetails } from '../company-details';
+import Link from 'next/link';
 
 //todo: заменить на API
-const mockNav = ['Адрес и контакты', 'Офисы компании', 'Реквизиты'];
+const mockNav = [
+  { title: 'Адрес и контакты', id: 'contacts' },
+  { title: 'Офисы компании', id: 'offices' },
+  { title: 'Реквизиты', id: 'details' },
+];
 
 export const ContactsSection = ({ contacts }: { contacts: ContactsT }) => {
   return (
@@ -19,7 +24,9 @@ export const ContactsSection = ({ contacts }: { contacts: ContactsT }) => {
         <div className={s.firstBlock}>
           <div className={s.navList}>
             {mockNav.map((nav) => (
-              <button className={clsx('button', s.navBtn)}>{nav}</button>
+              <Link href={`#${nav.id}`} className={clsx('button', s.navBtn)}>
+                {nav.title}
+              </Link>
             ))}
           </div>
 
@@ -27,9 +34,9 @@ export const ContactsSection = ({ contacts }: { contacts: ContactsT }) => {
         </div>
 
         <div className={s.secondBlock}>
-          <CompanyContactsSection contacts={contacts} />
-          <CompanyOffices />
-          <CompanyDetails {...contacts} />
+          <CompanyContactsSection contacts={contacts} id="contacts" />
+          <CompanyOffices id="offices" />
+          <CompanyDetails {...contacts} id="details" />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import { paths } from '@/shared/config/constants/paths';
 import { notFound } from 'next/navigation';
 import { SeoBlock } from '@/entities/seo-block';
 import { cookies } from 'next/headers';
+import { NewsSlider } from '@/widgets/news-slider';
 
 export default async function New({ params }: { params: Promise<{ slug: string }> }) {
   const cookieStore = await cookies();
@@ -38,11 +39,7 @@ export default async function New({ params }: { params: Promise<{ slug: string }
       <main>
         <NewsInfoSection news={news} variant={variant} />
         {!!otherNews?.length && (
-          <SliderWrapper title="Другие новости" variant="news" itemsCount={otherNews?.length}>
-            {otherNews?.map((news, index) => (
-              <NewsCard key={index} news={news} enableMicrodata={false} variant={variant} />
-            ))}
-          </SliderWrapper>
+          <NewsSlider title="Другие новости" newsList={otherNews} variant={variant} />
         )}
         <SeoBlock page={`/news/${news?.slug}`} />
         <Feedback variant={variant} />

@@ -15,9 +15,10 @@ import { NewsT } from '@/shared/api/news/types';
 interface NewsSlider {
   newsList: NewsT[] | null;
   variant?: string;
+  title: string;
 }
 
-export const NewsSlider = ({ newsList, variant }: NewsSlider) => {
+export const NewsSlider = ({ title, newsList, variant }: NewsSlider) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export const NewsSlider = ({ newsList, variant }: NewsSlider) => {
   return (
     <div className={s.container}>
       <div className={s.header}>
-        <h2 className="h2">Новости</h2>
+        <h2 className="h2">{title}</h2>
         <Button as={Link} href={`${paths.news}`} className={s.sharesLink}>
           Все новости
         </Button>
@@ -42,17 +43,14 @@ export const NewsSlider = ({ newsList, variant }: NewsSlider) => {
             nextEl: `.${s.next}`,
             prevEl: `.${s.prev}`,
           }}
+          spaceBetween={16}
           breakpoints={{
-            0: {
-              spaceBetween: 16,
-            },
-            1024: {
+            768: {
               spaceBetween: 24,
             },
           }}
           slidesPerView={'auto'}
           className={s.promotionsList}
-          loop={true}
         >
           {newsList?.map((news) => (
             <SwiperSlide className={s.slide} key={news.id}>

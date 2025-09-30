@@ -126,6 +126,8 @@
 
   @media (max-width: 768px) {
     height: 400px;
+    width: 100svw;
+    margin-left: calc((100svw - 336px) / 2 * -1);
 
     &.main {
       width: 335px;

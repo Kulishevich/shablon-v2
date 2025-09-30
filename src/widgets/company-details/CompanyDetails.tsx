@@ -3,9 +3,9 @@ import s from './styles.module.scss';
 import { ContactsT } from '@/shared/api/design/types';
 import { BanknoteIcon, InfoCircleIcon } from '@/shared/assets';
 
-export const CompanyDetails = ({ bank_details, company_info }: ContactsT) => {
+export const CompanyDetails = ({ bank_details, company_info, id }: ContactsT & { id?: string }) => {
   return (
-    <div className={s.container}>
+    <div className={s.container} id={id}>
       <h2 className="h2">Реквизиты</h2>
 
       <div className={s.content}>

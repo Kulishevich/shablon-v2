@@ -28,21 +28,16 @@
 
 .swiperContainer {
   position: relative;
+
+  .slide {
+    width: auto;
+    height: auto;
+  }
 }
 
 .promotionsList {
   width: 100%;
   overflow: hidden;
-}
-
-.slide {
-  width: vw-1440(416);
-  height: vw-1440(416);
-
-  @media (max-width: 768px) {
-    width: 335px;
-    height: 335px;
-  }
 }
 
 .btnsContainer {

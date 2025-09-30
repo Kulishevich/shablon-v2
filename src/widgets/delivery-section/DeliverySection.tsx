@@ -26,8 +26,9 @@ export const DeliverySection = ({
       <div className={s.container}>
         <div className={s.firstBlock}>
           <div className={s.navigation}>
-            {content?.map((nav) => (
+            {content?.map((nav, index) => (
               <button
+                key={index}
                 onClick={() => setActiveContent(nav)}
                 className={clsx('button', s.navBtn, activeContent?.id === nav.id && s.active)}
               >

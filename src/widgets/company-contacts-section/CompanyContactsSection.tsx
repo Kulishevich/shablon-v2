@@ -37,14 +37,16 @@ const mapSocialLinks = (socialLinks: ContactsT['social_links']) => {
 interface CompanyContactsSectionProps {
   contacts: ContactsT | null;
   isMain?: boolean;
+  id?: string;
 }
 
 export const CompanyContactsSection = ({
   contacts,
   isMain = false,
+  id,
 }: CompanyContactsSectionProps) => {
   return (
-    <div className={s.content}>
+    <div className={s.content} id={id}>
       <h2 className={clsx('h2', s.title, { [s.main]: isMain })}>
         {isMain ? 'Контакты компании' : 'Адрес и контакты'}{' '}
       </h2>
