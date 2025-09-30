@@ -36,9 +36,9 @@ export const SliderWrapper = ({
       case 'product':
         return 330;
       case 'mini_product':
-        return !isMobile ? 220 : 117;
+        return !isMobile ? 220 : 138;
       case 'news':
-        return !isMobile ? 330 : 174;
+        return !isMobile ? 330 : 335;
       case 'discount':
         return !isMobile ? 440 : 350;
     }

@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .cotnainer {
   display: flex;
@@ -37,7 +37,7 @@
 
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: vw-1440(4);
 
   @media (max-width: 768px) {

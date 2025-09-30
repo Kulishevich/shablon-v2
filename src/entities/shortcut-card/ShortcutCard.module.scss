@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -17,15 +17,15 @@
 
   & > img {
     object-fit: cover;
-    width: vw-1440(120);
-    height: vw-1440(120);
+    width: vw-1440(142);
+    height: vw-1440(142);
     border-radius: 50%;
     border: 1px solid var(--color-button);
     background-color: var(--color-bg-card);
 
     @media (max-width: 768px) {
-      width: 64px;
-      height: 64px;
+      width: 120px;
+      height: 120px;
     }
   }
 }

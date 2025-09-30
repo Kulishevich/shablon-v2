@@ -6,17 +6,14 @@ import { paths } from '@/shared/config/constants/paths';
 import clsx from 'clsx';
 import { NewsT } from '@/shared/api/news/types';
 import { getStoreBaseUrl } from '@/shared/lib/utils/getBaseUrl';
-import { cookies } from 'next/headers';
 
 interface NewsCardProps {
   news: NewsT;
   enableMicrodata?: boolean;
+  variant?: string;
 }
 
-export const NewsCard = async ({ news, enableMicrodata = true }: NewsCardProps) => {
-  const cookieStore = await cookies();
-  const variant = cookieStore.get('variant')?.value;
-
+export const NewsCard = ({ news, enableMicrodata = true, variant }: NewsCardProps) => {
   const linkProps = enableMicrodata
     ? {
         itemScope: true,
@@ -45,8 +42,10 @@ export const NewsCard = async ({ news, enableMicrodata = true }: NewsCardProps) 
       </div>
 
       <span className={clsx(s.date, 'tag')}>
-        {enableMicrodata && <meta itemProp="datePublished" content={news?.created_at || ''} />}
-        {new Date(news?.created_at || '').toLocaleString('ru-RU', {
+        {enableMicrodata && (
+          <meta itemProp="datePublished" content={news?.publication_date || ''} />
+        )}
+        {new Date(news?.publication_date || '').toLocaleString('ru-RU', {
           day: '2-digit',
           month: '2-digit',
           year: 'numeric',

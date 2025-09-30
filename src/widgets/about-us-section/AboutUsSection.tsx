@@ -14,11 +14,18 @@ interface AboutUsSectionProps {
   text: string;
   image: string;
   variant?: string;
+  style?: React.CSSProperties;
 }
 
-export const AboutUsSection = ({ text, image, variant, advantages }: AboutUsSectionProps) => {
+export const AboutUsSection = ({
+  text,
+  image,
+  variant,
+  advantages,
+  style,
+}: AboutUsSectionProps) => {
   return (
-    <div className={s.wrapper}>
+    <div className={s.wrapper} style={style}>
       <div className={s.container}>
         <div className={s.content}>
           <div>

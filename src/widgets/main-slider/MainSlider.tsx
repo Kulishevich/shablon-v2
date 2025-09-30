@@ -53,7 +53,7 @@ export const MainSlider = ({ slides, variant }: { slides: BannerT[]; variant?: s
             return `<span class="${className} ${s.bullet}"></span>`;
           },
         }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 5000, disableOnInteraction: true }}
         watchSlidesProgress={true}
         observer={true}
         observeParents={true}

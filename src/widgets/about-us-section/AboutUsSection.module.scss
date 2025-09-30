@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .wrapper {
   width: vw-1440(1296);
@@ -32,7 +32,7 @@
 .content {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: vw-1440(32);
 
   padding: vw-1440(36);

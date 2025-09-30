@@ -23,7 +23,7 @@ export const ProductsOfTheWeek = ({ products, variant }: ProductsOfTheWeekProps)
             <h2 className={'h2'}>Товары недели</h2>
             <div className={s.cardsList}>
               {products.slice(0, 8).map((product) => (
-                <ProductOfTheWeekCard {...product} variant={variant || ''} />
+                <ProductOfTheWeekCard {...product} variant={variant || ''} className={s.card} />
               ))}
             </div>
           </div>

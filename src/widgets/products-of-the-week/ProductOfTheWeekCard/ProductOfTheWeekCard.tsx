@@ -13,7 +13,11 @@ import { selectIsInFavorites } from '@/shared/lib/redux/selectors/FavoritesSelec
 import { addToFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
 import { removeFromFavorites } from '@/shared/lib/redux/slices/favoritesSlice';
 
-export const ProductOfTheWeekCard = ({ variant, ...product }: ProductT & { variant: string }) => {
+export const ProductOfTheWeekCard = ({
+  variant,
+  className,
+  ...product
+}: ProductT & { variant: string; className?: string }) => {
   const { photo_path, name, id, discount, price, rating } = product;
   const { isMobile } = useBreakpoint();
   const isDiscount = !!Number(discount);
@@ -25,7 +29,7 @@ export const ProductOfTheWeekCard = ({ variant, ...product }: ProductT & { varia
     : Number(price);
 
   return (
-    <div key={id} className={s.card}>
+    <div key={id} className={clsx(s.card, className)}>
       <div className={s.card__imageContainer}>
         <Image
           src={`${getStoreBaseUrl(variant)}/${photo_path}`}

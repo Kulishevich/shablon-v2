@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .wrapper {
   width: vw-1440(1296);
@@ -15,7 +15,7 @@
 
 .container {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
 
   @media (max-width: 768px) {

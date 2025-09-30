@@ -1,13 +1,21 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   gap: vw-1440(32);
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 
   & > h2 {
     text-align: center;
+
+    @media (max-width: 768px) {
+      text-align: left;
+    }
   }
 
   @media (max-width: 768px) {

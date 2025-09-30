@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .container {
   display: flex;
@@ -61,10 +61,15 @@
     transform: translate(0, 0);
 
     width: 336px;
-    justify-content: start;
+    justify-content: flex-start;
     gap: 10px;
 
     margin-top: 24px;
+  }
+
+  .next,
+  .prev {
+    display: flex;
   }
 }
 

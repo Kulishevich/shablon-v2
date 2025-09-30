@@ -25,6 +25,7 @@ import { getPromotions } from '@/shared/api/promotions/getPromotions';
 import { ProductsForYourCozyCorner } from '@/widgets/products-for-your-cozy-corner';
 import { PreviouslyViewed } from '@/features/previously-viewed';
 import { CompanyContactsSection } from '@/widgets/company-contacts-section';
+import { NewsSlider } from '@/widgets/news-slider';
 
 // Критические компоненты для FCP
 const MainSlider = dynamic(() => import('@/widgets/main-slider').then((mod) => mod.MainSlider), {
@@ -99,6 +100,7 @@ export default async function Home() {
         image={setting?.about?.image || ''}
         variant={variant}
         advantages={advantages || []}
+        style={{ marginBottom: '0' }}
       />
       {/* Эндпоинта на ПРодукты недели еще нет поэтому пока популярные беру */}
       <ProductsOfTheWeek products={popularProducts} variant={variant} />
@@ -119,7 +121,7 @@ export default async function Home() {
 
       {!!newsList?.data?.length && (
         <Suspense>
-          <NewsSliderSection newsList={newsList?.data} />
+          <NewsSlider newsList={newsList?.data} variant={variant} />
         </Suspense>
       )}
       {!!photos?.length && <GallerySection items={photos} />}

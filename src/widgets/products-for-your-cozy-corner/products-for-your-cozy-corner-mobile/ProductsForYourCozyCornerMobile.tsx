@@ -19,7 +19,7 @@ export const ProductsForYourCozyCornerMobile = ({
 }: PopularProductsMobile) => {
   return (
     <div className={s.container}>
-      <h2 className="h2">Популярные товары</h2>
+      <h2 className="h2">Товары для вашего уютного уголка</h2>
       {activeTag !== undefined && setActiveTag && tags && (
         <div className={s.tags}>
           <button className={clsx(s.tagBtn, 'button')} onClick={() => setActiveTag(null)}>

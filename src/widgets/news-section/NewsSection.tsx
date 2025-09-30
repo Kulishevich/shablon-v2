@@ -18,7 +18,15 @@ const tagsNav = [
   },
 ];
 
-export const NewsSection = ({ newsList, page }: { newsList: NewsListT | null; page: string }) => {
+export const NewsSection = ({
+  newsList,
+  page,
+  variant,
+}: {
+  newsList: NewsListT | null;
+  page: string;
+  variant: string;
+}) => {
   return (
     <div className={s.container}>
       <div className={s.content}>
@@ -31,7 +39,9 @@ export const NewsSection = ({ newsList, page }: { newsList: NewsListT | null; pa
           ))}
         </div>
         <div className={s.newsList} itemScope itemType="http://schema.org/Blog">
-          {newsList?.data?.map((news, index) => <NewsCard key={index} news={news} />)}
+          {newsList?.data?.map((news, index) => (
+            <NewsCard key={index} news={news} variant={variant} />
+          ))}
         </div>
       </div>
       <Pagination totalPages={newsList?.last_page || 1} currentPage={page} />

@@ -28,7 +28,7 @@
     & > div {
       display: flex;
       flex-direction: column;
-      width: vw-1440(746);
+      width: vw-1440(880);
       gap: vw-1440(16);
       & > p,
       h1,
@@ -80,14 +80,14 @@
   padding-bottom: vw-1440(54);
 
   display: flex;
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-end;
+  align-items: flex-end;
   gap: vw-1440(32);
 
   @media (max-width: 768px) {
     width: 336px;
     flex-direction: column-reverse;
-    align-items: start;
+    align-items: flex-start;
     gap: 24px;
     padding-bottom: 36px;
   }

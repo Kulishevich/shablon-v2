@@ -18,7 +18,7 @@ export default async function News({ searchParams }: { searchParams: Promise<{ p
       <CanonicalLink href={'news'} />
       <Breadcrumbs className="breadcrumbs" />
       <main>
-        <NewsSection newsList={newsList} page={page} />
+        <NewsSection newsList={newsList} page={page} variant={variant || ''} />
         <SeoBlock page="/news" />
         <Feedback variant={variant} />
       </main>

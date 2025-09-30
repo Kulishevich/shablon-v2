@@ -1,0 +1,84 @@
+@use "../../shared/config/styles/functions" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vw-1440(32);
+
+  width: vw-1440(1296);
+  @media (max-width: 768px) {
+    gap: 24px;
+    width: 336px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sharesLink {
+  display: block;
+  width: vw-1440(220);
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.swiperContainer {
+  position: relative;
+}
+
+.promotionsList {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  width: vw-1440(416);
+  height: vw-1440(416);
+
+  @media (max-width: 768px) {
+    width: 335px;
+    height: 335px;
+  }
+}
+
+.btnsContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: vw-1440(1484);
+
+  display: flex;
+  justify-content: space-between;
+
+  .next,
+  .prev {
+    display: flex;
+  }
+
+  @media (max-width: 768px) {
+    position: static;
+    transform: translate(0, 0);
+
+    width: 336px;
+    justify-content: flex-start;
+    gap: 10px;
+
+    margin-top: 24px;
+  }
+}
+
+.sharesLinkMobile {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    width: 180px;
+    margin-left: auto;
+  }
+}

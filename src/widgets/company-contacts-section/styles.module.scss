@@ -1,4 +1,4 @@
-@use '../../shared/config/styles/functions' as *;
+@use "../../shared/config/styles/functions" as *;
 
 .content {
   display: flex;
@@ -35,6 +35,8 @@
     margin: 0 auto;
     @media (max-width: 768px) {
       width: 336px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 8px;
     }
   }
 

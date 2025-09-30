@@ -40,7 +40,7 @@ export default async function New({ params }: { params: Promise<{ slug: string }
         {!!otherNews?.length && (
           <SliderWrapper title="Другие новости" variant="news" itemsCount={otherNews?.length}>
             {otherNews?.map((news, index) => (
-              <NewsCard key={index} news={news} enableMicrodata={false} />
+              <NewsCard key={index} news={news} enableMicrodata={false} variant={variant} />
             ))}
           </SliderWrapper>
         )}

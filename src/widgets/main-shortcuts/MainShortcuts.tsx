@@ -14,11 +14,11 @@ export const MainShortcuts = ({ tags, variant }: { tags: TagT[] | null; variant?
     <div className={s.container}>
       <Swiper
         slidesPerView={'auto'}
-        spaceBetween={24}
+        spaceBetween={36}
         breakpoints={{
           768: {
             slidesPerView: 'auto',
-            spaceBetween: 64,
+            spaceBetween: 48,
           },
         }}
         className={s.swiper}
